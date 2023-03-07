@@ -35,7 +35,7 @@ class _LoginState extends State<Login> {
               ),
             ),
             SizedBox(
-              height: size.height * 0.035,
+              height: size.height * 0.010,
             ),
             Text(
               "Login",
@@ -51,8 +51,8 @@ class _LoginState extends State<Login> {
             ),
             Container(
               alignment: Alignment.topLeft,
-              margin: const EdgeInsets.only(
-                left: 15,
+              margin: EdgeInsets.only(
+                left: size.width * 0.095,
               ),
               child: Text(
                 "Phone number",
@@ -67,11 +67,8 @@ class _LoginState extends State<Login> {
               width: size.width * 0.060,
               height: size.height * 0.020,
             ),
-            Container(
-              margin: const EdgeInsets.only(
-                right: 10,
-                left: 10,
-              ),
+            SizedBox(
+              width: size.width * 0.80,
               height: size.height * 0.055,
               child: TextField(
                 textAlignVertical: TextAlignVertical.bottom,
@@ -100,8 +97,8 @@ class _LoginState extends State<Login> {
             ),
             Container(
               alignment: Alignment.topLeft,
-              margin: const EdgeInsets.only(
-                left: 15,
+              margin: EdgeInsets.only(
+                left: size.width * 0.095,
               ),
               child: Text(
                 "Password",
@@ -117,8 +114,8 @@ class _LoginState extends State<Login> {
             ),
             Container(
               alignment: Alignment.center,
-              margin: const EdgeInsets.only(right: 10, left: 10),
               height: size.height * 0.055,
+              width: size.width * 0.80,
               child: TextField(
                 textAlignVertical: TextAlignVertical.bottom,
                 textAlign: TextAlign.start,
@@ -155,6 +152,7 @@ class _LoginState extends State<Login> {
             ),
             SizedBox(
               width: size.width * 0.80,
+              height: size.height * 0.050,
               child: TextButton(
                 style: TextButton.styleFrom(
                   backgroundColor: const Color.fromARGB(255, 255, 181, 33),
@@ -172,12 +170,25 @@ class _LoginState extends State<Login> {
             SizedBox(
               height: size.height * 0.030,
             ),
-            const Text(
-              "Don’t have an account? Sign up",
-              style: TextStyle(
-                fontFamily: 'Poppins-Regular',
-                color: Colors.white,
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: const [
+                Text(
+                  "Don’t have an account?",
+                  style: TextStyle(
+                    fontFamily: 'Poppins-Regular',
+                    color: Colors.white,
+                  ),
+                ),
+                Text(
+                  " Sign up",
+                  style: TextStyle(
+                    fontFamily: 'Poppins-Regular',
+                    color: Color.fromARGB(255, 255, 181, 33),
+                  ),
+                ),
+              ],
             )
           ],
         ),
