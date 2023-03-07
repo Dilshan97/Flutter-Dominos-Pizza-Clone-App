@@ -1,0 +1,83 @@
+{
+  "project_info": {
+    "project_number": "937254771313",
+    "firebase_url": "https://fir-flutter-tutorial-app-default-rtdb.firebaseio.com",
+    "project_id": "fir-flutter-tutorial-app",
+    "storage_bucket": "fir-flutter-tutorial-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:937254771313:android:9d3077925eef51622a19d0",
+        "android_client_info": {
+          "package_name": "com.example.startup_name_generator"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "937254771313-0so5jntrn883p4gkvis02o53tt2p5brj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5nmng9fvhs5V1_Msu-1PHQaw7ZlmbOAY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "937254771313-0so5jntrn883p4gkvis02o53tt2p5brj.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "937254771313-4237d2amgtu528psauip4badtmisgl99.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "lk.dilshan.flutterNotes"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:937254771313:android:dcc77233bd7c462a2a19d0",
+        "android_client_info": {
+          "package_name": "lk.dilshan.flutter_notes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "937254771313-0so5jntrn883p4gkvis02o53tt2p5brj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5nmng9fvhs5V1_Msu-1PHQaw7ZlmbOAY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "937254771313-0so5jntrn883p4gkvis02o53tt2p5brj.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "937254771313-4237d2amgtu528psauip4badtmisgl99.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "lk.dilshan.flutterNotes"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
