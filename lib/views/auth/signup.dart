@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_notes/views/auth/login.dart';
+import 'package:flutter_notes/views/auth/otpVerification.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({super.key});
@@ -12,17 +13,28 @@ class SignUp extends StatefulWidget {
 
 class _SignUpState extends State<SignUp> {
   final _formKey = GlobalKey<FormState>();
-  final _phoneController = TextEditingController();
+  final _phoneController = TextEditingController(text: "94771854709");
 
   Future<void> _verifyPhoneNumber() async {
-    print(_phoneController.text);
-    await FirebaseAuth.instance.verifyPhoneNumber(
-      phoneNumber: _phoneController.text,
-      verificationCompleted: (PhoneAuthCredential credential) {},
-      verificationFailed: (FirebaseAuthException e) {},
-      codeSent: (String verificationId, int? resendToken) {},
-      codeAutoRetrievalTimeout: (String verificationId) {},
-    );
+    try {
+      await FirebaseAuth.instance.verifyPhoneNumber(
+        phoneNumber: _phoneController.text,
+        verificationCompleted: (PhoneAuthCredential credential) {},
+        verificationFailed: (FirebaseAuthException e) {},
+        codeSent: (String verificationId, int? resendToken) {},
+        codeAutoRetrievalTimeout: (String verificationId) {},
+      );
+
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(
+          builder: (context) => OtpVerification(
+            phoneNumber: _phoneController.text,
+          ),
+        ),
+      );
+    } catch (e) {
+      print(e);
+    }
   }
 
   @override
@@ -95,6 +107,7 @@ class _SignUpState extends State<SignUp> {
                 height: size.height * 0.055,
                 child: TextFormField(
                   controller: _phoneController,
+                  keyboardType: TextInputType.number,
                   validator: (value) {
                     if (value!.isEmpty) {
                       return 'Phone number is required';
