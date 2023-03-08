@@ -9,6 +9,7 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  bool _obscureText = true;
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
 
@@ -85,6 +86,12 @@ class _LoginState extends State<Login> {
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
+                  focusedBorder: const OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Color.fromARGB(255, 255, 181, 33),
+                      width: 2.0,
+                    ),
+                  ),
                   hintStyle: const TextStyle(
                     fontFamily: 'Poppins-Regular',
                   ),
@@ -117,6 +124,7 @@ class _LoginState extends State<Login> {
               height: size.height * 0.055,
               width: size.width * 0.80,
               child: TextField(
+                obscureText: _obscureText,
                 textAlignVertical: TextAlignVertical.bottom,
                 textAlign: TextAlign.start,
                 controller: _passwordController,
@@ -133,6 +141,22 @@ class _LoginState extends State<Login> {
                   ),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
+                  ),
+                  focusedBorder: const OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Color.fromARGB(255, 255, 181, 33),
+                      width: 2.0,
+                    ),
+                  ),
+                  suffixIcon: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        _obscureText = !_obscureText;
+                      });
+                    },
+                    child: Icon(
+                      _obscureText ? Icons.visibility_off : Icons.visibility,
+                    ),
                   ),
                 ),
               ),
