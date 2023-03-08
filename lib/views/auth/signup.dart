@@ -1,19 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_notes/views/auth/signup.dart';
 
-class Login extends StatefulWidget {
-  const Login({super.key});
+class SignUp extends StatefulWidget {
+  const SignUp({super.key});
 
   @override
-  State<Login> createState() => _LoginState();
+  State<SignUp> createState() => _SignUpState();
 }
 
-class _LoginState extends State<Login> {
-  bool _obscureText = true;
-  final _emailController = TextEditingController();
-  final _passwordController = TextEditingController();
-
+class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -40,11 +35,19 @@ class _LoginState extends State<Login> {
               height: size.height * 0.010,
             ),
             Text(
-              "Login",
+              "Welcome!",
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Colors.white,
                 fontSize: size.width * 0.070,
+                fontFamily: 'Poppins-Medium',
+              ),
+            ),
+            const Text(
+              "Enter your phone number. We will \n send you a verification code.",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Colors.white,
                 fontFamily: 'Poppins-Medium',
               ),
             ),
@@ -75,7 +78,6 @@ class _LoginState extends State<Login> {
               child: TextField(
                 textAlignVertical: TextAlignVertical.bottom,
                 textAlign: TextAlign.start,
-                controller: _emailController,
                 style: const TextStyle(
                   height: 1.5,
                   fontFamily: 'Poppins-Regular',
@@ -100,80 +102,7 @@ class _LoginState extends State<Login> {
               ),
             ),
             SizedBox(
-              width: size.width * 0.060,
-              height: size.height * 0.020,
-            ),
-            Container(
-              alignment: Alignment.topLeft,
-              margin: EdgeInsets.only(
-                left: size.width * 0.095,
-              ),
-              child: Text(
-                "Password",
-                style: TextStyle(
-                  fontSize: size.width * 0.045,
-                  color: Colors.white,
-                  fontFamily: 'Poppins-Regular',
-                ),
-              ),
-            ),
-            SizedBox(
-              height: size.height * 0.016,
-            ),
-            Container(
-              alignment: Alignment.center,
-              height: size.height * 0.055,
-              width: size.width * 0.80,
-              child: TextField(
-                obscureText: _obscureText,
-                textAlignVertical: TextAlignVertical.bottom,
-                textAlign: TextAlign.start,
-                controller: _passwordController,
-                style: const TextStyle(
-                  height: 1.5,
-                  fontFamily: 'Poppins-Regular',
-                ),
-                decoration: InputDecoration(
-                  hintText: "Password Here",
-                  fillColor: Colors.white,
-                  filled: true,
-                  hintStyle: const TextStyle(
-                    fontFamily: 'Poppins-Regular',
-                  ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  focusedBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Color.fromARGB(255, 255, 181, 33),
-                      width: 2.0,
-                    ),
-                  ),
-                  suffixIcon: GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        _obscureText = !_obscureText;
-                      });
-                    },
-                    child: Icon(
-                      _obscureText ? Icons.visibility_off : Icons.visibility,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(
-              height: size.height * 0.030,
-            ),
-            const Text(
-              "Forgot Passwod?",
-              style: TextStyle(
-                color: Colors.white,
-                fontFamily: 'Poppins-Regular',
-              ),
-            ),
-            SizedBox(
-              height: size.height * 0.020,
+              height: size.height * 0.040,
             ),
             SizedBox(
               width: size.width * 0.80,
@@ -185,7 +114,7 @@ class _LoginState extends State<Login> {
                 ),
                 onPressed: () => {},
                 child: const Text(
-                  'Login',
+                  'Continue',
                   style: TextStyle(
                     fontFamily: 'Poppins-Regular',
                   ),
@@ -197,30 +126,36 @@ class _LoginState extends State<Login> {
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const Text(
-                  "Don’t have an account?",
+                  "Already have an account? ",
                   style: TextStyle(
-                    fontFamily: 'Poppins-Regular',
                     color: Colors.white,
+                    fontFamily: 'Poppins-Regular',
                   ),
                 ),
                 GestureDetector(
+                  onTap: () {},
                   child: const Text(
-                    " Sign up",
+                    "Sign in",
                     style: TextStyle(
-                      fontFamily: 'Poppins-Regular',
                       color: Color.fromARGB(255, 255, 181, 33),
+                      fontFamily: 'Poppins-Regular',
                     ),
                   ),
-                  onTap: () {
-                    Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(builder: (context) => const SignUp()),
-                    );
-                  },
                 ),
               ],
+            ),
+            SizedBox(
+              height: size.height * 0.090,
+            ),
+            const Text(
+              "By continuing, you agree to our Terms & \n Conditions and Privacy Policy",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Colors.white,
+                fontFamily: 'Poppins-Regular',
+              ),
             )
           ],
         ),
