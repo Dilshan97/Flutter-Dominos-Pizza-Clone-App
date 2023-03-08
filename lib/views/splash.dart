@@ -1,5 +1,8 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_notes/views/auth/login.dart';
 
 class Splash extends StatefulWidget {
   const Splash({super.key});
@@ -9,6 +12,17 @@ class Splash extends StatefulWidget {
 }
 
 class _SplashState extends State<Splash> {
+  @override
+  void initState() {
+    super.initState();
+    Timer(const Duration(seconds: 2), () {
+      // Navigate to the home screen after 2 seconds
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (context) => const Login()),
+      );
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
