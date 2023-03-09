@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_notes/views/auth/setupDetails.dart';
 
 class OtpVerification extends StatefulWidget {
   final String phoneNumber;
@@ -18,7 +19,11 @@ class _OtpVerificationState extends State<OtpVerification> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
-    setupDetails() {}
+    setupDetails() {
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (context) => const SetupDetails()),
+      );
+    }
 
     return Scaffold(
       backgroundColor: Colors.black,
