@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_notes/views/auth/setupDetails.dart';
 
 class OtpVerification extends StatefulWidget {
   final String phoneNumber;
@@ -17,6 +18,13 @@ class _OtpVerificationState extends State<OtpVerification> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+
+    setupDetails() {
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (context) => const SetupDetails()),
+      );
+    }
+
     return Scaffold(
       backgroundColor: Colors.black,
       body: SizedBox(
@@ -59,12 +67,270 @@ class _OtpVerificationState extends State<OtpVerification> {
             SizedBox(
               height: size.height * 0.040,
             ),
-            Row(
-              children: [
-                Text(
-                  "dfgdfgdfsg",
-                  style: TextStyle(color: Colors.white),
+            SizedBox(
+              width: size.width * 0.90,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  SizedBox(
+                    width: size.width * 0.13,
+                    height: size.height * 0.055,
+                    child: TextFormField(
+                      keyboardType: TextInputType.number,
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'Phone number is required';
+                        }
+                        return null;
+                      },
+                      textAlignVertical: TextAlignVertical.bottom,
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        height: 2.5,
+                        fontFamily: 'Poppins-Regular',
+                      ),
+                      decoration: InputDecoration(
+                        hintText: "*",
+                        fillColor: Colors.white,
+                        filled: true,
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        focusedBorder: const OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color.fromARGB(255, 255, 181, 33),
+                            width: 2.0,
+                          ),
+                        ),
+                        hintStyle: const TextStyle(
+                          fontFamily: 'Poppins-Regular',
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: size.width * 0.13,
+                    height: size.height * 0.055,
+                    child: TextFormField(
+                      keyboardType: TextInputType.number,
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'Phone number is required';
+                        }
+                        return null;
+                      },
+                      textAlignVertical: TextAlignVertical.bottom,
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        height: 1.5,
+                        fontFamily: 'Poppins-Regular',
+                      ),
+                      decoration: InputDecoration(
+                        hintText: "*",
+                        fillColor: Colors.white,
+                        filled: true,
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        focusedBorder: const OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color.fromARGB(255, 255, 181, 33),
+                            width: 2.0,
+                          ),
+                        ),
+                        hintStyle: const TextStyle(
+                          fontFamily: 'Poppins-Regular',
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: size.width * 0.13,
+                    height: size.height * 0.055,
+                    child: TextFormField(
+                      keyboardType: TextInputType.number,
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'Phone number is required';
+                        }
+                        return null;
+                      },
+                      textAlignVertical: TextAlignVertical.bottom,
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        height: 1.5,
+                        fontFamily: 'Poppins-Regular',
+                      ),
+                      decoration: InputDecoration(
+                        hintText: "*",
+                        fillColor: Colors.white,
+                        filled: true,
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        focusedBorder: const OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color.fromARGB(255, 255, 181, 33),
+                            width: 2.0,
+                          ),
+                        ),
+                        hintStyle: const TextStyle(
+                          fontFamily: 'Poppins-Regular',
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: size.width * 0.13,
+                    height: size.height * 0.055,
+                    child: TextFormField(
+                      keyboardType: TextInputType.number,
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'Phone number is required';
+                        }
+                        return null;
+                      },
+                      textAlignVertical: TextAlignVertical.bottom,
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        height: 1.5,
+                        fontFamily: 'Poppins-Regular',
+                      ),
+                      decoration: InputDecoration(
+                        hintText: "*",
+                        fillColor: Colors.white,
+                        filled: true,
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        focusedBorder: const OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color.fromARGB(255, 255, 181, 33),
+                            width: 2.0,
+                          ),
+                        ),
+                        hintStyle: const TextStyle(
+                          fontFamily: 'Poppins-Regular',
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: size.width * 0.13,
+                    height: size.height * 0.055,
+                    child: TextFormField(
+                      keyboardType: TextInputType.number,
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'Phone number is required';
+                        }
+                        return null;
+                      },
+                      textAlignVertical: TextAlignVertical.bottom,
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        height: 1.5,
+                        fontFamily: 'Poppins-Regular',
+                      ),
+                      decoration: InputDecoration(
+                        hintText: "*",
+                        fillColor: Colors.white,
+                        filled: true,
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        focusedBorder: const OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color.fromARGB(255, 255, 181, 33),
+                            width: 2.0,
+                          ),
+                        ),
+                        hintStyle: const TextStyle(
+                          fontFamily: 'Poppins-Regular',
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: size.width * 0.13,
+                    height: size.height * 0.055,
+                    child: TextFormField(
+                      keyboardType: TextInputType.number,
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'Phone number is required';
+                        }
+                        return null;
+                      },
+                      textAlignVertical: TextAlignVertical.bottom,
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        height: 1.5,
+                        fontFamily: 'Poppins-Regular',
+                      ),
+                      decoration: InputDecoration(
+                        hintText: "*",
+                        fillColor: Colors.white,
+                        filled: true,
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        focusedBorder: const OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color.fromARGB(255, 255, 181, 33),
+                            width: 2.0,
+                          ),
+                        ),
+                        hintStyle: const TextStyle(
+                          fontFamily: 'Poppins-Regular',
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: size.height * 0.05,
+            ),
+            SizedBox(
+              width: size.width * 0.80,
+              height: size.height * 0.050,
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  backgroundColor: const Color.fromARGB(255, 255, 181, 33),
+                  foregroundColor: Colors.white,
                 ),
+                onPressed: () => setupDetails(),
+                child: const Text(
+                  'Continue',
+                  style: TextStyle(
+                    fontFamily: 'Poppins-Regular',
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: size.height * 0.030,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text(
+                  "Didn’t recieve the code? ",
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+                GestureDetector(
+                  child: const Text(
+                    "Resend in 1 Min",
+                    style: TextStyle(
+                      color: Color.fromARGB(255, 255, 181, 33),
+                    ),
+                  ),
+                )
               ],
             )
           ],
