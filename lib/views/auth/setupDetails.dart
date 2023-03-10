@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_notes/views/home.dart';
 
 class SetupDetails extends StatefulWidget {
   const SetupDetails({super.key});
@@ -253,7 +254,11 @@ class _SetupDetailsState extends State<SetupDetails> {
                   backgroundColor: const Color.fromARGB(255, 255, 181, 33),
                   foregroundColor: Colors.white,
                 ),
-                onPressed: () => {},
+                onPressed: () => {
+                  Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (context) => const Home()),
+                  )
+                },
                 child: const Text(
                   'Register',
                   style: TextStyle(
