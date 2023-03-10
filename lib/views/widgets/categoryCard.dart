@@ -56,9 +56,13 @@ class _CategoryCardState extends State<CategoryCard> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            SvgPicture.asset(
+            // SvgPicture.asset(
+            //   widget.image,
+            //   width: 45,
+            // ),
+            Image.network(
               widget.image,
-              width: 45,
+              width: 100,
             ),
             Text(
               widget.name,

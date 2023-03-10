@@ -1,42 +1,52 @@
 const foodCategoryList = [
   {
-    'imagePath': 'assets/images/pizza.svg',
+    'imagePath':
+        'https://apis.dominoslk.com/olo-lka-prod-api/images/home/loaded_pizza_rounded.png',
     'name': 'Veg Pizza',
   },
   {
-    'imagePath': 'assets/images/pizza.svg',
+    'imagePath':
+        'https://apis.dominoslk.com/olo-lka-prod-api/images/home/non_veg_pizza_rounded.png',
     'name': 'Non-Veg Pizza',
   },
   {
-    'imagePath': 'assets/images/pizza.svg',
+    'imagePath':
+        'https://apis.dominoslk.com/olo-lka-prod-api/images/home/meals_combo_rounded.png',
     'name': 'Meals & Combo',
   },
   {
-    'imagePath': 'assets/images/pizza.svg',
+    'imagePath':
+        'https://apis.dominoslk.com/olo-lka-prod-api/images/home/sides_rounded.png',
     'name': 'Slides',
   },
   {
-    'imagePath': 'assets/images/pizza.svg',
+    'imagePath':
+        'https://apis.dominoslk.com/olo-lka-prod-api/images/home/desserts_rounded.png',
     'name': 'Dessert',
   },
   {
-    'imagePath': 'assets/images/pizza.svg',
+    'imagePath':
+        'https://apis.dominoslk.com/olo-lka-prod-api/images/home/loaded_pizza_rounded.png',
     'name': 'Beverages',
   },
   {
-    'imagePath': 'assets/images/pizza.svg',
+    'imagePath':
+        'https://apis.dominoslk.com/olo-lka-prod-api/images/home/pizza_mania_rounded.png',
     'name': 'Pizza Mania',
   },
   {
-    'imagePath': 'assets/images/pizza.svg',
+    'imagePath':
+        'https://apis.dominoslk.com/olo-lka-prod-api/images/home/loaded_pizza_rounded.png',
     'name': 'Supreme Range',
   },
   {
-    'imagePath': 'assets/images/pizza.svg',
+    'imagePath':
+        'https://apis.dominoslk.com/olo-lka-prod-api/images/home/loaded_pizza_rounded.png',
     'name': 'Loaded Pizza Range',
   },
   {
-    'imagePath': 'assets/images/pizza.svg',
+    'imagePath':
+        'https://apis.dominoslk.com/olo-lka-prod-api/images/home/loaded_pizza_rounded.png',
     'name': 'Cheese Lava Range',
   },
 ];
