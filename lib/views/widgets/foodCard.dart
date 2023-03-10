@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_notes/views/common/colors.dart';
 
+import '../foodItem.dart';
+
 class FoodCard extends StatefulWidget {
   final int index;
   const FoodCard({
@@ -18,7 +20,11 @@ class _FoodCardState extends State<FoodCard> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return GestureDetector(
-      onTap: () => {},
+      onTap: () => {
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => const FoodItem()),
+        )
+      },
       child: Container(
         margin: const EdgeInsets.only(
           right: 25,
