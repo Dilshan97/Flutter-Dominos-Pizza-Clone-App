@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_notes/views/common/colors.dart';
+import 'package:flutter_notes/views/widgets/categoryCard.dart';
+import 'package:flutter_notes/views/widgets/foodCard.dart';
 import 'package:flutter_svg/svg.dart';
 
 class Home extends StatefulWidget {
@@ -77,61 +79,42 @@ class _HomeState extends State<Home> {
               style: TextStyle(
                 fontSize: 22,
                 fontWeight: FontWeight.w600,
+                fontFamily: 'Poppins-Regular',
               ),
             ),
           ),
           SizedBox(
-            height: 240,
-            child: ListView(
+            height: size.height * 0.30,
+            child: ListView.builder(
               scrollDirection: Axis.horizontal,
-              children: [
-                Container(
-                  margin: const EdgeInsets.only(
-                    right: 20,
-                    top: 25,
-                    bottom: 20,
-                  ),
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 20,
-                  ),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: AppColors.primary,
-                    boxShadow: const [
-                      BoxShadow(
-                        color: AppColors.primary,
-                        blurRadius: 10,
-                      )
-                    ],
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      SvgPicture.asset(
-                        "assets/images/pizza.svg",
-                        width: 45,
-                      ),
-                      const Text(
-                        "Pizza",
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                      const RawMaterialButton(
-                        onPressed: null,
-                        fillColor: AppColors.white,
-                        shape: CircleBorder(),
-                        child: Icon(
-                          Icons.chevron_right,
-                          color: AppColors.secondary,
-                        ),
-                      )
-                    ],
-                  ),
-                )
-              ],
+              itemCount: 10,
+              itemBuilder: (context, index) => Padding(
+                padding: EdgeInsets.only(
+                  left: index == 0 ? 20 : 0,
+                ),
+                child: CategoryCard(
+                  index: index,
+                  name: 'Pizza',
+                  image: 'assets/images/pizza.svg',
+                ),
+              ),
             ),
+          ),
+          const Padding(
+            padding: EdgeInsets.only(
+              left: 20,
+            ),
+            child: Text(
+              "Popular",
+              style: TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.w600,
+                fontFamily: 'Poppins-Regular',
+              ),
+            ),
+          ),
+          Column(
+            children: List.generate(10, (index) => FoodCard()),
           )
         ],
       ),
