@@ -87,6 +87,7 @@ class _FoodItemState extends State<FoodItem> {
                       "5.99",
                       style: TextStyle(
                         fontSize: 40,
+                        fontFamily: 'Poppins-Regular',
                         fontWeight: FontWeight.w700,
                         color: AppColors.tertiary,
                         height: 1,
@@ -207,7 +208,7 @@ class _FoodItemState extends State<FoodItem> {
             height: 10,
           ),
           SizedBox(
-            height: 100,
+            height: 120,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: 10,
@@ -222,12 +223,17 @@ class _FoodItemState extends State<FoodItem> {
                   ),
                   margin: const EdgeInsets.only(
                     right: 20,
+                    top: 10,
+                    bottom: 10,
                   ),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
                     color: AppColors.white,
                     boxShadow: const [
-                      BoxShadow(blurRadius: 10, color: AppColors.lightGray),
+                      BoxShadow(
+                        blurRadius: 1,
+                        color: Colors.grey,
+                      ),
                     ],
                   ),
                   child: Image.asset(
@@ -240,18 +246,40 @@ class _FoodItemState extends State<FoodItem> {
           ),
           const SizedBox(
             height: 100,
-          )
+          ),
         ],
       ),
-      floatingActionButton: ElevatedButton(
-        onPressed: () => {},
-        child: Row(
-          // mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text("Add to Cart"),
-            Icon(Icons.chevron_right),
-          ],
+      bottomNavigationBar: SizedBox(
+        width: size.width,
+        child: GestureDetector(
+          child: Container(
+            margin: const EdgeInsets.only(
+              left: 30,
+              right: 30,
+            ),
+            decoration: const BoxDecoration(
+              color: AppColors.primary,
+              borderRadius: BorderRadius.only(
+                topRight: Radius.circular(25),
+                topLeft: Radius.circular(25),
+              ),
+            ),
+            child: const Padding(
+              padding: EdgeInsets.only(
+                top: 20,
+                bottom: 22,
+              ),
+              child: Text(
+                'Add to Cart',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 20,
+                  fontFamily: 'Poppins-Regular',
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+            ),
+          ),
         ),
       ),
     );

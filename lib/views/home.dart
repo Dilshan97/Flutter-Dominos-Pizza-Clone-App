@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_notes/views/common/colors.dart';
+import 'package:flutter_notes/views/common/constants.dart';
 import 'package:flutter_notes/views/widgets/categoryCard.dart';
 import 'package:flutter_notes/views/widgets/foodCard.dart';
 import 'package:flutter_svg/svg.dart';
@@ -87,15 +88,15 @@ class _HomeState extends State<Home> {
             height: size.height * 0.30,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
-              itemCount: 10,
+              itemCount: foodCategoryList.length,
               itemBuilder: (context, index) => Padding(
                 padding: EdgeInsets.only(
                   left: index == 0 ? 20 : 0,
                 ),
                 child: CategoryCard(
                   index: index,
-                  name: 'Pizza',
-                  image: 'assets/images/pizza.svg',
+                  name: "${foodCategoryList[index]['name']}",
+                  image: '${foodCategoryList[index]['imagePath']}',
                 ),
               ),
             ),
