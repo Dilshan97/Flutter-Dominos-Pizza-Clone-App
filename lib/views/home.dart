@@ -114,7 +114,12 @@ class _HomeState extends State<Home> {
             ),
           ),
           Column(
-            children: List.generate(10, (index) => FoodCard()),
+            children: List.generate(
+              10,
+              (index) => FoodCard(
+                index: index,
+              ),
+            ),
           )
         ],
       ),

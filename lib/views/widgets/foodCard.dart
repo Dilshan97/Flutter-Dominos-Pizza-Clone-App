@@ -3,7 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_notes/views/common/colors.dart';
 
 class FoodCard extends StatefulWidget {
-  const FoodCard({super.key});
+  final int index;
+  const FoodCard({
+    super.key,
+    required this.index,
+  });
 
   @override
   State<FoodCard> createState() => _FoodCardState();
@@ -152,7 +156,7 @@ class _FoodCardState extends State<FoodCard> {
                     )
                   ]),
               child: Hero(
-                tag: "assets/images/pizza.png",
+                tag: "pizza_${widget.index}",
                 child: Image.asset(
                   "assets/images/pizza.png",
                   width: size.width / 2.9,
