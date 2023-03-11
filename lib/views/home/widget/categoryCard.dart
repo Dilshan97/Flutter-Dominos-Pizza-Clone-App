@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-
-import '../common/colors.dart';
+import '../../common/colors.dart';
 
 class CategoryCard extends StatefulWidget {
   final String name;
@@ -56,10 +54,6 @@ class _CategoryCardState extends State<CategoryCard> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            // SvgPicture.asset(
-            //   widget.image,
-            //   width: 45,
-            // ),
             Image.network(
               widget.image,
               width: 100,

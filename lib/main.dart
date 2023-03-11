@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_notes/views/home.dart';
 import 'package:flutter_notes/views/splash.dart';
 import 'firebase_options.dart';
+import 'views/home/home.dart';
 
 Future<void> main() async {
   SystemChrome.setSystemUIOverlayStyle(
