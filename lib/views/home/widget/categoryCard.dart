@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import '../../common/colors.dart';
+import '../../foodCategory/foodCategory.dart';
 
 class CategoryCard extends StatefulWidget {
   final String name;
@@ -67,7 +69,11 @@ class _CategoryCardState extends State<CategoryCard> {
               ),
             ),
             RawMaterialButton(
-              onPressed: null,
+              onPressed: () => {
+                Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(builder: (context) => const FoodCategory()),
+                )
+              },
               fillColor: selectedCategory == widget.index
                   ? AppColors.white
                   : AppColors.tertiary,
