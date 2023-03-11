@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-
-import '../common/colors.dart';
+import '../../common/colors.dart';
+import '../../foodCategory/foodCategory.dart';
 
 class CategoryCard extends StatefulWidget {
   final String name;
@@ -56,10 +56,6 @@ class _CategoryCardState extends State<CategoryCard> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            // SvgPicture.asset(
-            //   widget.image,
-            //   width: 45,
-            // ),
             Image.network(
               widget.image,
               width: 100,
@@ -73,7 +69,11 @@ class _CategoryCardState extends State<CategoryCard> {
               ),
             ),
             RawMaterialButton(
-              onPressed: null,
+              onPressed: () => {
+                Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(builder: (context) => const FoodCategory()),
+                )
+              },
               fillColor: selectedCategory == widget.index
                   ? AppColors.white
                   : AppColors.tertiary,

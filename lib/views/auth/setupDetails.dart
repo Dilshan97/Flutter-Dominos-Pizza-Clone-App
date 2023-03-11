@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_notes/views/home.dart';
+
+import '../home/home.dart';
 
 class SetupDetails extends StatefulWidget {
   const SetupDetails({super.key});

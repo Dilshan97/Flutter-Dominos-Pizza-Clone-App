@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_notes/views/common/colors.dart';
 import 'package:flutter_notes/views/common/constants.dart';
-import 'package:flutter_notes/views/widgets/categoryCard.dart';
 import 'package:flutter_notes/views/widgets/foodCard.dart';
 import 'package:flutter_svg/svg.dart';
+
+import 'widget/categoryCard.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});

@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_notes/views/common/colors.dart';
-import 'package:flutter_notes/views/home.dart';
 import 'package:flutter_svg/svg.dart';
+
+import 'home/home.dart';
 
 class FoodItem extends StatefulWidget {
   const FoodItem({super.key});
