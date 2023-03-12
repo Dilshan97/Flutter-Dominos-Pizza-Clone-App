@@ -124,15 +124,15 @@ class _HomeState extends State<Home> {
             height: size.height * 0.30,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
-              itemCount: foodCategoryList.length,
+              itemCount: categories.length,
               itemBuilder: (context, index) => Padding(
                 padding: EdgeInsets.only(
                   left: index == 0 ? 20 : 0,
                 ),
                 child: CategoryCard(
                   index: index,
-                  name: "${foodCategoryList[index]['name']}",
-                  image: '${foodCategoryList[index]['imagePath']}',
+                  name: "${categories[index]['name']}",
+                  image: '${categories[index]['imagePath']}',
                 ),
               ),
             ),
@@ -150,14 +150,12 @@ class _HomeState extends State<Home> {
               ),
             ),
           ),
-          Column(
-            children: List.generate(
-              10,
-              (index) => FoodCard(
-                index: index,
-              ),
-            ),
-          )
+          // Column(
+          //   children: List.generate(
+          //     10,
+          //     (index) => FoodCard(index: index, name: 'test'),
+          //   ),
+          // )
         ],
       ),
     );
