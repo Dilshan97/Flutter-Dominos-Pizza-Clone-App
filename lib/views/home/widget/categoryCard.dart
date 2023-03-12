@@ -71,7 +71,11 @@ class _CategoryCardState extends State<CategoryCard> {
             RawMaterialButton(
               onPressed: () => {
                 Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(builder: (context) => const FoodCategory()),
+                  MaterialPageRoute(
+                    builder: (context) => FoodCategory(
+                      name: widget.name,
+                    ),
+                  ),
                 )
               },
               fillColor: selectedCategory == widget.index
