@@ -14,10 +14,14 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  bool _drawerOpen = false;
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
+      key: _scaffoldKey,
       backgroundColor: AppColors.white,
       appBar: AppBar(
         centerTitle: false,
@@ -25,7 +29,7 @@ class _HomeState extends State<Home> {
         elevation: 0,
         title: const Padding(
           padding: EdgeInsets.only(
-            left: 10,
+            left: 0,
           ),
           child: CircleAvatar(
             radius: 25,
@@ -33,11 +37,42 @@ class _HomeState extends State<Home> {
           ),
         ),
         actions: [
-          IconButton(
-            onPressed: null,
-            icon: SvgPicture.asset("assets/images/menu.svg"),
+          Padding(
+            padding: const EdgeInsets.only(
+              right: 20,
+            ),
+            child: IconButton(
+              onPressed: () => _scaffoldKey.currentState!.openEndDrawer(),
+              icon: _drawerOpen
+                  ? const Icon(
+                      Icons.restaurant_menu_outlined,
+                      color: AppColors.secondary,
+                    )
+                  : SvgPicture.asset("assets/images/menu.svg"),
+            ),
           )
         ],
+      ),
+      endDrawer: ClipRRect(
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(35),
+          bottomLeft: Radius.circular(100),
+        ),
+        child: Drawer(
+          backgroundColor: AppColors.white,
+          child: Container(
+            child: Column(
+              children: [
+                // Drawer items
+              ],
+            ),
+          ),
+        ),
+      ),
+      onEndDrawerChanged: (onDrawerChanged) => setState(
+        () {
+          _drawerOpen = onDrawerChanged;
+        },
       ),
       body: ListView(
         children: [
