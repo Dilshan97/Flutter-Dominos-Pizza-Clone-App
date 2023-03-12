@@ -3,13 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_notes/views/common/colors.dart';
 import 'package:flutter_notes/views/home/home.dart';
 
+import '../common/constants.dart';
 import '../widgets/foodCard.dart';
 
 class FoodCategory extends StatefulWidget {
   final String name;
+  final int index;
   const FoodCategory({
     super.key,
     required this.name,
+    required this.index,
   });
 
   @override
@@ -57,9 +60,10 @@ class _FoodCategoryState extends State<FoodCategory> {
           ),
           Column(
             children: List.generate(
-              10,
+              categories[widget.index]['items'].length,
               (index) => FoodCard(
                 index: index,
+                food: categories[widget.index]['items'][index],
               ),
             ),
           )

@@ -74,6 +74,7 @@ class _CategoryCardState extends State<CategoryCard> {
                   MaterialPageRoute(
                     builder: (context) => FoodCategory(
                       name: widget.name,
+                      index: widget.index,
                     ),
                   ),
                 )

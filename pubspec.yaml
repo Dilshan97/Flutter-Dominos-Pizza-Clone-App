@@ -70,6 +70,11 @@ flutter:
     - assets/images/pizza.png
     - assets/images/dollar.svg
     - assets/images/onion.png
+
+    - assets/images/pizza/tandoori-chicken.png
+    - assets/images/pizza/hot-chili-chicken.png
+    - assets/images/pizza/chicken-hawaiian.png
+    - assets/images/pizza/teriyaki-chicken.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -6,10 +6,8 @@ import '../foodItem.dart';
 
 class FoodCard extends StatefulWidget {
   final int index;
-  const FoodCard({
-    super.key,
-    required this.index,
-  });
+  final Map food;
+  const FoodCard({super.key, required this.index, required this.food});
 
   @override
   State<FoodCard> createState() => _FoodCardState();
@@ -78,20 +76,20 @@ class _FoodCardState extends State<FoodCard> {
                       const SizedBox(height: 15),
                       SizedBox(
                         width: size.width / 2.2,
-                        child: const Text(
-                          "Primavera Pizza",
-                          style: TextStyle(
+                        child: Text(
+                          widget.food['name'],
+                          style: const TextStyle(
                             fontFamily: 'Poppins-Regular',
                             fontWeight: FontWeight.w700,
                             fontSize: 20,
                           ),
                         ),
                       ),
-                      const Text(
-                        "weight 450 gr",
-                        style: TextStyle(
+                      Text(
+                        widget.food['desc'],
+                        style: const TextStyle(
                           fontFamily: 'Poppins-Regular',
-                          fontSize: 14,
+                          fontSize: 1,
                           color: AppColors.lightGray,
                         ),
                       )
@@ -154,7 +152,7 @@ class _FoodCardState extends State<FoodCard> {
                 0.0,
               ),
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(50),
+                  borderRadius: BorderRadius.circular(90),
                   boxShadow: const [
                     BoxShadow(
                       color: Colors.grey,
@@ -164,8 +162,8 @@ class _FoodCardState extends State<FoodCard> {
               child: Hero(
                 tag: "pizza_${widget.index}",
                 child: Image.asset(
-                  "assets/images/pizza.png",
-                  width: size.width / 2.9,
+                  widget.food['image'],
+                  width: size.width / 2.8,
                 ),
               ),
             )
