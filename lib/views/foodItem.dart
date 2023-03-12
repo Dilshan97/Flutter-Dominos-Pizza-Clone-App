@@ -169,6 +169,11 @@ class _FoodItemState extends State<FoodItem> {
                         ],
                       ),
                       Container(
+                        transform: Matrix4.translationValues(
+                          2.0,
+                          25.0,
+                          0.0,
+                        ),
                         height: 200,
                         width: size.width / 2,
                         decoration: BoxDecoration(
