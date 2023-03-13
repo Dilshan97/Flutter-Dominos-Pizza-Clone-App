@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_notes/views/auth/setupDetails.dart';
 import 'package:flutter_notes/views/common/colors.dart';
 import 'package:flutter_notes/views/common/widgets/customInput.dart';
+import 'package:flutter_notes/views/common/widgets/customLabel.dart';
 
 class OtpVerification extends StatefulWidget {
   final String phoneNumber;
@@ -56,22 +57,15 @@ class _OtpVerificationState extends State<OtpVerification> {
             SizedBox(
               height: size.height * 0.010,
             ),
-            Text(
-              "Verification Code",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: AppColors.black,
-                fontSize: size.width * 0.070,
-                fontFamily: 'Poppins-Medium',
-              ),
+            CustomLabel(
+              label: "Verification Code",
+              textColor: AppColors.black,
+              fontSize: size.width * 0.070,
             ),
-            Text(
-              "Type the verification code sent to \n the number +${widget.phoneNumber}",
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                color: AppColors.black,
-                fontFamily: 'Poppins-Medium',
-              ),
+            CustomLabel(
+              label:
+                  "Type the verification code sent to \n the number +${widget.phoneNumber}",
+              textColor: AppColors.black,
             ),
             SizedBox(
               height: size.height * 0.040,
@@ -156,11 +150,9 @@ class _OtpVerificationState extends State<OtpVerification> {
                   foregroundColor: AppColors.white,
                 ),
                 onPressed: () => setupDetails(),
-                child: const Text(
-                  'Continue',
-                  style: TextStyle(
-                    fontFamily: 'Poppins-Regular',
-                  ),
+                child: const CustomLabel(
+                  label: "Continue",
+                  textColor: AppColors.white,
                 ),
               ),
             ),
@@ -170,18 +162,14 @@ class _OtpVerificationState extends State<OtpVerification> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text(
-                  "Didn’t recieve the code? ",
-                  style: TextStyle(
-                    color: AppColors.black,
-                  ),
+                const CustomLabel(
+                  label: "Didn’t recieve the code? ",
+                  textColor: AppColors.black,
                 ),
                 GestureDetector(
-                  child: const Text(
-                    "Resend in 1 Min",
-                    style: TextStyle(
-                      color: AppColors.primary,
-                    ),
+                  child: const CustomLabel(
+                    label: "Resend in 1 Min",
+                    textColor: AppColors.primary,
                   ),
                 )
               ],
