@@ -128,7 +128,7 @@ class _LoginState extends State<Login> {
               height: size.height * 0.050,
               child: TextButton(
                 style: TextButton.styleFrom(
-                  backgroundColor: AppColors.secondary,
+                  backgroundColor: AppColors.primary,
                   foregroundColor: AppColors.white,
                 ),
                 onPressed: () => {},

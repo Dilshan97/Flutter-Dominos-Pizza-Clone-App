@@ -10,6 +10,7 @@ class CustomInput extends StatefulWidget {
   final TextEditingController controller;
   final bool? obscureText;
   final Widget? suffixIcon;
+  final String? Function(String?)? validator;
 
   const CustomInput({
     super.key,
@@ -18,6 +19,7 @@ class CustomInput extends StatefulWidget {
     required this.controller,
     this.obscureText,
     this.suffixIcon,
+    this.validator,
   });
 
   @override
@@ -27,7 +29,7 @@ class CustomInput extends StatefulWidget {
 class _CustomInputState extends State<CustomInput> {
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
       controller: widget.controller,
       obscureText: widget.obscureText ?? false,
       textAlignVertical: TextAlignVertical.bottom,
@@ -55,6 +57,7 @@ class _CustomInputState extends State<CustomInput> {
         ),
         suffixIcon: widget.suffixIcon,
       ),
+      validator: widget.validator,
     );
   }
 }
