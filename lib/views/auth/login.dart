@@ -69,7 +69,8 @@ class _LoginState extends State<Login> {
             SizedBox(
               width: size.width * 0.80,
               height: size.height * 0.055,
-              child: const CustomInput(
+              child: CustomInput(
+                controller: _emailController,
                 hintText: "+94 77 000 000",
                 focusedBorderColor: AppColors.primary,
               ),
