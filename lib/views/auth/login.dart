@@ -73,6 +73,7 @@ class _LoginState extends State<Login> {
                 controller: _emailController,
                 hintText: "+94 77 000 000",
                 focusedBorderColor: AppColors.primary,
+                maxLength: 10,
               ),
             ),
             SizedBox(

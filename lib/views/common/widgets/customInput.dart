@@ -12,16 +12,19 @@ class CustomInput extends StatefulWidget {
   final Widget? suffixIcon;
   final String? Function(String?)? validator;
   final TextInputType? keyboardType;
+  final int? maxLength;
 
-  const CustomInput(
-      {super.key,
-      this.hintText,
-      this.focusedBorderColor,
-      required this.controller,
-      this.obscureText,
-      this.suffixIcon,
-      this.validator,
-      this.keyboardType});
+  const CustomInput({
+    super.key,
+    this.hintText,
+    this.focusedBorderColor,
+    required this.controller,
+    this.obscureText,
+    this.suffixIcon,
+    this.validator,
+    this.keyboardType,
+    this.maxLength,
+  });
 
   @override
   State<CustomInput> createState() => _CustomInputState();
@@ -43,6 +46,7 @@ class _CustomInputState extends State<CustomInput> {
       ),
       decoration: InputDecoration(
         hintText: widget.hintText,
+        counterText: "",
         fillColor: Colors.white,
         filled: true,
         border: OutlineInputBorder(
@@ -68,6 +72,7 @@ class _CustomInputState extends State<CustomInput> {
         suffixIcon: widget.suffixIcon,
       ),
       validator: widget.validator,
+      maxLength: widget.maxLength,
     );
   }
 }

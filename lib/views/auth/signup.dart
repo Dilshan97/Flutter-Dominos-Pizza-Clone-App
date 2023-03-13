@@ -102,6 +102,7 @@ class _SignUpState extends State<SignUp> {
                   hintText: "+94 77 000 000",
                   focusedBorderColor: AppColors.primary,
                   controller: _phoneController,
+                  maxLength: 10,
                   validator: (value) {
                     if (value!.isEmpty) {
                       return 'Phone number is required';
