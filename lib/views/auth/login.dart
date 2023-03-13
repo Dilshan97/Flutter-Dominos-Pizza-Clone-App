@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_notes/views/auth/signup.dart';
+import 'package:flutter_notes/views/common/colors.dart';
+import 'package:flutter_notes/views/common/widgets/customInput.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -18,7 +20,7 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: AppColors.white,
       body: SizedBox(
         width: size.width,
         child: Column(
@@ -72,31 +74,8 @@ class _LoginState extends State<Login> {
             SizedBox(
               width: size.width * 0.80,
               height: size.height * 0.055,
-              child: TextField(
-                textAlignVertical: TextAlignVertical.bottom,
-                textAlign: TextAlign.start,
-                controller: _emailController,
-                style: const TextStyle(
-                  height: 1.5,
-                  fontFamily: 'Poppins-Regular',
-                ),
-                decoration: InputDecoration(
-                  hintText: "+94 000-000-000",
-                  fillColor: Colors.white,
-                  filled: true,
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  focusedBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Color.fromARGB(255, 255, 181, 33),
-                      width: 2.0,
-                    ),
-                  ),
-                  hintStyle: const TextStyle(
-                    fontFamily: 'Poppins-Regular',
-                  ),
-                ),
+              child: const CustomInput(
+                hintText: "+94 77 000 000",
               ),
             ),
             SizedBox(
