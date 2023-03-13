@@ -16,7 +16,7 @@ class SignUp extends StatefulWidget {
 
 class _SignUpState extends State<SignUp> {
   final _formKey = GlobalKey<FormState>();
-  final _phoneController = TextEditingController(text: "94771854709");
+  final _phoneController = TextEditingController();
 
   Future<void> _verifyPhoneNumber() async {
     try {
