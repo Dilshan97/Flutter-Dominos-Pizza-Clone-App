@@ -13,6 +13,7 @@ class CustomInput extends StatefulWidget {
   final String? Function(String?)? validator;
   final TextInputType? keyboardType;
   final int? maxLength;
+  final TextAlign? textAlign;
 
   const CustomInput({
     super.key,
@@ -24,6 +25,7 @@ class CustomInput extends StatefulWidget {
     this.validator,
     this.keyboardType,
     this.maxLength,
+    this.textAlign,
   });
 
   @override
@@ -37,7 +39,7 @@ class _CustomInputState extends State<CustomInput> {
       controller: widget.controller,
       obscureText: widget.obscureText ?? false,
       textAlignVertical: TextAlignVertical.bottom,
-      textAlign: TextAlign.start,
+      textAlign: widget.textAlign ?? TextAlign.start,
       keyboardType:
           widget.keyboardType ?? const TextInputType.numberWithOptions(),
       style: const TextStyle(
