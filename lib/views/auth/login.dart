@@ -69,9 +69,11 @@ class _LoginState extends State<Login> {
             SizedBox(
               width: size.width * 0.80,
               height: size.height * 0.055,
-              child: const CustomInput(
+              child: CustomInput(
+                controller: _emailController,
                 hintText: "+94 77 000 000",
                 focusedBorderColor: AppColors.primary,
+                maxLength: 10,
               ),
             ),
             SizedBox(
@@ -95,40 +97,19 @@ class _LoginState extends State<Login> {
               alignment: Alignment.center,
               height: size.height * 0.055,
               width: size.width * 0.80,
-              child: TextField(
-                obscureText: _obscureText,
-                textAlignVertical: TextAlignVertical.bottom,
-                textAlign: TextAlign.start,
+              child: CustomInput(
+                hintText: "Password Here",
                 controller: _passwordController,
-                style: const TextStyle(
-                  height: 1.5,
-                  fontFamily: 'Poppins-Regular',
-                ),
-                decoration: InputDecoration(
-                  hintText: "Password Here",
-                  fillColor: Colors.white,
-                  filled: true,
-                  hintStyle: const TextStyle(
-                    fontFamily: 'Poppins-Regular',
-                  ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  focusedBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Color.fromARGB(255, 255, 181, 33),
-                      width: 2.0,
-                    ),
-                  ),
-                  suffixIcon: GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        _obscureText = !_obscureText;
-                      });
-                    },
-                    child: Icon(
-                      _obscureText ? Icons.visibility_off : Icons.visibility,
-                    ),
+                focusedBorderColor: AppColors.primary,
+                suffixIcon: GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      _obscureText = !_obscureText;
+                    });
+                  },
+                  child: Icon(
+                    _obscureText ? Icons.visibility_off : Icons.visibility,
+                    color: AppColors.black,
                   ),
                 ),
               ),
@@ -148,7 +129,7 @@ class _LoginState extends State<Login> {
               height: size.height * 0.050,
               child: TextButton(
                 style: TextButton.styleFrom(
-                  backgroundColor: AppColors.secondary,
+                  backgroundColor: AppColors.primary,
                   foregroundColor: AppColors.white,
                 ),
                 onPressed: () => {},
