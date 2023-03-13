@@ -46,7 +46,7 @@ class _SplashState extends State<Splash> {
               "v1.0.0",
               style: TextStyle(
                 fontFamily: 'Poppins-Regular',
-                color: AppColors.secondary,
+                color: AppColors.black,
                 fontSize: 16,
                 fontWeight: FontWeight.w500,
               ),

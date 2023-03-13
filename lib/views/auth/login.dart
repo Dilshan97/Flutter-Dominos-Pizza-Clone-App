@@ -45,7 +45,7 @@ class _LoginState extends State<Login> {
             ),
             CustomLabel(
               label: "Login",
-              textColor: AppColors.secondary,
+              textColor: AppColors.black,
               fontSize: size.width * 0.070,
             ),
             SizedBox(
@@ -59,7 +59,7 @@ class _LoginState extends State<Login> {
               child: CustomLabel(
                 label: "Phone number",
                 fontSize: size.width * 0.045,
-                textColor: AppColors.secondary,
+                textColor: AppColors.black,
               ),
             ),
             SizedBox(
@@ -71,6 +71,7 @@ class _LoginState extends State<Login> {
               height: size.height * 0.055,
               child: const CustomInput(
                 hintText: "+94 77 000 000",
+                focusedBorderColor: AppColors.primary,
               ),
             ),
             SizedBox(
@@ -84,7 +85,7 @@ class _LoginState extends State<Login> {
               ),
               child: const CustomLabel(
                 label: "Password",
-                textColor: AppColors.secondary,
+                textColor: AppColors.black,
               ),
             ),
             SizedBox(
@@ -137,7 +138,7 @@ class _LoginState extends State<Login> {
             ),
             const CustomLabel(
               label: "Forgot Passwod?",
-              textColor: AppColors.secondary,
+              textColor: AppColors.black,
             ),
             SizedBox(
               height: size.height * 0.020,
@@ -147,15 +148,13 @@ class _LoginState extends State<Login> {
               height: size.height * 0.050,
               child: TextButton(
                 style: TextButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255, 255, 181, 33),
-                  foregroundColor: Colors.white,
+                  backgroundColor: AppColors.secondary,
+                  foregroundColor: AppColors.white,
                 ),
                 onPressed: () => {},
-                child: const Text(
-                  'Login',
-                  style: TextStyle(
-                    fontFamily: 'Poppins-Regular',
-                  ),
+                child: const CustomLabel(
+                  label: "Login",
+                  textColor: AppColors.white,
                 ),
               ),
             ),
@@ -166,20 +165,14 @@ class _LoginState extends State<Login> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const Text(
-                  "Don’t have an account?",
-                  style: TextStyle(
-                    fontFamily: 'Poppins-Regular',
-                    color: Colors.white,
-                  ),
+                const CustomLabel(
+                  label: "Don’t have an account?",
+                  textColor: AppColors.black,
                 ),
                 GestureDetector(
-                  child: const Text(
-                    " Sign up",
-                    style: TextStyle(
-                      fontFamily: 'Poppins-Regular',
-                      color: Color.fromARGB(255, 255, 181, 33),
-                    ),
+                  child: const CustomLabel(
+                    label: " Sign up",
+                    textColor: AppColors.primary,
                   ),
                   onTap: () {
                     Navigator.of(context).pushReplacement(
