@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_notes/views/common/colors.dart';
@@ -6,12 +8,16 @@ class CustomInput extends StatefulWidget {
   final String? hintText;
   final Color? focusedBorderColor;
   final TextEditingController controller;
+  final bool? obscureText;
+  final Widget? suffixIcon;
 
   const CustomInput({
     super.key,
     this.hintText,
     this.focusedBorderColor,
     required this.controller,
+    this.obscureText,
+    this.suffixIcon,
   });
 
   @override
@@ -23,6 +29,7 @@ class _CustomInputState extends State<CustomInput> {
   Widget build(BuildContext context) {
     return TextField(
       controller: widget.controller,
+      obscureText: widget.obscureText ?? false,
       textAlignVertical: TextAlignVertical.bottom,
       textAlign: TextAlign.start,
       style: const TextStyle(
@@ -46,6 +53,7 @@ class _CustomInputState extends State<CustomInput> {
         hintStyle: const TextStyle(
           fontFamily: 'Poppins-Regular',
         ),
+        suffixIcon: widget.suffixIcon,
       ),
     );
   }
