@@ -2,14 +2,14 @@ import 'package:flutter/cupertino.dart';
 
 class CustomLabel extends StatefulWidget {
   final String label;
-  final double fontSize;
+  final double? fontSize;
   final Color textColor;
 
   const CustomLabel({
     super.key,
     required this.label,
-    required this.fontSize,
     required this.textColor,
+    this.fontSize,
   });
 
   @override

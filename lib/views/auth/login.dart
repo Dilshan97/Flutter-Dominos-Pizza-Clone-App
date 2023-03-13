@@ -33,11 +33,11 @@ class _LoginState extends State<Login> {
               height: size.height * 0.000,
             ),
             Container(
-              width: size.width * 0.55,
+              width: size.width * 0.85,
               alignment: Alignment.center,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(8.0),
-                child: Image.asset('assets/images/logo.png'),
+                child: Image.asset('assets/images/dominos-logo.png'),
               ),
             ),
             SizedBox(
@@ -56,13 +56,10 @@ class _LoginState extends State<Login> {
               margin: EdgeInsets.only(
                 left: size.width * 0.095,
               ),
-              child: Text(
-                "Phone number",
-                style: TextStyle(
-                  fontSize: size.width * 0.045,
-                  color: Colors.white,
-                  fontFamily: 'Poppins-Regular',
-                ),
+              child: CustomLabel(
+                label: "Phone number",
+                fontSize: size.width * 0.045,
+                textColor: AppColors.secondary,
               ),
             ),
             SizedBox(
@@ -85,13 +82,9 @@ class _LoginState extends State<Login> {
               margin: EdgeInsets.only(
                 left: size.width * 0.095,
               ),
-              child: Text(
-                "Password",
-                style: TextStyle(
-                  fontSize: size.width * 0.045,
-                  color: Colors.white,
-                  fontFamily: 'Poppins-Regular',
-                ),
+              child: const CustomLabel(
+                label: "Password",
+                textColor: AppColors.secondary,
               ),
             ),
             SizedBox(
@@ -142,12 +135,9 @@ class _LoginState extends State<Login> {
             SizedBox(
               height: size.height * 0.030,
             ),
-            const Text(
-              "Forgot Passwod?",
-              style: TextStyle(
-                color: Colors.white,
-                fontFamily: 'Poppins-Regular',
-              ),
+            const CustomLabel(
+              label: "Forgot Passwod?",
+              textColor: AppColors.secondary,
             ),
             SizedBox(
               height: size.height * 0.020,
