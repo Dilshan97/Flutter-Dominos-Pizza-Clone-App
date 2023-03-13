@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_notes/views/auth/setupDetails.dart';
+import 'package:flutter_notes/views/common/colors.dart';
+import 'package:flutter_notes/views/common/widgets/customInput.dart';
+import 'package:flutter_notes/views/common/widgets/customLabel.dart';
 
 class OtpVerification extends StatefulWidget {
   final String phoneNumber;
@@ -15,6 +18,13 @@ class OtpVerification extends StatefulWidget {
 }
 
 class _OtpVerificationState extends State<OtpVerification> {
+  final _otpController1 = TextEditingController();
+  final _otpController2 = TextEditingController();
+  final _otpController3 = TextEditingController();
+  final _otpController4 = TextEditingController();
+  final _otpController5 = TextEditingController();
+  final _otpController6 = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -26,7 +36,7 @@ class _OtpVerificationState extends State<OtpVerification> {
     }
 
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: AppColors.white,
       body: SizedBox(
         width: size.width,
         child: Column(
@@ -37,32 +47,25 @@ class _OtpVerificationState extends State<OtpVerification> {
               height: size.height * 0.000,
             ),
             Container(
-              width: size.width * 0.55,
+              width: size.width * 0.85,
               alignment: Alignment.center,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(8.0),
-                child: Image.asset('assets/images/logo.png'),
+                child: Image.asset('assets/images/dominos-logo.png'),
               ),
             ),
             SizedBox(
               height: size.height * 0.010,
             ),
-            Text(
-              "Verification Code",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: size.width * 0.070,
-                fontFamily: 'Poppins-Medium',
-              ),
+            CustomLabel(
+              label: "Verification Code",
+              textColor: AppColors.black,
+              fontSize: size.width * 0.070,
             ),
-            Text(
-              "Type the verification code sent to \n the number +${widget.phoneNumber}",
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                color: Colors.white,
-                fontFamily: 'Poppins-Medium',
-              ),
+            CustomLabel(
+              label:
+                  "Type the verification code sent to \n the number +${widget.phoneNumber}",
+              textColor: AppColors.black,
             ),
             SizedBox(
               height: size.height * 0.040,
@@ -75,217 +78,61 @@ class _OtpVerificationState extends State<OtpVerification> {
                   SizedBox(
                     width: size.width * 0.13,
                     height: size.height * 0.055,
-                    child: TextFormField(
-                      keyboardType: TextInputType.number,
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'Phone number is required';
-                        }
-                        return null;
-                      },
-                      textAlignVertical: TextAlignVertical.bottom,
+                    child: CustomInput(
+                      hintText: "*",
+                      controller: _otpController1,
+                      maxLength: 1,
                       textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        height: 2.5,
-                        fontFamily: 'Poppins-Regular',
-                      ),
-                      decoration: InputDecoration(
-                        hintText: "*",
-                        fillColor: Colors.white,
-                        filled: true,
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5),
-                        ),
-                        focusedBorder: const OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color.fromARGB(255, 255, 181, 33),
-                            width: 2.0,
-                          ),
-                        ),
-                        hintStyle: const TextStyle(
-                          fontFamily: 'Poppins-Regular',
-                        ),
-                      ),
                     ),
                   ),
                   SizedBox(
                     width: size.width * 0.13,
                     height: size.height * 0.055,
-                    child: TextFormField(
-                      keyboardType: TextInputType.number,
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'Phone number is required';
-                        }
-                        return null;
-                      },
-                      textAlignVertical: TextAlignVertical.bottom,
+                    child: CustomInput(
+                      hintText: "*",
+                      controller: _otpController2,
+                      maxLength: 1,
                       textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        height: 1.5,
-                        fontFamily: 'Poppins-Regular',
-                      ),
-                      decoration: InputDecoration(
-                        hintText: "*",
-                        fillColor: Colors.white,
-                        filled: true,
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5),
-                        ),
-                        focusedBorder: const OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color.fromARGB(255, 255, 181, 33),
-                            width: 2.0,
-                          ),
-                        ),
-                        hintStyle: const TextStyle(
-                          fontFamily: 'Poppins-Regular',
-                        ),
-                      ),
                     ),
                   ),
                   SizedBox(
                     width: size.width * 0.13,
                     height: size.height * 0.055,
-                    child: TextFormField(
-                      keyboardType: TextInputType.number,
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'Phone number is required';
-                        }
-                        return null;
-                      },
-                      textAlignVertical: TextAlignVertical.bottom,
+                    child: CustomInput(
+                      hintText: "*",
+                      controller: _otpController3,
+                      maxLength: 1,
                       textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        height: 1.5,
-                        fontFamily: 'Poppins-Regular',
-                      ),
-                      decoration: InputDecoration(
-                        hintText: "*",
-                        fillColor: Colors.white,
-                        filled: true,
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5),
-                        ),
-                        focusedBorder: const OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color.fromARGB(255, 255, 181, 33),
-                            width: 2.0,
-                          ),
-                        ),
-                        hintStyle: const TextStyle(
-                          fontFamily: 'Poppins-Regular',
-                        ),
-                      ),
                     ),
                   ),
                   SizedBox(
                     width: size.width * 0.13,
                     height: size.height * 0.055,
-                    child: TextFormField(
-                      keyboardType: TextInputType.number,
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'Phone number is required';
-                        }
-                        return null;
-                      },
-                      textAlignVertical: TextAlignVertical.bottom,
+                    child: CustomInput(
+                      hintText: "*",
+                      controller: _otpController4,
+                      maxLength: 1,
                       textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        height: 1.5,
-                        fontFamily: 'Poppins-Regular',
-                      ),
-                      decoration: InputDecoration(
-                        hintText: "*",
-                        fillColor: Colors.white,
-                        filled: true,
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5),
-                        ),
-                        focusedBorder: const OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color.fromARGB(255, 255, 181, 33),
-                            width: 2.0,
-                          ),
-                        ),
-                        hintStyle: const TextStyle(
-                          fontFamily: 'Poppins-Regular',
-                        ),
-                      ),
                     ),
                   ),
                   SizedBox(
                     width: size.width * 0.13,
                     height: size.height * 0.055,
-                    child: TextFormField(
-                      keyboardType: TextInputType.number,
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'Phone number is required';
-                        }
-                        return null;
-                      },
-                      textAlignVertical: TextAlignVertical.bottom,
+                    child: CustomInput(
+                      hintText: "*",
+                      controller: _otpController5,
+                      maxLength: 1,
                       textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        height: 1.5,
-                        fontFamily: 'Poppins-Regular',
-                      ),
-                      decoration: InputDecoration(
-                        hintText: "*",
-                        fillColor: Colors.white,
-                        filled: true,
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5),
-                        ),
-                        focusedBorder: const OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color.fromARGB(255, 255, 181, 33),
-                            width: 2.0,
-                          ),
-                        ),
-                        hintStyle: const TextStyle(
-                          fontFamily: 'Poppins-Regular',
-                        ),
-                      ),
                     ),
                   ),
                   SizedBox(
                     width: size.width * 0.13,
                     height: size.height * 0.055,
-                    child: TextFormField(
-                      keyboardType: TextInputType.number,
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'Phone number is required';
-                        }
-                        return null;
-                      },
-                      textAlignVertical: TextAlignVertical.bottom,
+                    child: CustomInput(
+                      hintText: "*",
+                      controller: _otpController6,
+                      maxLength: 1,
                       textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        height: 1.5,
-                        fontFamily: 'Poppins-Regular',
-                      ),
-                      decoration: InputDecoration(
-                        hintText: "*",
-                        fillColor: Colors.white,
-                        filled: true,
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5),
-                        ),
-                        focusedBorder: const OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color.fromARGB(255, 255, 181, 33),
-                            width: 2.0,
-                          ),
-                        ),
-                        hintStyle: const TextStyle(
-                          fontFamily: 'Poppins-Regular',
-                        ),
-                      ),
                     ),
                   ),
                 ],
@@ -299,15 +146,13 @@ class _OtpVerificationState extends State<OtpVerification> {
               height: size.height * 0.050,
               child: TextButton(
                 style: TextButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255, 255, 181, 33),
-                  foregroundColor: Colors.white,
+                  backgroundColor: AppColors.primary,
+                  foregroundColor: AppColors.white,
                 ),
                 onPressed: () => setupDetails(),
-                child: const Text(
-                  'Continue',
-                  style: TextStyle(
-                    fontFamily: 'Poppins-Regular',
-                  ),
+                child: const CustomLabel(
+                  label: "Continue",
+                  textColor: AppColors.white,
                 ),
               ),
             ),
@@ -317,18 +162,14 @@ class _OtpVerificationState extends State<OtpVerification> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text(
-                  "Didn’t recieve the code? ",
-                  style: TextStyle(
-                    color: Colors.white,
-                  ),
+                const CustomLabel(
+                  label: "Didn’t recieve the code? ",
+                  textColor: AppColors.black,
                 ),
                 GestureDetector(
-                  child: const Text(
-                    "Resend in 1 Min",
-                    style: TextStyle(
-                      color: Color.fromARGB(255, 255, 181, 33),
-                    ),
+                  child: const CustomLabel(
+                    label: "Resend in 1 Min",
+                    textColor: AppColors.primary,
                   ),
                 )
               ],
