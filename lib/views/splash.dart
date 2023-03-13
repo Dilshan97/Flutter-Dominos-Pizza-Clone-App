@@ -16,12 +16,12 @@ class _SplashState extends State<Splash> {
   @override
   void initState() {
     super.initState();
-    // Timer(const Duration(seconds: 2), () {
-    //   // Navigate to the home screen after 2 seconds
-    //   Navigator.of(context).pushReplacement(
-    //     MaterialPageRoute(builder: (context) => const Login()),
-    //   );
-    // });
+    Timer(const Duration(seconds: 2), () {
+      // Navigate to the home screen after 2 seconds
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (context) => const Login()),
+      );
+    });
   }
 
   @override
