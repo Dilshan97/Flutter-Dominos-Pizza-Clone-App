@@ -14,19 +14,20 @@ class CustomInput extends StatefulWidget {
   final TextInputType? keyboardType;
   final int? maxLength;
   final TextAlign? textAlign;
+  final String? Function(String?)? onChanged;
 
-  const CustomInput({
-    super.key,
-    this.hintText,
-    this.focusedBorderColor,
-    required this.controller,
-    this.obscureText,
-    this.suffixIcon,
-    this.validator,
-    this.keyboardType,
-    this.maxLength,
-    this.textAlign,
-  });
+  const CustomInput(
+      {super.key,
+      this.hintText,
+      this.focusedBorderColor,
+      required this.controller,
+      this.obscureText,
+      this.suffixIcon,
+      this.validator,
+      this.keyboardType,
+      this.maxLength,
+      this.textAlign,
+      this.onChanged});
 
   @override
   State<CustomInput> createState() => _CustomInputState();
@@ -42,6 +43,8 @@ class _CustomInputState extends State<CustomInput> {
       textAlign: widget.textAlign ?? TextAlign.start,
       keyboardType:
           widget.keyboardType ?? const TextInputType.numberWithOptions(),
+      onChanged: widget.onChanged,
+      focusNode: widget.focusNode,
       style: const TextStyle(
         height: 1.5,
         fontFamily: 'Poppins-Regular',
