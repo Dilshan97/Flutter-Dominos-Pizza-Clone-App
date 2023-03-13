@@ -4,6 +4,8 @@ import 'package:flutter_notes/views/auth/signup.dart';
 import 'package:flutter_notes/views/common/colors.dart';
 import 'package:flutter_notes/views/common/widgets/customInput.dart';
 
+import '../common/widgets/customLabel.dart';
+
 class Login extends StatefulWidget {
   const Login({super.key});
 
@@ -41,14 +43,10 @@ class _LoginState extends State<Login> {
             SizedBox(
               height: size.height * 0.010,
             ),
-            Text(
-              "Login",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: size.width * 0.070,
-                fontFamily: 'Poppins-Medium',
-              ),
+            CustomLabel(
+              label: "Login",
+              textColor: AppColors.secondary,
+              fontSize: size.width * 0.070,
             ),
             SizedBox(
               height: size.height * 0.045,
