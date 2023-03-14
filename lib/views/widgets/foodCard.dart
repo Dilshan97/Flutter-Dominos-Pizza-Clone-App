@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_notes/views/common/colors.dart';
+import 'package:flutter_notes/views/common/widgets/customLabel.dart';
 
 import '../foodItem.dart';
 
@@ -63,36 +64,31 @@ class _FoodCardState extends State<FoodCard> {
                           SizedBox(
                             width: 10,
                           ),
-                          Text(
-                            "top of the week",
-                            style: TextStyle(
-                              fontFamily: 'Poppins-Regular',
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                            ),
+                          CustomLabel(
+                            label: "top of the week",
+                            textColor: AppColors.black,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
                           )
                         ],
                       ),
-                      const SizedBox(height: 15),
+                      const SizedBox(
+                        height: 15,
+                      ),
                       SizedBox(
                         width: size.width / 2.2,
-                        child: Text(
-                          widget.food['name'],
-                          style: const TextStyle(
-                            fontFamily: 'Poppins-Regular',
-                            fontWeight: FontWeight.w700,
-                            fontSize: 20,
-                          ),
+                        child: CustomLabel(
+                          label: widget.food['name'],
+                          textColor: AppColors.black,
+                          fontSize: 17,
+                          fontWeight: FontWeight.w700,
                         ),
                       ),
-                      Text(
-                        widget.food['desc'],
-                        style: const TextStyle(
-                          fontFamily: 'Poppins-Regular',
-                          fontSize: 1,
-                          color: AppColors.lightGray,
-                        ),
-                      )
+                      CustomLabel(
+                        label: widget.food['desc'],
+                        textColor: AppColors.lightGray,
+                        fontSize: 1,
+                      ),
                     ],
                   ),
                 ),
@@ -116,6 +112,7 @@ class _FoodCardState extends State<FoodCard> {
                       child: const Icon(
                         Icons.add,
                         size: 20,
+                        color: AppColors.white,
                       ),
                     ),
                     const SizedBox(
@@ -131,12 +128,11 @@ class _FoodCardState extends State<FoodCard> {
                           SizedBox(
                             width: 5,
                           ),
-                          Text(
-                            "5.0",
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w600,
-                            ),
+                          CustomLabel(
+                            label: "5.0",
+                            textColor: AppColors.black,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600,
                           )
                         ],
                       ),

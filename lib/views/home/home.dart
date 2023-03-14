@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_notes/views/common/colors.dart';
 import 'package:flutter_notes/views/common/constants.dart';
+import 'package:flutter_notes/views/common/widgets/customLabel.dart';
 import 'package:flutter_notes/views/widgets/foodCard.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -84,22 +85,19 @@ class _HomeState extends State<Home> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  "Food",
-                  style: TextStyle(
-                    fontFamily: 'Poppins-Light',
-                    fontSize: 20,
-                    fontWeight: FontWeight.w100,
-                    height: 1.2,
-                  ),
+                const CustomLabel(
+                  label: "Food",
+                  fontFamily: 'Poppins-Light',
+                  textColor: AppColors.black,
+                  fontSize: 20,
+                  fontWeight: FontWeight.w100,
+                  height: 1.2,
                 ),
-                const Text(
-                  "Delivery",
-                  style: TextStyle(
-                    fontFamily: 'Poppins-Regular',
-                    fontSize: 42,
-                    fontWeight: FontWeight.w600,
-                  ),
+                const CustomLabel(
+                  label: "Delivery",
+                  textColor: AppColors.black,
+                  fontSize: 42,
+                  fontWeight: FontWeight.w600,
                 ),
                 SizedBox(
                   height: size.height * 0.050,
@@ -111,13 +109,12 @@ class _HomeState extends State<Home> {
             padding: EdgeInsets.only(
               left: 20,
             ),
-            child: Text(
-              "Categories",
-              style: TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.w600,
-                fontFamily: 'Poppins-Regular',
-              ),
+            child: CustomLabel(
+              label: "Categories",
+              textAlign: TextAlign.start,
+              textColor: AppColors.black,
+              fontSize: 22,
+              fontWeight: FontWeight.w600,
             ),
           ),
           SizedBox(
@@ -150,12 +147,15 @@ class _HomeState extends State<Home> {
               ),
             ),
           ),
-          // Column(
-          //   children: List.generate(
-          //     10,
-          //     (index) => FoodCard(index: index, name: 'test'),
-          //   ),
-          // )
+          Column(
+            children: List.generate(
+              categories[0]['items'].length,
+              (index) => FoodCard(
+                index: index,
+                food: categories[0]['items'][index],
+              ),
+            ),
+          )
         ],
       ),
     );

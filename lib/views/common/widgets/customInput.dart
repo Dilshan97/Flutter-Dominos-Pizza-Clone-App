@@ -1,5 +1,4 @@
 import 'dart:ffi';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_notes/views/common/colors.dart';
@@ -14,20 +13,23 @@ class CustomInput extends StatefulWidget {
   final TextInputType? keyboardType;
   final int? maxLength;
   final TextAlign? textAlign;
-  final String? Function(String?)? onChanged;
+  final Void? Function(Void?)? onChanged;
+  final FocusNode? focusNode;
 
-  const CustomInput(
-      {super.key,
-      this.hintText,
-      this.focusedBorderColor,
-      required this.controller,
-      this.obscureText,
-      this.suffixIcon,
-      this.validator,
-      this.keyboardType,
-      this.maxLength,
-      this.textAlign,
-      this.onChanged});
+  const CustomInput({
+    super.key,
+    this.hintText,
+    this.focusedBorderColor,
+    required this.controller,
+    this.obscureText,
+    this.suffixIcon,
+    this.validator,
+    this.keyboardType,
+    this.maxLength,
+    this.textAlign,
+    this.onChanged,
+    this.focusNode,
+  });
 
   @override
   State<CustomInput> createState() => _CustomInputState();
@@ -43,7 +45,7 @@ class _CustomInputState extends State<CustomInput> {
       textAlign: widget.textAlign ?? TextAlign.start,
       keyboardType:
           widget.keyboardType ?? const TextInputType.numberWithOptions(),
-      onChanged: widget.onChanged,
+      // onChanged: widget.onChanged,
       focusNode: widget.focusNode,
       style: const TextStyle(
         height: 1.5,

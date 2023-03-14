@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_notes/views/common/colors.dart';
+import 'package:flutter_notes/views/common/widgets/customInput.dart';
+import 'package:flutter_notes/views/common/widgets/customLabel.dart';
 
 import '../home/home.dart';
 
@@ -14,12 +17,16 @@ class _SetupDetailsState extends State<SetupDetails> {
   bool _obscurePasswordText = true;
   bool _obscureConfirmPasswordText = true;
 
+  final _nameController = TextEditingController();
+  final _passwordController = TextEditingController();
+  final _confirmPasswordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: AppColors.white,
       body: SizedBox(
         width: size.width,
         child: Column(
@@ -30,24 +37,20 @@ class _SetupDetailsState extends State<SetupDetails> {
               height: size.height * 0.000,
             ),
             Container(
-              width: size.width * 0.55,
+              width: size.width * 0.85,
               alignment: Alignment.center,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(8.0),
-                child: Image.asset('assets/images/logo.png'),
+                child: Image.asset('assets/images/dominos-logo.png'),
               ),
             ),
             SizedBox(
               height: size.height * 0.010,
             ),
-            Text(
-              "Complete your \n Profile",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: size.width * 0.070,
-                fontFamily: 'Poppins-Medium',
-              ),
+            CustomLabel(
+              label: "Complete your \n Profile",
+              textColor: AppColors.black,
+              fontSize: size.width * 0.070,
             ),
             SizedBox(
               height: size.height * 0.020,
@@ -57,13 +60,10 @@ class _SetupDetailsState extends State<SetupDetails> {
               margin: EdgeInsets.only(
                 left: size.width * 0.095,
               ),
-              child: Text(
-                "Name",
-                style: TextStyle(
-                  fontSize: size.width * 0.045,
-                  color: Colors.white,
-                  fontFamily: 'Poppins-Regular',
-                ),
+              child: CustomLabel(
+                label: "Name",
+                textColor: AppColors.black,
+                fontSize: size.width * 0.045,
               ),
             ),
             SizedBox(
@@ -72,35 +72,53 @@ class _SetupDetailsState extends State<SetupDetails> {
             SizedBox(
               height: size.height * 0.055,
               width: size.width * 0.80,
-              child: TextFormField(
-                keyboardType: TextInputType.number,
+              child: CustomInput(
+                controller: _nameController,
+                obscureText: true,
+                hintText: "Name Here",
+                focusedBorderColor: AppColors.primary,
                 validator: (value) {
                   if (value!.isEmpty) {
-                    return 'Phone number is required';
+                    return 'Name is required';
                   }
                   return null;
                 },
-                textAlignVertical: TextAlignVertical.bottom,
-                textAlign: TextAlign.start,
-                style: const TextStyle(
-                  height: 1.5,
-                  fontFamily: 'Poppins-Regular',
-                ),
-                decoration: InputDecoration(
-                  hintText: "Name Here",
-                  fillColor: Colors.white,
-                  filled: true,
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                  focusedBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Color.fromARGB(255, 255, 181, 33),
-                      width: 2.0,
-                    ),
-                  ),
-                  hintStyle: const TextStyle(
-                    fontFamily: 'Poppins-Regular',
+              ),
+            ),
+            SizedBox(
+              height: size.height * 0.030,
+            ),
+            Container(
+              alignment: Alignment.topLeft,
+              margin: EdgeInsets.only(
+                left: size.width * 0.095,
+              ),
+              child: CustomLabel(
+                label: "Password",
+                fontSize: size.width * 0.045,
+                textColor: AppColors.black,
+              ),
+            ),
+            SizedBox(
+              height: size.height * 0.016,
+            ),
+            SizedBox(
+              height: size.height * 0.055,
+              width: size.width * 0.80,
+              child: CustomInput(
+                controller: _passwordController,
+                hintText: "Password Here",
+                suffixIcon: GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      _obscurePasswordText = !_obscurePasswordText;
+                    });
+                  },
+                  child: Icon(
+                    _obscurePasswordText
+                        ? Icons.visibility_off
+                        : Icons.visibility,
+                    color: AppColors.black,
                   ),
                 ),
               ),
@@ -113,13 +131,10 @@ class _SetupDetailsState extends State<SetupDetails> {
               margin: EdgeInsets.only(
                 left: size.width * 0.095,
               ),
-              child: Text(
-                "Password",
-                style: TextStyle(
-                  fontSize: size.width * 0.045,
-                  color: Colors.white,
-                  fontFamily: 'Poppins-Regular',
-                ),
+              child: CustomLabel(
+                label: "Confirm Password",
+                textColor: AppColors.black,
+                fontSize: size.width * 0.045,
               ),
             ),
             SizedBox(
@@ -128,118 +143,30 @@ class _SetupDetailsState extends State<SetupDetails> {
             SizedBox(
               height: size.height * 0.055,
               width: size.width * 0.80,
-              child: TextFormField(
-                keyboardType: TextInputType.number,
-                obscureText: _obscurePasswordText,
+              child: CustomInput(
+                controller: _confirmPasswordController,
+                obscureText: true,
+                hintText: "Confirm Password Here",
+                focusedBorderColor: AppColors.primary,
+                keyboardType: const TextInputType.numberWithOptions(),
                 validator: (value) {
                   if (value!.isEmpty) {
-                    return 'Phone number is required';
+                    return 'Password is required';
                   }
                   return null;
                 },
-                textAlignVertical: TextAlignVertical.bottom,
-                textAlign: TextAlign.start,
-                style: const TextStyle(
-                  height: 1.5,
-                  fontFamily: 'Poppins-Regular',
-                ),
-                decoration: InputDecoration(
-                  hintText: "Password Here",
-                  fillColor: Colors.white,
-                  filled: true,
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                  focusedBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Color.fromARGB(255, 255, 181, 33),
-                      width: 2.0,
-                    ),
-                  ),
-                  hintStyle: const TextStyle(
-                    fontFamily: 'Poppins-Regular',
-                  ),
-                  suffixIcon: GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        _obscurePasswordText = !_obscurePasswordText;
-                      });
-                    },
-                    child: Icon(
-                      _obscurePasswordText
-                          ? Icons.visibility_off
-                          : Icons.visibility,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(
-              height: size.height * 0.030,
-            ),
-            Container(
-              alignment: Alignment.topLeft,
-              margin: EdgeInsets.only(
-                left: size.width * 0.095,
-              ),
-              child: Text(
-                "Confirm Password",
-                style: TextStyle(
-                  fontSize: size.width * 0.045,
-                  color: Colors.white,
-                  fontFamily: 'Poppins-Regular',
-                ),
-              ),
-            ),
-            SizedBox(
-              height: size.height * 0.016,
-            ),
-            SizedBox(
-              height: size.height * 0.055,
-              width: size.width * 0.80,
-              child: TextFormField(
-                obscureText: _obscureConfirmPasswordText,
-                keyboardType: TextInputType.number,
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Phone number is required';
-                  }
-                  return null;
-                },
-                textAlignVertical: TextAlignVertical.bottom,
-                textAlign: TextAlign.start,
-                style: const TextStyle(
-                  height: 1.5,
-                  fontFamily: 'Poppins-Regular',
-                ),
-                decoration: InputDecoration(
-                  hintText: "Confirm Password",
-                  fillColor: Colors.white,
-                  filled: true,
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                  focusedBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Color.fromARGB(255, 255, 181, 33),
-                      width: 2.0,
-                    ),
-                  ),
-                  hintStyle: const TextStyle(
-                    fontFamily: 'Poppins-Regular',
-                  ),
-                  suffixIcon: GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        _obscureConfirmPasswordText =
-                            !_obscureConfirmPasswordText;
-                      });
-                    },
-                    child: Icon(
-                      _obscureConfirmPasswordText
-                          ? Icons.visibility_off
-                          : Icons.visibility,
-                    ),
+                suffixIcon: GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      _obscureConfirmPasswordText =
+                          !_obscureConfirmPasswordText;
+                    });
+                  },
+                  child: Icon(
+                    _obscureConfirmPasswordText
+                        ? Icons.visibility_off
+                        : Icons.visibility,
+                    color: AppColors.black,
                   ),
                 ),
               ),
@@ -252,19 +179,17 @@ class _SetupDetailsState extends State<SetupDetails> {
               height: size.height * 0.050,
               child: TextButton(
                 style: TextButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255, 255, 181, 33),
-                  foregroundColor: Colors.white,
+                  backgroundColor: AppColors.primary,
+                  foregroundColor: AppColors.white,
                 ),
                 onPressed: () => {
                   Navigator.of(context).pushReplacement(
                     MaterialPageRoute(builder: (context) => const Home()),
                   )
                 },
-                child: const Text(
-                  'Register',
-                  style: TextStyle(
-                    fontFamily: 'Poppins-Regular',
-                  ),
+                child: const CustomLabel(
+                  label: 'Register',
+                  textColor: AppColors.white,
                 ),
               ),
             ),

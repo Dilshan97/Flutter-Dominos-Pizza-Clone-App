@@ -18,12 +18,29 @@ class OtpVerification extends StatefulWidget {
 }
 
 class _OtpVerificationState extends State<OtpVerification> {
+  late FocusNode focusNode1;
+  late FocusNode focusNode2;
+
   final _otpController1 = TextEditingController();
   final _otpController2 = TextEditingController();
   final _otpController3 = TextEditingController();
   final _otpController4 = TextEditingController();
   final _otpController5 = TextEditingController();
   final _otpController6 = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    focusNode1 = FocusNode();
+    focusNode2 = FocusNode();
+  }
+
+  @override
+  void dispose() {
+    focusNode1.dispose();
+    focusNode2.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -83,6 +100,8 @@ class _OtpVerificationState extends State<OtpVerification> {
                       controller: _otpController1,
                       maxLength: 1,
                       textAlign: TextAlign.center,
+                      focusNode: focusNode1,
+                      // onChanged: (_) => focusNode2.requestFocus(),
                     ),
                   ),
                   SizedBox(
@@ -93,6 +112,7 @@ class _OtpVerificationState extends State<OtpVerification> {
                       controller: _otpController2,
                       maxLength: 1,
                       textAlign: TextAlign.center,
+                      focusNode: focusNode2,
                     ),
                   ),
                   SizedBox(
