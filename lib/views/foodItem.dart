@@ -215,7 +215,7 @@ class _FoodItemState extends State<FoodItem> {
               top: 50,
             ),
             child: Text(
-              "Sizes",
+              "Sizes & Crust",
               style: TextStyle(
                 fontSize: 23,
                 fontWeight: FontWeight.w700,
@@ -227,110 +227,146 @@ class _FoodItemState extends State<FoodItem> {
             height: 10,
           ),
           SizedBox(
-            height: 120,
+            height: 420,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: widget.food['sizes'].length,
-              itemBuilder: (context, index) => Padding(
-                padding: EdgeInsets.only(
-                  left: index == 0 ? 10 : 0,
-                ),
-                child: Container(
-                  padding: const EdgeInsets.symmetric(
-                    vertical: 10,
-                    horizontal: 10,
-                  ),
-                  margin: const EdgeInsets.only(
-                    right: 20,
-                    top: 10,
-                    bottom: 10,
-                  ),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: AppColors.white,
-                    boxShadow: const [
-                      BoxShadow(
-                        blurRadius: 1,
-                        color: Colors.grey,
+              itemBuilder: (context, index) => Column(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(
+                      left: index == 0 ? 10 : 0,
+                    ),
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 10,
+                        horizontal: 10,
                       ),
-                    ],
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          left: 10.0,
-                          right: 10.0,
-                        ),
-                        child: SvgPicture.asset(
-                          widget.food['sizes'][index]['image'],
-                          width: 70,
-                        ),
+                      margin: const EdgeInsets.only(
+                        right: 20,
+                        top: 10,
+                        bottom: 10,
                       ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: AppColors.white,
+                        boxShadow: const [
+                          BoxShadow(
+                            blurRadius: 1,
+                            color: Colors.grey,
+                          ),
+                        ],
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Text(
-                            "${widget.food['sizes'][index]['name']}",
-                            style: const TextStyle(
-                              fontFamily: 'Poppins-Medium',
-                              fontWeight: FontWeight.w700,
+                          Padding(
+                            padding: const EdgeInsets.only(
+                              left: 10.0,
+                              right: 10.0,
+                            ),
+                            child: SvgPicture.asset(
+                              widget.food['sizes'][index]['image'],
+                              width: 70,
                             ),
                           ),
-                          Text(
-                            "${widget.food['sizes'][index]['desc']}",
-                            style: const TextStyle(
-                              fontFamily: 'Poppins-Regular',
-                            ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "${widget.food['sizes'][index]['name']}",
+                                style: const TextStyle(
+                                  fontFamily: 'Poppins-Medium',
+                                  fontWeight: FontWeight.w700,
+                                ),
+                              ),
+                              Text(
+                                "${widget.food['sizes'][index]['desc']}",
+                                style: const TextStyle(
+                                  fontFamily: 'Poppins-Regular',
+                                ),
+                              )
+                            ],
                           )
                         ],
-                      )
-                    ],
+                      ),
+                    ),
                   ),
-                ),
+                  SizedBox(
+                    height: 75,
+                    width: size.width / 2,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: widget.food['sizes'][index]['crust'].length,
+                      itemBuilder: (context1, index1) => Padding(
+                        padding: EdgeInsets.only(left: index1 == 0 ? 10 : 0),
+                        child: Container(
+                          alignment: Alignment.center,
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 10,
+                            horizontal: 10,
+                          ),
+                          margin: const EdgeInsets.only(
+                            right: 20,
+                            top: 10,
+                            bottom: 10,
+                          ),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: AppColors.white,
+                            boxShadow: const [
+                              BoxShadow(
+                                blurRadius: 1,
+                                color: Colors.grey,
+                              ),
+                            ],
+                          ),
+                          child: Text(
+                              "${widget.food['sizes'][index]['crust'][index1]['name']}"),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
-          ),
-          const SizedBox(
-            height: 100,
           ),
         ],
       ),
-      bottomNavigationBar: SizedBox(
-        width: size.width,
-        child: GestureDetector(
-          child: Container(
-            margin: const EdgeInsets.only(
-              left: 30,
-              right: 30,
-            ),
-            decoration: const BoxDecoration(
-              color: AppColors.primary,
-              borderRadius: BorderRadius.only(
-                topRight: Radius.circular(25),
-                topLeft: Radius.circular(25),
-              ),
-            ),
-            child: const Padding(
-              padding: EdgeInsets.only(
-                top: 20,
-                bottom: 22,
-              ),
-              child: Text(
-                'Add to Cart',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 20,
-                  fontFamily: 'Poppins-Regular',
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-            ),
-          ),
-        ),
-      ),
+      // bottomNavigationBar: SizedBox(
+      //   width: size.width,
+      //   child: GestureDetector(
+      //     child: Container(
+      //       margin: const EdgeInsets.only(
+      //         left: 30,
+      //         right: 30,
+      //       ),
+      //       decoration: const BoxDecoration(
+      //         color: AppColors.primary,
+      //         borderRadius: BorderRadius.only(
+      //           topRight: Radius.circular(25),
+      //           topLeft: Radius.circular(25),
+      //         ),
+      //       ),
+      //       child: const Padding(
+      //         padding: EdgeInsets.only(
+      //           top: 20,
+      //           bottom: 22,
+      //         ),
+      //         child: Text(
+      //           'Add to Cart',
+      //           textAlign: TextAlign.center,
+      //           style: TextStyle(
+      //             fontSize: 20,
+      //             fontFamily: 'Poppins-Regular',
+      //             fontWeight: FontWeight.w700,
+      //           ),
+      //         ),
+      //       ),
+      //     ),
+      //   ),
+      // ),
     );
   }
 }
