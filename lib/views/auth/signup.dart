@@ -49,8 +49,9 @@ class _SignUpState extends State<SignUp> {
           print(verificationId);
         },
       );
-    } catch (e) {
-      print(e);
+    } on FirebaseAuthException catch (e) {
+      print('Failed with error code: ${e.code}');
+      print(e.message);
     }
   }
 

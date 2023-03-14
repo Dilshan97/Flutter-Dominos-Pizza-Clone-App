@@ -23,15 +23,11 @@ class _SplashState extends State<Splash> {
     User? user = auth.currentUser;
     Timer(const Duration(seconds: 2), () {
       // Navigate to the home screen after 2 seconds
-      if (user == null) {
-        Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => const Login()),
-        );
-      } else {
-        Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => const Home()),
-        );
-      }
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(
+          builder: (context) => user == null ? const Login() : const Home(),
+        ),
+      );
     });
   }
 
