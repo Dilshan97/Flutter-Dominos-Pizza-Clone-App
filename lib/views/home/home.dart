@@ -1,7 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_notes/views/common/colors.dart';
 import 'package:flutter_notes/views/common/constants.dart';
 import 'package:flutter_notes/views/common/widgets/customLabel.dart';
+import 'package:flutter_notes/views/splash.dart';
 import 'package:flutter_notes/views/widgets/foodCard.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -17,6 +19,17 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   bool _drawerOpen = false;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  final FirebaseAuth auth = FirebaseAuth.instance;
+
+  signout() {
+    auth.signOut();
+
+    Navigator.of(context).pushReplacement(
+      MaterialPageRoute(
+        builder: (context) => const Splash(),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -62,9 +75,17 @@ class _HomeState extends State<Home> {
         child: Drawer(
           backgroundColor: AppColors.white,
           child: Container(
+            height: 200,
             child: Column(
               children: [
                 // Drawer items
+                SizedBox(
+                  height: 100,
+                ),
+                GestureDetector(
+                  child: const Text("Logout"),
+                  onTap: () => signout(),
+                )
               ],
             ),
           ),
