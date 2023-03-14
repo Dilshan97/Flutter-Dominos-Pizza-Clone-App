@@ -6,7 +6,11 @@ import 'package:flutter_svg/svg.dart';
 import 'home/home.dart';
 
 class FoodItem extends StatefulWidget {
-  const FoodItem({super.key});
+  final Map food;
+  const FoodItem({
+    super.key,
+    required this.food,
+  });
 
   @override
   State<FoodItem> createState() => _FoodItemState();
@@ -66,16 +70,22 @@ class _FoodItemState extends State<FoodItem> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  "Primavera\nPizza",
-                  style: TextStyle(
+                Text(
+                  widget.food['name'],
+                  style: const TextStyle(
                     fontFamily: 'Poppins-Regular',
                     fontSize: 40,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
-                const SizedBox(
-                  height: 24,
+                SizedBox(
+                  height: size.height * 0.01,
+                ),
+                Text(
+                  widget.food['desc'],
+                ),
+                SizedBox(
+                  height: size.height * 0.03,
                 ),
                 Row(
                   children: [
@@ -169,7 +179,7 @@ class _FoodItemState extends State<FoodItem> {
                         ],
                       ),
                       Hero(
-                        tag: "assets/images/pizza.png",
+                        tag: widget.food['image'],
                         child: Container(
                           transform: Matrix4.translationValues(
                             2.0,
@@ -188,7 +198,7 @@ class _FoodItemState extends State<FoodItem> {
                             ],
                           ),
                           child: Image.asset(
-                            "assets/images/pizza.png",
+                            widget.food['image'],
                             fit: BoxFit.contain,
                           ),
                         ),
@@ -205,7 +215,7 @@ class _FoodItemState extends State<FoodItem> {
               top: 50,
             ),
             child: Text(
-              "Ingredients",
+              "Sizes",
               style: TextStyle(
                 fontSize: 23,
                 fontWeight: FontWeight.w700,
@@ -220,15 +230,15 @@ class _FoodItemState extends State<FoodItem> {
             height: 120,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
-              itemCount: 10,
+              itemCount: widget.food['sizes'].length,
               itemBuilder: (context, index) => Padding(
                 padding: EdgeInsets.only(
-                  left: index == 0 ? 20 : 0,
+                  left: index == 0 ? 10 : 0,
                 ),
                 child: Container(
                   padding: const EdgeInsets.symmetric(
-                    vertical: 15,
-                    horizontal: 15,
+                    vertical: 10,
+                    horizontal: 10,
                   ),
                   margin: const EdgeInsets.only(
                     right: 20,
@@ -245,9 +255,39 @@ class _FoodItemState extends State<FoodItem> {
                       ),
                     ],
                   ),
-                  child: Image.asset(
-                    "assets/images/onion.png",
-                    width: 90,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(
+                          left: 10.0,
+                          right: 10.0,
+                        ),
+                        child: SvgPicture.asset(
+                          widget.food['sizes'][index]['image'],
+                          width: 70,
+                        ),
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "${widget.food['sizes'][index]['name']}",
+                            style: const TextStyle(
+                              fontFamily: 'Poppins-Medium',
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                          Text(
+                            "${widget.food['sizes'][index]['desc']}",
+                            style: const TextStyle(
+                              fontFamily: 'Poppins-Regular',
+                            ),
+                          )
+                        ],
+                      )
+                    ],
                   ),
                 ),
               ),
