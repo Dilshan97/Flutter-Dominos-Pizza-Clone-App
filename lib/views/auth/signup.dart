@@ -16,25 +16,34 @@ class SignUp extends StatefulWidget {
 
 class _SignUpState extends State<SignUp> {
   final _formKey = GlobalKey<FormState>();
-  final _phoneController = TextEditingController();
+  final _phoneController = TextEditingController(text: '0771854709');
 
   Future<void> _verifyPhoneNumber() async {
+    print("+94${_phoneController.text}");
     try {
       await FirebaseAuth.instance.verifyPhoneNumber(
-        phoneNumber: _phoneController.text,
-        verificationCompleted: (PhoneAuthCredential credential) {},
-        verificationFailed: (FirebaseAuthException e) {},
-        codeSent: (String verificationId, int? resendToken) {},
-        codeAutoRetrievalTimeout: (String verificationId) {},
+        phoneNumber: "+94${_phoneController.text}",
+        verificationCompleted: (PhoneAuthCredential credential) {
+          print(credential);
+        },
+        verificationFailed: (FirebaseAuthException e) {
+          print(e);
+        },
+        codeSent: (String verificationId, int? resendToken) {
+          print(verificationId);
+        },
+        codeAutoRetrievalTimeout: (String verificationId) {
+          print(verificationId);
+        },
       );
 
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(
-          builder: (context) => OtpVerification(
-            phoneNumber: _phoneController.text,
-          ),
-        ),
-      );
+      //   Navigator.of(context).pushReplacement(
+      //     MaterialPageRoute(
+      //       builder: (context) => OtpVerification(
+      //         phoneNumber: _phoneController.text,
+      //       ),
+      //     ),
+      //   );
     } catch (e) {
       print(e);
     }
@@ -103,9 +112,12 @@ class _SignUpState extends State<SignUp> {
                   focusedBorderColor: AppColors.primary,
                   controller: _phoneController,
                   maxLength: 10,
+                  keyboardType: TextInputType.number,
                   validator: (value) {
                     if (value!.isEmpty) {
                       return 'Phone number is required';
+                    } else if (value.length < 10) {
+                      return 'Phone number should be 10 characters';
                     }
                     return null;
                   },
@@ -122,10 +134,7 @@ class _SignUpState extends State<SignUp> {
                     backgroundColor: AppColors.primary,
                     foregroundColor: AppColors.white,
                   ),
-                  onPressed: () => {
-                    if (_formKey.currentState!.validate())
-                      {_verifyPhoneNumber()}
-                  },
+                  onPressed: () => _verifyPhoneNumber(),
                   child: const CustomLabel(
                     label: "Continue",
                     textColor: AppColors.white,
