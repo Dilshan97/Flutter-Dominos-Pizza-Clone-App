@@ -21,7 +21,11 @@ class _FoodCardState extends State<FoodCard> {
     return GestureDetector(
       onTap: () => {
         Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => const FoodItem()),
+          MaterialPageRoute(
+            builder: (context) => FoodItem(
+              food: widget.food,
+            ),
+          ),
         )
       },
       child: Container(

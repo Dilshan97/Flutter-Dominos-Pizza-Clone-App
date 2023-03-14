@@ -81,7 +81,7 @@ class _CategoryCardState extends State<CategoryCard> {
               },
               fillColor: selectedCategory == widget.index
                   ? AppColors.white
-                  : AppColors.tertiary,
+                  : AppColors.secondary,
               shape: const CircleBorder(),
               child: Icon(
                 Icons.chevron_right,

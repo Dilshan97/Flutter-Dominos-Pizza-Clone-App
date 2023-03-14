@@ -1,11 +1,14 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_notes/views/common/colors.dart';
 import 'package:flutter_notes/views/common/constants.dart';
 import 'package:flutter_notes/views/common/widgets/customLabel.dart';
+import 'package:flutter_notes/views/splash.dart';
 import 'package:flutter_notes/views/widgets/foodCard.dart';
 import 'package:flutter_svg/svg.dart';
 
 import 'widget/categoryCard.dart';
+import 'widget/nav/navItem.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -17,6 +20,17 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   bool _drawerOpen = false;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  final FirebaseAuth auth = FirebaseAuth.instance;
+
+  signout() {
+    auth.signOut();
+
+    Navigator.of(context).pushReplacement(
+      MaterialPageRoute(
+        builder: (context) => const Splash(),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -62,9 +76,61 @@ class _HomeState extends State<Home> {
         child: Drawer(
           backgroundColor: AppColors.white,
           child: Container(
+            height: 200,
             child: Column(
               children: [
                 // Drawer items
+                SizedBox(
+                  height: size.height * 0.18,
+                  child: Container(
+                    color: AppColors.primary,
+                  ),
+                ),
+                SizedBox(
+                  height: size.height * 0.03,
+                ),
+                NavItem(
+                  icon: Icons.location_pin,
+                  name: 'Track Current Order',
+                  width: size.width,
+                ),
+
+                NavItem(
+                  icon: Icons.history,
+                  name: 'Order History',
+                  width: size.width,
+                ),
+
+                NavItem(
+                  icon: Icons.menu_book,
+                  name: 'Menu',
+                  width: size.width,
+                ),
+
+                NavItem(
+                  icon: Icons.heat_pump_sharp,
+                  name: 'My Favorite',
+                  width: size.width,
+                ),
+
+                NavItem(
+                  icon: Icons.receipt,
+                  name: 'Terms & Conditions',
+                  width: size.width,
+                ),
+
+                NavItem(
+                  icon: Icons.contact_phone,
+                  name: 'Help',
+                  width: size.width,
+                ),
+
+                NavItem(
+                  icon: Icons.logout,
+                  name: 'Sign out',
+                  width: size.width,
+                  onTap: () => signout(),
+                ),
               ],
             ),
           ),

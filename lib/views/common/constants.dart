@@ -61,6 +61,7 @@ List<Map<String, dynamic>> categories = [
           {
             'name': 'Regular',
             'desc': '6" - Serves 1',
+            'image': 'assets/images/size/regular.svg',
             'price': 1109,
             'crust': [
               {
@@ -71,6 +72,7 @@ List<Map<String, dynamic>> categories = [
           {
             'name': 'Medium',
             'desc': '9" - Serves 2',
+            'image': 'assets/images/size/medium.svg',
             'price': 2029,
             'crust': [
               {
@@ -90,6 +92,7 @@ List<Map<String, dynamic>> categories = [
           {
             'name': 'Large',
             'desc': '11" - Serves 4',
+            'image': 'assets/images/size/regular.svg',
             'price': 3739,
             'crust': [
               {
@@ -111,6 +114,7 @@ List<Map<String, dynamic>> categories = [
           {
             'name': 'Regular',
             'desc': '6" - Serves 1',
+            'image': 'assets/images/size/regular.svg',
             'price': 1109,
             'crust': [
               {
@@ -121,6 +125,7 @@ List<Map<String, dynamic>> categories = [
           {
             'name': 'Medium',
             'desc': '9" - Serves 2',
+            'image': 'assets/images/size/medium.svg',
             'price': 2029,
             'crust': [
               {
@@ -140,6 +145,7 @@ List<Map<String, dynamic>> categories = [
           {
             'name': 'Large',
             'desc': '11" - Serves 4',
+            'image': 'assets/images/size/regular.svg',
             'price': 3739,
             'crust': [
               {
@@ -161,6 +167,7 @@ List<Map<String, dynamic>> categories = [
           {
             'name': 'Regular',
             'desc': '6" - Serves 1',
+            'image': 'assets/images/size/regular.svg',
             'price': 1109,
             'crust': [
               {
@@ -171,6 +178,7 @@ List<Map<String, dynamic>> categories = [
           {
             'name': 'Medium',
             'desc': '9" - Serves 2',
+            'image': 'assets/images/size/medium.svg',
             'price': 2029,
             'crust': [
               {
@@ -190,6 +198,7 @@ List<Map<String, dynamic>> categories = [
           {
             'name': 'Large',
             'desc': '11" - Serves 4',
+            'image': 'assets/images/size/regular.svg',
             'price': 3739,
             'crust': [
               {
@@ -211,6 +220,7 @@ List<Map<String, dynamic>> categories = [
           {
             'name': 'Regular',
             'desc': '6" - Serves 1',
+            'image': 'assets/images/size/regular.svg',
             'price': 1109,
             'crust': [
               {
@@ -221,6 +231,7 @@ List<Map<String, dynamic>> categories = [
           {
             'name': 'Medium',
             'desc': '9" - Serves 2',
+            'image': 'assets/images/size/medium.svg',
             'price': 2029,
             'crust': [
               {
@@ -240,6 +251,7 @@ List<Map<String, dynamic>> categories = [
           {
             'name': 'Large',
             'desc': '11" - Serves 4',
+            'image': 'assets/images/size/regular.svg',
             'price': 3739,
             'crust': [
               {
