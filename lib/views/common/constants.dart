@@ -263,27 +263,31 @@ List<Map<String, dynamic>> categories = [
         'name': 'KidsMeal',
         'desc':
             'Dominos Childrens day Kids Meal comes with 1 regular Simply cheese pizza and a Choco zingy 1 Pc',
-        'image': 'https://images.dominos.co.in/srilanka/283.jpg',
+        // 'image': 'https://images.dominos.co.in/srilanka/283.jpg',
+        'image': 'assets/images/pizza/teriyaki-chicken.png',
         'price': 998
       },
       {
         'name': 'Choco Lava Cake',
         'desc': 'Gooey thick chocolate melt covered with chocolate cake',
-        'image': 'https://images.dominos.co.in/srilanka/Choco_Lava.png',
+        // 'image': 'https://images.dominos.co.in/srilanka/Choco_Lava.png',
+        'image': 'assets/images/pizza/teriyaki-chicken.png',
         'price': 499
       },
       {
         'name': 'Choco Zingy 2pcs',
         'desc':
             'A Crispy & Chocolaty oven baked dessert stuffed with crunchy Chocolate chips & pineapple - 2 pcs',
-        'image': 'https://images.dominos.co.in/srilanka/282.jpg',
+        // 'image': 'https://images.dominos.co.in/srilanka/282.jpg',
+        'image': 'assets/images/pizza/teriyaki-chicken.png',
         'price': 299
       },
       {
         'name': 'Choco Bread Sticks',
         'desc':
             'Chocolate chips and chocolate sauce in a tasty oven baked bread',
-        'image': 'https://images.dominos.co.in/srilanka/282.jpg',
+        // 'image': 'https://images.dominos.co.in/srilanka/282.jpg',
+        'image': 'assets/images/pizza/teriyaki-chicken.png',
         'price': 699
       },
     ]

@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/cupertino.dart';
 
 class CustomLabel extends StatefulWidget {
@@ -5,6 +7,9 @@ class CustomLabel extends StatefulWidget {
   final double? fontSize;
   final FontWeight? fontWeight;
   final Color textColor;
+  final String? fontFamily;
+  final double? height;
+  final TextAlign? textAlign;
 
   const CustomLabel({
     super.key,
@@ -12,6 +17,9 @@ class CustomLabel extends StatefulWidget {
     required this.textColor,
     this.fontSize,
     this.fontWeight,
+    this.fontFamily,
+    this.height,
+    this.textAlign,
   });
 
   @override
@@ -23,12 +31,13 @@ class _CustomLabelState extends State<CustomLabel> {
   Widget build(BuildContext context) {
     return Text(
       widget.label,
-      textAlign: TextAlign.center,
+      textAlign: widget.textAlign ?? TextAlign.center,
       style: TextStyle(
         color: widget.textColor,
         fontSize: widget.fontSize,
-        fontFamily: 'Poppins-Medium',
+        fontFamily: widget.fontFamily ?? 'Poppins-Medium',
         fontWeight: widget.fontWeight,
+        height: widget.height,
       ),
     );
   }
