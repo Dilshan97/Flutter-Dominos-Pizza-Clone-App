@@ -8,6 +8,7 @@ import 'package:flutter_notes/views/widgets/foodCard.dart';
 import 'package:flutter_svg/svg.dart';
 
 import 'widget/categoryCard.dart';
+import 'widget/nav/navItem.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -80,12 +81,56 @@ class _HomeState extends State<Home> {
               children: [
                 // Drawer items
                 SizedBox(
-                  height: 100,
+                  height: size.height * 0.18,
+                  child: Container(
+                    color: AppColors.primary,
+                  ),
                 ),
-                GestureDetector(
-                  child: const Text("Logout"),
+                SizedBox(
+                  height: size.height * 0.03,
+                ),
+                NavItem(
+                  icon: Icons.location_pin,
+                  name: 'Track Current Order',
+                  width: size.width,
+                ),
+
+                NavItem(
+                  icon: Icons.history,
+                  name: 'Order History',
+                  width: size.width,
+                ),
+
+                NavItem(
+                  icon: Icons.menu_book,
+                  name: 'Menu',
+                  width: size.width,
+                ),
+
+                NavItem(
+                  icon: Icons.heat_pump_sharp,
+                  name: 'My Favorite',
+                  width: size.width,
+                ),
+
+                NavItem(
+                  icon: Icons.receipt,
+                  name: 'Terms & Conditions',
+                  width: size.width,
+                ),
+
+                NavItem(
+                  icon: Icons.contact_phone,
+                  name: 'Help',
+                  width: size.width,
+                ),
+
+                NavItem(
+                  icon: Icons.logout,
+                  name: 'Sign out',
+                  width: size.width,
                   onTap: () => signout(),
-                )
+                ),
               ],
             ),
           ),
