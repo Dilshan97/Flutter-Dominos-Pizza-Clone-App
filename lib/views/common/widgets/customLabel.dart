@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 class CustomLabel extends StatefulWidget {
   final String label;
   final double? fontSize;
+  final FontWeight? fontWeight;
   final Color textColor;
 
   const CustomLabel({
@@ -10,6 +11,7 @@ class CustomLabel extends StatefulWidget {
     required this.label,
     required this.textColor,
     this.fontSize,
+    this.fontWeight,
   });
 
   @override
@@ -26,6 +28,7 @@ class _CustomLabelState extends State<CustomLabel> {
         color: widget.textColor,
         fontSize: widget.fontSize,
         fontFamily: 'Poppins-Medium',
+        fontWeight: widget.fontWeight,
       ),
     );
   }

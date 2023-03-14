@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_notes/views/common/colors.dart';
+import 'package:flutter_notes/views/common/widgets/customLabel.dart';
 import 'package:flutter_notes/views/home/home.dart';
 
 import '../common/constants.dart';
@@ -44,17 +45,18 @@ class _FoodCategoryState extends State<FoodCategory> {
                       border: Border.all(color: AppColors.lightGray),
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    child: const Icon(Icons.chevron_left),
+                    child: const Icon(
+                      Icons.chevron_left,
+                      color: AppColors.black,
+                    ),
                   ),
                 ),
-                Text(
-                  widget.name,
-                  style: const TextStyle(
-                    fontSize: 18,
-                    fontFamily: 'Poppins-Regular',
-                    fontWeight: FontWeight.w600,
-                  ),
-                )
+                CustomLabel(
+                  label: widget.name,
+                  textColor: AppColors.black,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 18,
+                ),
               ],
             ),
           ),
