@@ -22,13 +22,13 @@ class _LoginState extends State<Login> {
 
   login() {
     if (_formKey.currentState!.validate()) {
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(
-          builder: (context) => OtpVerification(
-            phoneNumber: _phoneController.text.toString(),
-          ),
-        ),
-      );
+      // Navigator.of(context).pushReplacement(
+      //   MaterialPageRoute(
+      //     builder: (context) => OtpVerification(
+      //       phoneNumber: _phoneController.text.toString(),
+      //     ),
+      //   ),
+      // );
     }
   }
 

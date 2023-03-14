@@ -19,31 +19,36 @@ class _SignUpState extends State<SignUp> {
   final _phoneController = TextEditingController(text: '0771854709');
 
   Future<void> _verifyPhoneNumber() async {
-    print("+94${_phoneController.text}");
     try {
       await FirebaseAuth.instance.verifyPhoneNumber(
         phoneNumber: "+94${_phoneController.text}",
         verificationCompleted: (PhoneAuthCredential credential) {
+          print('verificationCompleted');
           print(credential);
         },
         verificationFailed: (FirebaseAuthException e) {
+          print('verificationFailed');
           print(e);
         },
         codeSent: (String verificationId, int? resendToken) {
+          print('codeSent');
           print(verificationId);
+          print(resendToken);
+          Navigator.of(context).pushReplacement(
+            MaterialPageRoute(
+              builder: (context) => OtpVerification(
+                phoneNumber: _phoneController.text,
+                resendToken: resendToken,
+                verificationId: verificationId,
+              ),
+            ),
+          );
         },
         codeAutoRetrievalTimeout: (String verificationId) {
+          print('codeAutoRetrievalTimeout');
           print(verificationId);
         },
       );
-
-      //   Navigator.of(context).pushReplacement(
-      //     MaterialPageRoute(
-      //       builder: (context) => OtpVerification(
-      //         phoneNumber: _phoneController.text,
-      //       ),
-      //     ),
-      //   );
     } catch (e) {
       print(e);
     }
