@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_notes/views/cart/cart.dart';
 import 'package:flutter_notes/views/common/colors.dart';
 import 'package:flutter_notes/views/common/constants.dart';
 import 'package:flutter_notes/views/common/widgets/customLabel.dart';
@@ -223,6 +224,27 @@ class _HomeState extends State<Home> {
             ),
           )
         ],
+      ),
+      floatingActionButton: Container(
+        margin: const EdgeInsets.all(10),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(25),
+          color: AppColors.secondary,
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(15),
+          child: GestureDetector(
+            child: const Icon(
+              Icons.shopping_cart,
+              color: AppColors.white,
+            ),
+            onTap: () => {
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(builder: (context) => const Cart()),
+              )
+            },
+          ),
+        ),
       ),
     );
   }
