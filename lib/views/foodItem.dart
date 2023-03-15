@@ -257,39 +257,42 @@ class _FoodItemState extends State<FoodItem> {
                           ),
                         ],
                       ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(
-                              left: 10.0,
-                              right: 10.0,
-                            ),
-                            child: SvgPicture.asset(
-                              widget.food['sizes'][index]['image'],
-                              width: 70,
-                            ),
-                          ),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "${widget.food['sizes'][index]['name']}",
-                                style: const TextStyle(
-                                  fontFamily: 'Poppins-Medium',
-                                  fontWeight: FontWeight.w700,
-                                ),
+                      child: GestureDetector(
+                        onTap: () => print('selected_${index}'),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                left: 10.0,
+                                right: 10.0,
                               ),
-                              Text(
-                                "${widget.food['sizes'][index]['desc']}",
-                                style: const TextStyle(
-                                  fontFamily: 'Poppins-Regular',
+                              child: SvgPicture.asset(
+                                widget.food['sizes'][index]['image'],
+                                width: 70,
+                              ),
+                            ),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "${widget.food['sizes'][index]['name']}",
+                                  style: const TextStyle(
+                                    fontFamily: 'Poppins-Medium',
+                                    fontWeight: FontWeight.w700,
+                                  ),
                                 ),
-                              )
-                            ],
-                          )
-                        ],
+                                Text(
+                                  "${widget.food['sizes'][index]['desc']}",
+                                  style: const TextStyle(
+                                    fontFamily: 'Poppins-Regular',
+                                  ),
+                                )
+                              ],
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   ),
