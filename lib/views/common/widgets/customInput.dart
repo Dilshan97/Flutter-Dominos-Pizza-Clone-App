@@ -9,11 +9,12 @@ class CustomInput extends StatefulWidget {
   final TextEditingController controller;
   final bool? obscureText;
   final Widget? suffixIcon;
+  final Widget? prefixIcon;
   final String? Function(String?)? validator;
   final TextInputType? keyboardType;
   final int? maxLength;
   final TextAlign? textAlign;
-  final Void? Function(Void?)? onChanged;
+  final Function()? onChanged;
   final FocusNode? focusNode;
 
   const CustomInput({
@@ -22,6 +23,7 @@ class CustomInput extends StatefulWidget {
     this.focusedBorderColor,
     required this.controller,
     this.obscureText,
+    this.prefixIcon,
     this.suffixIcon,
     this.validator,
     this.keyboardType,
@@ -77,6 +79,7 @@ class _CustomInputState extends State<CustomInput> {
           fontFamily: 'Poppins-Regular',
         ),
         suffixIcon: widget.suffixIcon,
+        prefixIcon: widget.prefixIcon,
       ),
       validator: widget.validator,
       maxLength: widget.maxLength,
