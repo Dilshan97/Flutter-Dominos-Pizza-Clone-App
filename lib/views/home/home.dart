@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_notes/views/cart/cart.dart';
@@ -8,6 +9,7 @@ import 'package:flutter_notes/views/splash.dart';
 import 'package:flutter_notes/views/widgets/foodCard.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../../models/category.dart';
 import 'widget/categoryCard.dart';
 import 'widget/nav/navItem.dart';
 
@@ -23,6 +25,12 @@ class _HomeState extends State<Home> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   final FirebaseAuth auth = FirebaseAuth.instance;
 
+  final categoryRef =
+      FirebaseFirestore.instance.collection('categories').withConverter(
+            fromFirestore: Category.fromFirestore,
+            toFirestore: (Category category, _) => category.toFirestore(),
+          );
+
   signout() {
     auth.signOut();
 
@@ -36,6 +44,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+
     return Scaffold(
       key: _scaffoldKey,
       backgroundColor: AppColors.white,
@@ -185,22 +194,53 @@ class _HomeState extends State<Home> {
             ),
           ),
           SizedBox(
-            height: size.height * 0.30,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: categories.length,
-              itemBuilder: (context, index) => Padding(
-                padding: EdgeInsets.only(
-                  left: index == 0 ? 20 : 0,
-                ),
-                child: CategoryCard(
-                  index: index,
-                  name: "${categories[index]['name']}",
-                  image: '${categories[index]['imagePath']}',
-                ),
-              ),
-            ),
-          ),
+              height: size.height * 0.30,
+              child: StreamBuilder<QuerySnapshot<Category>>(
+                stream: categoryRef.snapshots(),
+                builder: (BuildContext context,
+                    AsyncSnapshot<QuerySnapshot> snapshot) {
+                  if (snapshot.hasError) {
+                    return const Text("Something went wrong");
+                  }
+
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return const Text("Loading");
+                  }
+
+                  final data = snapshot.requireData;
+
+                  return ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: data.size,
+                    itemBuilder: (context, index) => Padding(
+                      padding: EdgeInsets.only(
+                        left: index == 0 ? 20 : 0,
+                      ),
+                      child: CategoryCard(
+                        index: index,
+                        name: data.docs[index]['name'],
+                        image: data.docs[index]['image'],
+                      ),
+                    ),
+                  );
+                },
+              )),
+
+// ListView.builder(
+//               scrollDirection: Axis.horizontal,
+//               itemCount: categories.length,
+//               itemBuilder: (context, index) => Padding(
+//                 padding: EdgeInsets.only(
+//                   left: index == 0 ? 20 : 0,
+//                 ),
+//                 child: CategoryCard(
+//                   index: index,
+//                   name: "${categories[index]['name']}",
+//                   image: '${categories[index]['imagePath']}',
+//                 ),
+//               ),
+//             ),
+
           const Padding(
             padding: EdgeInsets.only(
               left: 20,
