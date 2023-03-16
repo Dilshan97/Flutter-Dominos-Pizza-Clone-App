@@ -32,13 +32,15 @@ class _HomeState extends State<Home> {
           );
 
   signout() {
-    auth.signOut();
-
-    Navigator.of(context).pushReplacement(
-      MaterialPageRoute(
-        builder: (context) => const Splash(),
-      ),
-    );
+    auth.signOut().then(
+          (value) => {
+            Navigator.of(context).pushReplacement(
+              MaterialPageRoute(
+                builder: (context) => const Splash(),
+              ),
+            )
+          },
+        );
   }
 
   @override
@@ -194,53 +196,38 @@ class _HomeState extends State<Home> {
             ),
           ),
           SizedBox(
-              height: size.height * 0.30,
-              child: StreamBuilder<QuerySnapshot<Category>>(
-                stream: categoryRef.snapshots(),
-                builder: (BuildContext context,
-                    AsyncSnapshot<QuerySnapshot> snapshot) {
-                  if (snapshot.hasError) {
-                    return const Text("Something went wrong");
-                  }
+            height: size.height * 0.30,
+            child: StreamBuilder<QuerySnapshot<Category>>(
+              stream: categoryRef.snapshots(),
+              builder: (BuildContext context,
+                  AsyncSnapshot<QuerySnapshot> snapshot) {
+                if (snapshot.hasError) {
+                  return const Text("Something went wrong");
+                }
 
-                  if (snapshot.connectionState == ConnectionState.waiting) {
-                    return const Text("Loading");
-                  }
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return const Text("Loading");
+                }
 
-                  final data = snapshot.requireData;
+                final data = snapshot.requireData;
 
-                  return ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: data.size,
-                    itemBuilder: (context, index) => Padding(
-                      padding: EdgeInsets.only(
-                        left: index == 0 ? 20 : 0,
-                      ),
-                      child: CategoryCard(
-                        index: index,
-                        name: data.docs[index]['name'],
-                        image: data.docs[index]['image'],
-                      ),
+                return ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: data.size,
+                  itemBuilder: (context, index) => Padding(
+                    padding: EdgeInsets.only(
+                      left: index == 0 ? 20 : 0,
                     ),
-                  );
-                },
-              )),
-
-// ListView.builder(
-//               scrollDirection: Axis.horizontal,
-//               itemCount: categories.length,
-//               itemBuilder: (context, index) => Padding(
-//                 padding: EdgeInsets.only(
-//                   left: index == 0 ? 20 : 0,
-//                 ),
-//                 child: CategoryCard(
-//                   index: index,
-//                   name: "${categories[index]['name']}",
-//                   image: '${categories[index]['imagePath']}',
-//                 ),
-//               ),
-//             ),
-
+                    child: CategoryCard(
+                      index: index,
+                      name: data.docs[index]['name'],
+                      image: data.docs[index]['image'],
+                    ),
+                  ),
+                );
+              },
+            ),
+          ),
           const Padding(
             padding: EdgeInsets.only(
               left: 20,
