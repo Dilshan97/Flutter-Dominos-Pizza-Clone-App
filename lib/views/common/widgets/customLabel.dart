@@ -10,6 +10,7 @@ class CustomLabel extends StatefulWidget {
   final String? fontFamily;
   final double? height;
   final TextAlign? textAlign;
+  final TextOverflow? textOverflow;
 
   const CustomLabel({
     super.key,
@@ -20,6 +21,7 @@ class CustomLabel extends StatefulWidget {
     this.fontFamily,
     this.height,
     this.textAlign,
+    this.textOverflow,
   });
 
   @override
@@ -39,6 +41,7 @@ class _CustomLabelState extends State<CustomLabel> {
         fontWeight: widget.fontWeight,
         height: widget.height,
       ),
+      overflow: widget.textOverflow,
     );
   }
 }
