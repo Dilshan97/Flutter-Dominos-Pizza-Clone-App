@@ -26,6 +26,10 @@ class OtpVerification extends StatefulWidget {
 class _OtpVerificationState extends State<OtpVerification> {
   late FocusNode focusNode1;
   late FocusNode focusNode2;
+  late FocusNode focusNode3;
+  late FocusNode focusNode4;
+  late FocusNode focusNode5;
+  late FocusNode focusNode6;
 
   final _otpController1 = TextEditingController();
   final _otpController2 = TextEditingController();
@@ -39,12 +43,20 @@ class _OtpVerificationState extends State<OtpVerification> {
     super.initState();
     focusNode1 = FocusNode();
     focusNode2 = FocusNode();
+    focusNode3 = FocusNode();
+    focusNode4 = FocusNode();
+    focusNode5 = FocusNode();
+    focusNode6 = FocusNode();
   }
 
   @override
   void dispose() {
     focusNode1.dispose();
     focusNode2.dispose();
+    focusNode3.dispose();
+    focusNode4.dispose();
+    focusNode5.dispose();
+    focusNode6.dispose();
     super.dispose();
   }
 
@@ -143,7 +155,8 @@ class _OtpVerificationState extends State<OtpVerification> {
                         maxLength: 1,
                         textAlign: TextAlign.center,
                         focusNode: focusNode1,
-                        onChanged: () => focusNode2.requestFocus(),
+                        onChanged: () =>
+                            FocusScope.of(context).requestFocus(focusNode2),
                         validator: (value) {
                           if (value!.isEmpty) {
                             return 'Otp is required';
@@ -161,6 +174,8 @@ class _OtpVerificationState extends State<OtpVerification> {
                         maxLength: 1,
                         textAlign: TextAlign.center,
                         focusNode: focusNode2,
+                        onChanged: () =>
+                            FocusScope.of(context).requestFocus(focusNode3),
                         validator: (value) {
                           if (value!.isEmpty) {
                             return 'Otp is required';
@@ -177,6 +192,9 @@ class _OtpVerificationState extends State<OtpVerification> {
                         controller: _otpController3,
                         maxLength: 1,
                         textAlign: TextAlign.center,
+                        focusNode: focusNode3,
+                        onChanged: () =>
+                            FocusScope.of(context).requestFocus(focusNode4),
                         validator: (value) {
                           if (value!.isEmpty) {
                             return 'Otp is required';
@@ -193,6 +211,9 @@ class _OtpVerificationState extends State<OtpVerification> {
                         controller: _otpController4,
                         maxLength: 1,
                         textAlign: TextAlign.center,
+                        focusNode: focusNode4,
+                        onChanged: () =>
+                            FocusScope.of(context).requestFocus(focusNode5),
                         validator: (value) {
                           if (value!.isEmpty) {
                             return 'Otp is required';
@@ -209,6 +230,9 @@ class _OtpVerificationState extends State<OtpVerification> {
                         controller: _otpController5,
                         maxLength: 1,
                         textAlign: TextAlign.center,
+                        focusNode: focusNode5,
+                        onChanged: () =>
+                            FocusScope.of(context).requestFocus(focusNode6),
                         validator: (value) {
                           if (value!.isEmpty) {
                             return 'Otp is required';
@@ -225,6 +249,8 @@ class _OtpVerificationState extends State<OtpVerification> {
                         controller: _otpController6,
                         maxLength: 1,
                         textAlign: TextAlign.center,
+                        focusNode: focusNode6,
+                        onChanged: () => {},
                         validator: (value) {
                           if (value!.isEmpty) {
                             return 'Otp is required';

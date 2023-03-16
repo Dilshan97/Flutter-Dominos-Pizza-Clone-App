@@ -47,7 +47,7 @@ class _CustomInputState extends State<CustomInput> {
       textAlign: widget.textAlign ?? TextAlign.start,
       keyboardType:
           widget.keyboardType ?? const TextInputType.numberWithOptions(),
-      // onChanged: widget.onChanged,
+      onChanged: (value) => widget.onChanged!(),
       focusNode: widget.focusNode,
       style: const TextStyle(
         height: 1.5,
