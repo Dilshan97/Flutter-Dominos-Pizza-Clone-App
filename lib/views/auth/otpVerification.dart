@@ -143,7 +143,7 @@ class _OtpVerificationState extends State<OtpVerification> {
                         maxLength: 1,
                         textAlign: TextAlign.center,
                         focusNode: focusNode1,
-                        // onChanged: (_) => focusNode2.requestFocus(),
+                        onChanged: () => focusNode2.requestFocus(),
                         validator: (value) {
                           if (value!.isEmpty) {
                             return 'Otp is required';

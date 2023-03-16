@@ -6,6 +6,7 @@ import 'package:flutter_notes/views/auth/otpVerification.dart';
 import 'package:flutter_notes/views/common/colors.dart';
 import 'package:flutter_notes/views/common/widgets/customInput.dart';
 import 'package:flutter_notes/views/common/widgets/customLabel.dart';
+import 'package:flutter_svg/svg.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({super.key});
@@ -119,6 +120,17 @@ class _SignUpState extends State<SignUp> {
                   controller: _phoneController,
                   maxLength: 10,
                   keyboardType: TextInputType.number,
+                  prefixIcon: Padding(
+                    padding: const EdgeInsets.only(
+                      left: 10,
+                      right: 5,
+                    ),
+                    child: Image.network(
+                      "https://cdn.countryflags.com/thumbs/sri-lanka/flag-400.png",
+                      width: size.width / 20,
+                      fit: BoxFit.contain,
+                    ),
+                  ),
                   validator: (value) {
                     if (value!.isEmpty) {
                       return 'Phone number is required';
