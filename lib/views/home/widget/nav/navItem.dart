@@ -6,7 +6,7 @@ class NavItem extends StatefulWidget {
   final double width;
   final IconData icon;
   final String name;
-  final Void? Function()? onTap;
+  final Function()? onTap;
 
   const NavItem({
     super.key,
@@ -23,11 +23,12 @@ class NavItem extends StatefulWidget {
 class _NavItemState extends State<NavItem> {
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: widget.width,
-      child: Padding(
-        padding: const EdgeInsets.all(18.0),
-        child: GestureDetector(
+    return GestureDetector(
+      onTap: () => widget.onTap!(),
+      child: SizedBox(
+        width: widget.width,
+        child: Padding(
+          padding: const EdgeInsets.all(18.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -44,7 +45,6 @@ class _NavItemState extends State<NavItem> {
               ),
             ],
           ),
-          onTap: () => widget.onTap,
         ),
       ),
     );

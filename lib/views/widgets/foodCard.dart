@@ -58,27 +58,27 @@ class _FoodCardState extends State<FoodCard> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Row(
-                        children: const [
-                          Icon(
-                            Icons.star,
-                            color: AppColors.primary,
-                            size: 20,
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          CustomLabel(
-                            label: "top of the week",
-                            textColor: AppColors.black,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500,
-                          )
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 15,
-                      ),
+                      // Row(
+                      //   children: const [
+                      //     Icon(
+                      //       Icons.star,
+                      //       color: AppColors.primary,
+                      //       size: 20,
+                      //     ),
+                      //     SizedBox(
+                      //       width: 10,
+                      //     ),
+                      //     CustomLabel(
+                      //       label: "top of the week",
+                      //       textColor: AppColors.black,
+                      //       fontSize: 16,
+                      //       fontWeight: FontWeight.w500,
+                      //     )
+                      //   ],
+                      // ),
+                      // const SizedBox(
+                      //   height: 15,
+                      // ),
                       SizedBox(
                         width: size.width / 2.2,
                         child: CustomLabel(
@@ -86,12 +86,19 @@ class _FoodCardState extends State<FoodCard> {
                           textColor: AppColors.black,
                           fontSize: 17,
                           fontWeight: FontWeight.w700,
+                          textAlign: TextAlign.start,
                         ),
                       ),
-                      CustomLabel(
-                        label: widget.food['desc'],
-                        textColor: AppColors.lightGray,
-                        fontSize: 1,
+                      SizedBox(
+                        width: size.width * 0.42,
+                        child: CustomLabel(
+                          label: widget.food['desc'],
+                          textColor: AppColors.black,
+                          fontSize: 10,
+                          fontFamily: 'Poppins-Regular',
+                          textOverflow: TextOverflow.clip,
+                          textAlign: TextAlign.start,
+                        ),
                       ),
                     ],
                   ),
