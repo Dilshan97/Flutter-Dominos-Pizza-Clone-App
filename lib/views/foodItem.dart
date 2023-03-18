@@ -17,6 +17,8 @@ class FoodItem extends StatefulWidget {
 }
 
 class _FoodItemState extends State<FoodItem> {
+  late int selectedSize = 0;
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -233,32 +235,39 @@ class _FoodItemState extends State<FoodItem> {
               itemCount: widget.food['sizes'].length,
               itemBuilder: (context, index) => Column(
                 children: [
-                  Padding(
-                    padding: EdgeInsets.only(
-                      left: index == 0 ? 10 : 0,
-                    ),
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 10,
-                        horizontal: 10,
+                  GestureDetector(
+                    onTap: () => {
+                      setState(() {
+                        selectedSize = index;
+                      }),
+                      print(selectedSize)
+                    },
+                    child: Padding(
+                      padding: EdgeInsets.only(
+                        left: index == 0 ? 10 : 0,
                       ),
-                      margin: const EdgeInsets.only(
-                        right: 20,
-                        top: 10,
-                        bottom: 10,
-                      ),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: AppColors.white,
-                        boxShadow: const [
-                          BoxShadow(
-                            blurRadius: 1,
-                            color: Colors.grey,
-                          ),
-                        ],
-                      ),
-                      child: GestureDetector(
-                        onTap: () => print('selected_${index}'),
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 10,
+                          horizontal: 10,
+                        ),
+                        margin: const EdgeInsets.only(
+                          right: 20,
+                          top: 10,
+                          bottom: 10,
+                        ),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: selectedSize == index
+                              ? AppColors.secondary
+                              : AppColors.white,
+                          boxShadow: const [
+                            BoxShadow(
+                              blurRadius: 1,
+                              color: Colors.grey,
+                            ),
+                          ],
+                        ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
@@ -278,15 +287,21 @@ class _FoodItemState extends State<FoodItem> {
                               children: [
                                 Text(
                                   "${widget.food['sizes'][index]['name']}",
-                                  style: const TextStyle(
+                                  style: TextStyle(
                                     fontFamily: 'Poppins-Medium',
                                     fontWeight: FontWeight.w700,
+                                    color: selectedSize == index
+                                        ? AppColors.white
+                                        : AppColors.black,
                                   ),
                                 ),
                                 Text(
                                   "${widget.food['sizes'][index]['desc']}",
-                                  style: const TextStyle(
+                                  style: TextStyle(
                                     fontFamily: 'Poppins-Regular',
+                                    color: selectedSize == index
+                                        ? AppColors.white
+                                        : AppColors.black,
                                   ),
                                 )
                               ],

@@ -17,42 +17,56 @@ class _CartState extends State<Cart> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.white,
-      body: ListView(
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 20,
-              vertical: 10,
+      appBar: AppBar(
+        backgroundColor: AppColors.white,
+        elevation: 0,
+        leading: Padding(
+          padding: const EdgeInsets.only(
+            left: 25,
+          ),
+          child: GestureDetector(
+            child: const Icon(
+              Icons.arrow_back,
+              color: AppColors.black,
             ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                GestureDetector(
-                  onTap: () => Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(builder: (context) => const Home()),
-                  ),
-                  child: Container(
-                    padding: const EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                      border: Border.all(color: AppColors.lightGray),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: const Icon(
-                      Icons.chevron_left,
-                      color: AppColors.black,
-                    ),
-                  ),
-                ),
-                const CustomLabel(
-                  label: "Cart",
-                  textColor: AppColors.black,
-                  fontWeight: FontWeight.w600,
-                  fontSize: 18,
-                ),
-              ],
+            onTap: () => Navigator.of(context).pushReplacement(
+              MaterialPageRoute(builder: (context) => const Home()),
             ),
           ),
+        ),
+        actions: [
+          GestureDetector(
+            child: const Padding(
+              padding: EdgeInsets.only(
+                right: 20,
+              ),
+              child: Icon(
+                Icons.shopping_cart,
+                color: AppColors.black,
+              ),
+            ),
+          )
         ],
+        bottom: PreferredSize(
+          preferredSize: const Size(10, 40),
+          child: Container(
+            alignment: Alignment.center,
+            color: AppColors.white,
+            constraints: const BoxConstraints.expand(
+              height: 40,
+            ),
+            child: const CustomLabel(
+              label: "Cart",
+              textColor: AppColors.black,
+              fontWeight: FontWeight.w600,
+              textAlign: TextAlign.start,
+              fontSize: 18,
+            ),
+          ),
+        ),
+      ),
+      body: ListView(
+        children: [],
       ),
     );
   }

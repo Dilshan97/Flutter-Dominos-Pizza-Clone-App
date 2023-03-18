@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_notes/views/cart/cart.dart';
 import 'package:flutter_notes/views/common/colors.dart';
 import 'package:flutter_notes/views/common/widgets/customLabel.dart';
 import 'package:flutter_notes/views/home/home.dart';
@@ -54,14 +55,19 @@ class _FoodCategoryState extends State<FoodCategory> {
                 color: AppColors.black,
               ),
             ),
+            onTap: () => Navigator.of(context).pushReplacement(
+              MaterialPageRoute(builder: (context) => const Cart()),
+            ),
           )
         ],
         bottom: PreferredSize(
-          preferredSize: const Size(10, 50),
+          preferredSize: const Size(10, 40),
           child: Container(
             alignment: Alignment.center,
             color: AppColors.white,
-            constraints: const BoxConstraints.expand(height: 50),
+            constraints: const BoxConstraints.expand(
+              height: 40,
+            ),
             child: CustomLabel(
               label: widget.name,
               textColor: AppColors.black,
