@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_notes/views/cart/cart.dart';
 import 'package:flutter_notes/views/common/colors.dart';
 import 'package:flutter_notes/views/common/widgets/customLabel.dart';
 import 'package:flutter_notes/views/home/home.dart';
@@ -33,9 +34,12 @@ class _FoodCategoryState extends State<FoodCategory> {
           padding: const EdgeInsets.only(
             left: 25,
           ),
-          child: BackButton(
-            color: AppColors.black,
-            onPressed: () => Navigator.of(context).pushReplacement(
+          child: GestureDetector(
+            child: const Icon(
+              Icons.arrow_back,
+              color: AppColors.black,
+            ),
+            onTap: () => Navigator.of(context).pushReplacement(
               MaterialPageRoute(builder: (context) => const Home()),
             ),
           ),
@@ -51,8 +55,28 @@ class _FoodCategoryState extends State<FoodCategory> {
                 color: AppColors.black,
               ),
             ),
+            onTap: () => Navigator.of(context).pushReplacement(
+              MaterialPageRoute(builder: (context) => const Cart()),
+            ),
           )
         ],
+        bottom: PreferredSize(
+          preferredSize: const Size(10, 40),
+          child: Container(
+            alignment: Alignment.center,
+            color: AppColors.white,
+            constraints: const BoxConstraints.expand(
+              height: 40,
+            ),
+            child: CustomLabel(
+              label: widget.name,
+              textColor: AppColors.black,
+              fontWeight: FontWeight.w600,
+              textAlign: TextAlign.start,
+              fontSize: 18,
+            ),
+          ),
+        ),
       ),
       body: ListView(
         children: [
