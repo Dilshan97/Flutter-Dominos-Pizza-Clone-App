@@ -95,25 +95,27 @@ class _FoodItemState extends State<FoodItem> {
                 SizedBox(
                   height: size.height * 0.03,
                 ),
-                Row(
-                  children: [
-                    SvgPicture.asset(
-                      "assets/images/dollar.svg",
-                      width: 15,
-                      color: AppColors.tertiary,
-                    ),
-                    Text(
-                      "${pizzaPrice}",
-                      style: const TextStyle(
-                        fontSize: 40,
-                        fontFamily: 'Poppins-Regular',
-                        fontWeight: FontWeight.w700,
-                        color: AppColors.tertiary,
-                        height: 1,
-                      ),
-                    )
-                  ],
-                ),
+                pizzaPrice != 0
+                    ? Row(
+                        children: [
+                          SvgPicture.asset(
+                            "assets/images/dollar.svg",
+                            width: 15,
+                            color: AppColors.tertiary,
+                          ),
+                          Text(
+                            "${pizzaPrice}",
+                            style: const TextStyle(
+                              fontSize: 40,
+                              fontFamily: 'Poppins-Regular',
+                              fontWeight: FontWeight.w700,
+                              color: AppColors.tertiary,
+                              height: 1,
+                            ),
+                          )
+                        ],
+                      )
+                    : Text(""),
                 const SizedBox(
                   height: 20,
                 ),
