@@ -21,6 +21,10 @@ class _FoodItemState extends State<FoodItem> {
   late int selectedSize = 0;
   late int selectedCrust = 0;
 
+  late String pizzaSize = "Regular";
+  late String pizzaCrust = "Thin";
+  late int pizzaPrice = 0;
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -98,9 +102,9 @@ class _FoodItemState extends State<FoodItem> {
                       width: 15,
                       color: AppColors.tertiary,
                     ),
-                    const Text(
-                      "5.99",
-                      style: TextStyle(
+                    Text(
+                      "${pizzaPrice}",
+                      style: const TextStyle(
                         fontSize: 40,
                         fontFamily: 'Poppins-Regular',
                         fontWeight: FontWeight.w700,
@@ -119,8 +123,8 @@ class _FoodItemState extends State<FoodItem> {
                     children: [
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
-                          Text(
+                        children: [
+                          const Text(
                             "Size",
                             style: TextStyle(
                               fontSize: 18,
@@ -130,18 +134,18 @@ class _FoodItemState extends State<FoodItem> {
                             ),
                           ),
                           Text(
-                            "Medium14",
-                            style: TextStyle(
+                            "${pizzaSize}",
+                            style: const TextStyle(
                               fontSize: 20,
                               fontFamily: 'Poppins-Regular',
                               color: AppColors.secondary,
                               fontWeight: FontWeight.w600,
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 20,
                           ),
-                          Text(
+                          const Text(
                             "Crust",
                             style: TextStyle(
                               fontSize: 18,
@@ -151,18 +155,18 @@ class _FoodItemState extends State<FoodItem> {
                             ),
                           ),
                           Text(
-                            "Thin Crust",
-                            style: TextStyle(
+                            "${pizzaCrust}",
+                            style: const TextStyle(
                               fontSize: 20,
                               fontFamily: 'Poppins-Regular',
                               color: AppColors.secondary,
                               fontWeight: FontWeight.w600,
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 20,
                           ),
-                          Text(
+                          const Text(
                             "Delivery In",
                             style: TextStyle(
                               fontSize: 18,
@@ -171,7 +175,7 @@ class _FoodItemState extends State<FoodItem> {
                               fontWeight: FontWeight.w500,
                             ),
                           ),
-                          Text(
+                          const Text(
                             "30 min",
                             style: TextStyle(
                               fontSize: 20,
@@ -239,6 +243,9 @@ class _FoodItemState extends State<FoodItem> {
                 onTap: () => {
                   setState(() {
                     selectedSize = index;
+                    selectedCrust = 0;
+                    pizzaSize = widget.food['sizes'][index]['name'];
+                    pizzaPrice = widget.food['sizes'][index]['price'];
                   })
                 },
                 child: Padding(
@@ -338,6 +345,8 @@ class _FoodItemState extends State<FoodItem> {
                 onTap: () => {
                   setState(() {
                     selectedCrust = index;
+                    pizzaCrust = widget.food['sizes'][selectedSize]['crust']
+                        [index]['name'];
                   })
                 },
                 child: Padding(
