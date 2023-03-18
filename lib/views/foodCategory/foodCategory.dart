@@ -33,9 +33,12 @@ class _FoodCategoryState extends State<FoodCategory> {
           padding: const EdgeInsets.only(
             left: 25,
           ),
-          child: BackButton(
-            color: AppColors.black,
-            onPressed: () => Navigator.of(context).pushReplacement(
+          child: GestureDetector(
+            child: const Icon(
+              Icons.arrow_back,
+              color: AppColors.black,
+            ),
+            onTap: () => Navigator.of(context).pushReplacement(
               MaterialPageRoute(builder: (context) => const Home()),
             ),
           ),
@@ -53,6 +56,21 @@ class _FoodCategoryState extends State<FoodCategory> {
             ),
           )
         ],
+        bottom: PreferredSize(
+          preferredSize: const Size(10, 50),
+          child: Container(
+            alignment: Alignment.center,
+            color: AppColors.white,
+            constraints: const BoxConstraints.expand(height: 50),
+            child: CustomLabel(
+              label: widget.name,
+              textColor: AppColors.black,
+              fontWeight: FontWeight.w600,
+              textAlign: TextAlign.start,
+              fontSize: 18,
+            ),
+          ),
+        ),
       ),
       body: ListView(
         children: [
