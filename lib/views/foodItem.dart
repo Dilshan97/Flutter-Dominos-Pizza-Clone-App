@@ -27,6 +27,8 @@ class _FoodItemState extends State<FoodItem> {
   late String pizzaCrust = "Thin";
   late int pizzaPrice = 0;
 
+  late bool extraCheese = false;
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -89,27 +91,30 @@ class _FoodItemState extends State<FoodItem> {
                 SizedBox(
                   height: size.height * 0.01,
                 ),
-                Text(
-                  widget.food['desc'],
+                CustomLabel(
+                  label: widget.food['desc'],
+                  textColor: AppColors.black,
+                  textAlign: TextAlign.start,
+                  fontSize: 14,
                 ),
                 SizedBox(
-                  height: size.height * 0.03,
+                  height: size.height * 0.01,
                 ),
                 pizzaPrice != 0
                     ? Row(
                         children: [
-                          SvgPicture.asset(
-                            "assets/images/dollar.svg",
-                            width: 15,
-                            color: AppColors.tertiary,
+                          const CustomLabel(
+                            label: "Rs.",
+                            textColor: AppColors.primary,
+                            fontSize: 18,
                           ),
                           Text(
-                            "${pizzaPrice}",
+                            "$pizzaPrice",
                             style: const TextStyle(
                               fontSize: 40,
                               fontFamily: 'Poppins-Regular',
                               fontWeight: FontWeight.w700,
-                              color: AppColors.tertiary,
+                              color: AppColors.primary,
                               height: 1,
                             ),
                           )
@@ -131,37 +136,16 @@ class _FoodItemState extends State<FoodItem> {
                             style: TextStyle(
                               fontSize: 18,
                               fontFamily: 'Poppins-Regular',
-                              color: AppColors.lightGray,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                          Text(
-                            "${pizzaSize}",
-                            style: const TextStyle(
-                              fontSize: 20,
-                              fontFamily: 'Poppins-Regular',
-                              color: AppColors.secondary,
+                              color: AppColors.black,
                               fontWeight: FontWeight.w600,
                             ),
                           ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          const Text(
-                            "Crust",
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontFamily: 'Poppins-Regular',
-                              color: AppColors.lightGray,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
                           Text(
-                            "${pizzaCrust}",
+                            pizzaSize,
                             style: const TextStyle(
                               fontSize: 20,
                               fontFamily: 'Poppins-Regular',
-                              color: AppColors.secondary,
+                              color: AppColors.primary,
                               fontWeight: FontWeight.w600,
                             ),
                           ),
@@ -173,8 +157,8 @@ class _FoodItemState extends State<FoodItem> {
                             style: TextStyle(
                               fontSize: 18,
                               fontFamily: 'Poppins-Regular',
-                              color: AppColors.lightGray,
-                              fontWeight: FontWeight.w500,
+                              color: AppColors.black,
+                              fontWeight: FontWeight.w600,
                             ),
                           ),
                           const Text(
@@ -182,7 +166,28 @@ class _FoodItemState extends State<FoodItem> {
                             style: TextStyle(
                               fontSize: 20,
                               fontFamily: 'Poppins-Regular',
-                              color: AppColors.secondary,
+                              color: AppColors.primary,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          const Text(
+                            "Crust",
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontFamily: 'Poppins-Regular',
+                              color: AppColors.black,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          Text(
+                            pizzaCrust,
+                            style: const TextStyle(
+                              fontSize: 16,
+                              fontFamily: 'Poppins-Regular',
+                              color: AppColors.primary,
                               fontWeight: FontWeight.w600,
                             ),
                           ),
@@ -266,7 +271,7 @@ class _FoodItemState extends State<FoodItem> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
                       color: selectedSize == index
-                          ? AppColors.lighterGray
+                          ? AppColors.primary
                           : AppColors.white,
                       boxShadow: const [
                         BoxShadow(
@@ -286,6 +291,9 @@ class _FoodItemState extends State<FoodItem> {
                           child: SvgPicture.asset(
                             widget.food['sizes'][index]['image'],
                             width: 70,
+                            color: selectedSize == index
+                                ? AppColors.white
+                                : AppColors.black,
                           ),
                         ),
                         Column(
@@ -366,9 +374,12 @@ class _FoodItemState extends State<FoodItem> {
                       bottom: 10,
                     ),
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(0),
+                      border: Border.all(
+                        color: AppColors.primary,
+                      ),
                       color: selectedCrust == index
-                          ? AppColors.secondary
+                          ? AppColors.primary
                           : AppColors.white,
                       boxShadow: const [
                         BoxShadow(
@@ -395,14 +406,18 @@ class _FoodItemState extends State<FoodItem> {
           SizedBox(
             height: 75,
             child: CheckboxListTile(
-              value: false,
+              value: extraCheese,
               title: const CustomLabel(
                 label: "Add extra cheese @ Rs.160.00",
                 textColor: AppColors.black,
                 textAlign: TextAlign.start,
               ),
               controlAffinity: ListTileControlAffinity.leading,
-              onChanged: (value) => {},
+              onChanged: (value) => {
+                setState(() => {extraCheese = value!})
+              },
+              checkColor: AppColors.white,
+              activeColor: AppColors.primary,
             ),
           ),
           const Padding(
@@ -502,8 +517,28 @@ class _FoodItemState extends State<FoodItem> {
                 ),
               ),
             ),
-          )
+          ),
         ],
+      ),
+      bottomNavigationBar: GestureDetector(
+        onTap: () => {},
+        child: Container(
+          height: size.height * 0.080,
+          width: size.width / 2,
+          padding: const EdgeInsets.all(10),
+          decoration: const BoxDecoration(
+            color: AppColors.primary,
+          ),
+          child: const Padding(
+            padding: EdgeInsets.all(8),
+            child: CustomLabel(
+              label: "Add to order",
+              textColor: AppColors.white,
+              textAlign: TextAlign.center,
+              fontSize: 16,
+            ),
+          ),
+        ),
       ),
       // bottomNavigationBar: SizedBox(
       //   width: size.width,
