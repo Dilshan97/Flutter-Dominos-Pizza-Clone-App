@@ -27,6 +27,8 @@ class _FoodItemState extends State<FoodItem> {
   late String pizzaCrust = "Thin";
   late int pizzaPrice = 0;
 
+  late bool extraCheese = false;
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -89,8 +91,11 @@ class _FoodItemState extends State<FoodItem> {
                 SizedBox(
                   height: size.height * 0.01,
                 ),
-                Text(
-                  widget.food['desc'],
+                CustomLabel(
+                  label: widget.food['desc'],
+                  textColor: AppColors.black,
+                  textAlign: TextAlign.start,
+                  fontSize: 14,
                 ),
                 SizedBox(
                   height: size.height * 0.03,
@@ -98,10 +103,10 @@ class _FoodItemState extends State<FoodItem> {
                 pizzaPrice != 0
                     ? Row(
                         children: [
-                          SvgPicture.asset(
-                            "assets/images/dollar.svg",
-                            width: 15,
-                            color: AppColors.tertiary,
+                          const CustomLabel(
+                            label: "Rs.",
+                            textColor: AppColors.primary,
+                            fontSize: 18,
                           ),
                           Text(
                             "${pizzaPrice}",
@@ -109,7 +114,7 @@ class _FoodItemState extends State<FoodItem> {
                               fontSize: 40,
                               fontFamily: 'Poppins-Regular',
                               fontWeight: FontWeight.w700,
-                              color: AppColors.tertiary,
+                              color: AppColors.primary,
                               height: 1,
                             ),
                           )
@@ -131,8 +136,8 @@ class _FoodItemState extends State<FoodItem> {
                             style: TextStyle(
                               fontSize: 18,
                               fontFamily: 'Poppins-Regular',
-                              color: AppColors.lightGray,
-                              fontWeight: FontWeight.w500,
+                              color: AppColors.black,
+                              fontWeight: FontWeight.w600,
                             ),
                           ),
                           Text(
@@ -140,28 +145,7 @@ class _FoodItemState extends State<FoodItem> {
                             style: const TextStyle(
                               fontSize: 20,
                               fontFamily: 'Poppins-Regular',
-                              color: AppColors.secondary,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          const Text(
-                            "Crust",
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontFamily: 'Poppins-Regular',
-                              color: AppColors.lightGray,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                          Text(
-                            "${pizzaCrust}",
-                            style: const TextStyle(
-                              fontSize: 20,
-                              fontFamily: 'Poppins-Regular',
-                              color: AppColors.secondary,
+                              color: AppColors.primary,
                               fontWeight: FontWeight.w600,
                             ),
                           ),
@@ -173,8 +157,8 @@ class _FoodItemState extends State<FoodItem> {
                             style: TextStyle(
                               fontSize: 18,
                               fontFamily: 'Poppins-Regular',
-                              color: AppColors.lightGray,
-                              fontWeight: FontWeight.w500,
+                              color: AppColors.black,
+                              fontWeight: FontWeight.w600,
                             ),
                           ),
                           const Text(
@@ -182,7 +166,28 @@ class _FoodItemState extends State<FoodItem> {
                             style: TextStyle(
                               fontSize: 20,
                               fontFamily: 'Poppins-Regular',
-                              color: AppColors.secondary,
+                              color: AppColors.primary,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          const Text(
+                            "Crust",
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontFamily: 'Poppins-Regular',
+                              color: AppColors.black,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          Text(
+                            "${pizzaCrust}",
+                            style: const TextStyle(
+                              fontSize: 16,
+                              fontFamily: 'Poppins-Regular',
+                              color: AppColors.primary,
                               fontWeight: FontWeight.w600,
                             ),
                           ),
@@ -401,14 +406,18 @@ class _FoodItemState extends State<FoodItem> {
           SizedBox(
             height: 75,
             child: CheckboxListTile(
-              value: false,
+              value: extraCheese,
               title: const CustomLabel(
                 label: "Add extra cheese @ Rs.160.00",
                 textColor: AppColors.black,
                 textAlign: TextAlign.start,
               ),
               controlAffinity: ListTileControlAffinity.leading,
-              onChanged: (value) => {},
+              onChanged: (value) => {
+                setState(() => {extraCheese = value!})
+              },
+              checkColor: AppColors.white,
+              activeColor: AppColors.primary,
             ),
           ),
           const Padding(
