@@ -266,7 +266,7 @@ class _FoodItemState extends State<FoodItem> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
                       color: selectedSize == index
-                          ? AppColors.lighterGray
+                          ? AppColors.primary
                           : AppColors.white,
                       boxShadow: const [
                         BoxShadow(
@@ -286,6 +286,9 @@ class _FoodItemState extends State<FoodItem> {
                           child: SvgPicture.asset(
                             widget.food['sizes'][index]['image'],
                             width: 70,
+                            color: selectedSize == index
+                                ? AppColors.white
+                                : AppColors.black,
                           ),
                         ),
                         Column(
@@ -366,9 +369,12 @@ class _FoodItemState extends State<FoodItem> {
                       bottom: 10,
                     ),
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(0),
+                      border: Border.all(
+                        color: AppColors.primary,
+                      ),
                       color: selectedCrust == index
-                          ? AppColors.secondary
+                          ? AppColors.primary
                           : AppColors.white,
                       boxShadow: const [
                         BoxShadow(
