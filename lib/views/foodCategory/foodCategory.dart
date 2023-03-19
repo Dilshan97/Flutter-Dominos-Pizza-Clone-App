@@ -29,7 +29,14 @@ class _FoodCategoryState extends State<FoodCategory> {
       appBar: AppBar(
         backgroundColor: AppColors.white,
         elevation: 0,
-        centerTitle: false,
+        centerTitle: true,
+        title: CustomLabel(
+          label: widget.name,
+          textColor: AppColors.black,
+          fontWeight: FontWeight.w600,
+          textAlign: TextAlign.start,
+          fontSize: 18,
+        ),
         leading: Padding(
           padding: const EdgeInsets.only(
             left: 25,
@@ -60,23 +67,6 @@ class _FoodCategoryState extends State<FoodCategory> {
             ),
           )
         ],
-        bottom: PreferredSize(
-          preferredSize: const Size(10, 40),
-          child: Container(
-            alignment: Alignment.center,
-            color: AppColors.white,
-            constraints: const BoxConstraints.expand(
-              height: 40,
-            ),
-            child: CustomLabel(
-              label: widget.name,
-              textColor: AppColors.black,
-              fontWeight: FontWeight.w600,
-              textAlign: TextAlign.start,
-              fontSize: 18,
-            ),
-          ),
-        ),
       ),
       body: ListView(
         children: [
