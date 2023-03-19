@@ -5,6 +5,7 @@ import 'package:flutter_notes/views/cart/cart.dart';
 import 'package:flutter_notes/views/common/colors.dart';
 import 'package:flutter_notes/views/common/constants.dart';
 import 'package:flutter_notes/views/common/widgets/customLabel.dart';
+import 'package:flutter_notes/views/profile/profile.dart';
 import 'package:flutter_notes/views/splash.dart';
 import 'package:flutter_notes/views/widgets/foodCard.dart';
 import 'package:flutter_svg/svg.dart';
@@ -54,13 +55,20 @@ class _HomeState extends State<Home> {
         centerTitle: false,
         backgroundColor: AppColors.white,
         elevation: 0,
-        title: const Padding(
-          padding: EdgeInsets.only(
+        title: Padding(
+          padding: const EdgeInsets.only(
             left: 0,
           ),
-          child: CircleAvatar(
-            radius: 25,
-            backgroundImage: AssetImage("assets/images/man.jpeg"),
+          child: GestureDetector(
+            onTap: () => Navigator.of(context).pushReplacement(
+              MaterialPageRoute(
+                builder: (context) => const Profile(),
+              ),
+            ),
+            child: const CircleAvatar(
+              radius: 25,
+              backgroundImage: AssetImage("assets/images/man.jpeg"),
+            ),
           ),
         ),
         actions: [
@@ -158,24 +166,28 @@ class _HomeState extends State<Home> {
           Container(
             padding: const EdgeInsets.only(
               left: 20,
-              top: 40,
+              top: 30,
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const CustomLabel(
-                  label: "Food",
+                  label: "Hello, Dilshan",
+                  fontFamily: 'Poppins-Light',
+                  textColor: AppColors.black,
+                  height: 1.4,
+                  fontSize: 16,
+                ),
+                SizedBox(
+                  height: size.height * 0.010,
+                ),
+                const CustomLabel(
+                  label: "Grab your delicious meal",
                   fontFamily: 'Poppins-Light',
                   textColor: AppColors.black,
                   fontSize: 20,
-                  fontWeight: FontWeight.w100,
-                  height: 1.2,
-                ),
-                const CustomLabel(
-                  label: "Delivery",
-                  textColor: AppColors.black,
-                  fontSize: 42,
                   fontWeight: FontWeight.w600,
+                  height: 1.2,
                 ),
                 SizedBox(
                   height: size.height * 0.050,
@@ -251,27 +263,6 @@ class _HomeState extends State<Home> {
             ),
           )
         ],
-      ),
-      floatingActionButton: Container(
-        margin: const EdgeInsets.all(10),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(25),
-          color: AppColors.secondary,
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(15),
-          child: GestureDetector(
-            child: const Icon(
-              Icons.shopping_cart,
-              color: AppColors.white,
-            ),
-            onTap: () => {
-              Navigator.of(context).pushReplacement(
-                MaterialPageRoute(builder: (context) => const Cart()),
-              )
-            },
-          ),
-        ),
       ),
     );
   }
