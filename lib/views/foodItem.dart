@@ -74,7 +74,7 @@ class _FoodItemState extends State<FoodItem> {
           Padding(
             padding: const EdgeInsets.only(
               left: 20,
-              top: 25,
+              top: 10,
               right: 20,
             ),
             child: Column(
