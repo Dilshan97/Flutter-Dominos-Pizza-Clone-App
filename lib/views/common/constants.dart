@@ -287,3 +287,35 @@ List<Map<String, dynamic>> vegToppings = [
     'image': 'https://images.dominos.co.in/srilanka/toppingsOnion.jpg'
   }
 ];
+
+List<Map<String, dynamic>> nonVegToppings = [
+  {
+    'name': 'Chicken Sausage',
+    'image': 'https://images.dominos.co.in/srilanka/toppingsChickenSausage.jpg'
+  },
+  // {
+  //   'name': 'Pepperoni',
+  //   'image':
+  //       'https://images.dominos.co.in/srilanka/menu_toppings_chicken-Pepperoni.png'
+  // },
+  {
+    'name': 'Devils Chicken',
+    'image': 'https://images.dominos.co.in/srilanka/toppingsSpicyChicken.jpg'
+  },
+  {
+    'name': 'Mutton Keema',
+    'image': 'https://images.dominos.co.in/srilanka/toppingsMuttonKeemas.jpg'
+  },
+  {
+    'name': 'Tandoori Chicken',
+    'image': 'https://images.dominos.co.in/srilanka/toppingsTandooriChicken.jpg'
+  },
+  {
+    'name': 'Pepperoni',
+    'image': 'https://images.dominos.co.in/srilanka/toppingPepperoni.jpg'
+  },
+  {
+    'name': 'Bbq Chicken',
+    'image': 'https://images.dominos.co.in/srilanka/toppingsBarbeque.jpg'
+  }
+];

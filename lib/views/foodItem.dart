@@ -405,24 +405,38 @@ class _FoodItemState extends State<FoodItem> {
               onChanged: (value) => {},
             ),
           ),
+          const Padding(
+            padding: EdgeInsets.only(
+              left: 20,
+              top: 5,
+            ),
+            child: Text(
+              "Toppings",
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w700,
+                fontFamily: 'Poppins-Regular',
+              ),
+            ),
+          ),
           const SizedBox(
             height: 10,
           ),
           const SizedBox(
-            height: 40,
+            height: 30,
             child: Padding(
               padding: EdgeInsets.only(
                 left: 20,
               ),
               child: CustomLabel(
-                label: "Add Veg Toppings @ 125.00 each",
+                label: "Add Veg Toppings @ Rs.125.00 each",
                 textColor: AppColors.black,
                 textAlign: TextAlign.start,
               ),
             ),
           ),
           SizedBox(
-            height: 200,
+            height: 180,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: vegToppings.length,
@@ -442,6 +456,47 @@ class _FoodItemState extends State<FoodItem> {
                     CustomLabel(
                       label: vegToppings[index]['name'],
                       textColor: AppColors.black,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 30,
+            child: Padding(
+              padding: EdgeInsets.only(
+                left: 20,
+              ),
+              child: CustomLabel(
+                label: "Add Non-Veg Toppings @ Rs.190.00 each",
+                textColor: AppColors.black,
+                textAlign: TextAlign.start,
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 200,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: nonVegToppings.length,
+              itemBuilder: (context, index) => Padding(
+                padding: const EdgeInsets.all(10),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Image.network(
+                      nonVegToppings[index]['image'],
+                      fit: BoxFit.cover,
+                      width: 100,
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    CustomLabel(
+                      label: nonVegToppings[index]['name'],
+                      textColor: AppColors.black,
+                      textAlign: TextAlign.center,
                     ),
                   ],
                 ),
