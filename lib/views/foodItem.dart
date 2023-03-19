@@ -98,7 +98,7 @@ class _FoodItemState extends State<FoodItem> {
                   fontSize: 14,
                 ),
                 SizedBox(
-                  height: size.height * 0.03,
+                  height: size.height * 0.01,
                 ),
                 pizzaPrice != 0
                     ? Row(
@@ -109,7 +109,7 @@ class _FoodItemState extends State<FoodItem> {
                             fontSize: 18,
                           ),
                           Text(
-                            "${pizzaPrice}",
+                            "$pizzaPrice",
                             style: const TextStyle(
                               fontSize: 40,
                               fontFamily: 'Poppins-Regular',
@@ -141,7 +141,7 @@ class _FoodItemState extends State<FoodItem> {
                             ),
                           ),
                           Text(
-                            "${pizzaSize}",
+                            pizzaSize,
                             style: const TextStyle(
                               fontSize: 20,
                               fontFamily: 'Poppins-Regular',
@@ -183,7 +183,7 @@ class _FoodItemState extends State<FoodItem> {
                             ),
                           ),
                           Text(
-                            "${pizzaCrust}",
+                            pizzaCrust,
                             style: const TextStyle(
                               fontSize: 16,
                               fontFamily: 'Poppins-Regular',
@@ -517,8 +517,28 @@ class _FoodItemState extends State<FoodItem> {
                 ),
               ),
             ),
-          )
+          ),
         ],
+      ),
+      bottomNavigationBar: GestureDetector(
+        onTap: () => {},
+        child: Container(
+          height: size.height * 0.080,
+          width: size.width / 2,
+          padding: const EdgeInsets.all(10),
+          decoration: const BoxDecoration(
+            color: AppColors.primary,
+          ),
+          child: const Padding(
+            padding: EdgeInsets.all(8),
+            child: CustomLabel(
+              label: "Add to order",
+              textColor: AppColors.white,
+              textAlign: TextAlign.center,
+              fontSize: 16,
+            ),
+          ),
+        ),
       ),
       // bottomNavigationBar: SizedBox(
       //   width: size.width,
