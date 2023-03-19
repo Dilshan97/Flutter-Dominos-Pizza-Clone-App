@@ -410,29 +410,41 @@ class _FoodItemState extends State<FoodItem> {
           ),
           const SizedBox(
             height: 40,
-            child: CustomLabel(
-              label: "Add Veg Toppings @ 125.00 each",
-              textColor: AppColors.black,
-              textAlign: TextAlign.start,
+            child: Padding(
+              padding: EdgeInsets.only(
+                left: 20,
+              ),
+              child: CustomLabel(
+                label: "Add Veg Toppings @ 125.00 each",
+                textColor: AppColors.black,
+                textAlign: TextAlign.start,
+              ),
             ),
           ),
           SizedBox(
-            height: 550,
+            height: 200,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: vegToppings.length,
               itemBuilder: (context, index) => Padding(
                 padding: const EdgeInsets.all(10),
-                child: Column(children: [
-                  Image.network(
-                    vegToppings[index]['image'],
-                    fit: BoxFit.contain,
-                  ),
-                  CustomLabel(
-                    label: vegToppings[index]['name'],
-                    textColor: AppColors.black,
-                  ),
-                ]),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Image.network(
+                      vegToppings[index]['image'],
+                      fit: BoxFit.cover,
+                      width: 100,
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    CustomLabel(
+                      label: vegToppings[index]['name'],
+                      textColor: AppColors.black,
+                    ),
+                  ],
+                ),
               ),
             ),
           )

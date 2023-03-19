@@ -261,5 +261,29 @@ List<Map<String, dynamic>> vegToppings = [
   {
     'name': 'Paprika',
     'image': 'https://images.dominos.co.in/srilanka/toppingsPaprika.jpg'
+  },
+  {
+    'name': 'Nai Miris',
+    'image': 'https://images.dominos.co.in/srilanka/menu_toppings_Nai-miris.png'
+  },
+  {
+    'name': 'Jalapeno',
+    'image': 'https://images.dominos.co.in/srilanka/toppingsJalapeno.jpg'
+  },
+  {
+    'name': 'Golden Corn',
+    'image': 'https://images.dominos.co.in/srilanka/toppingsGoldenCorn.jpg'
+  },
+  {
+    'name': 'Black Olives',
+    'image': 'https://images.dominos.co.in/srilanka/toppingsOlives.jpg'
+  },
+  {
+    'name': 'Pineapple',
+    'image': 'https://images.dominos.co.in/srilanka/toppingPineapple.jpg'
+  },
+  {
+    'name': 'Onion',
+    'image': 'https://images.dominos.co.in/srilanka/toppingsOnion.jpg'
   }
 ];
