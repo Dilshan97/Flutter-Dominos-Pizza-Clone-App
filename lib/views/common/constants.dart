@@ -14,45 +14,28 @@ List<Map<String, dynamic>> categories = [
             'name': 'Regular',
             'desc': '6" - Serves 1',
             'image': 'assets/images/size/regular.svg',
-            'price': 1109,
             'crust': [
-              {
-                'name': 'Classic Hand Tossed',
-              }
+              {'name': 'Classic Hand Tossed', 'price': 2029}
             ]
           },
           {
             'name': 'Medium',
             'desc': '9" - Serves 2',
             'image': 'assets/images/size/medium.svg',
-            'price': 2029,
             'crust': [
-              {
-                'name': 'Classic Hand Tossed',
-              },
-              {
-                'name': 'Wheat Thin Crust',
-              },
-              {
-                'name': 'Cheese Burst',
-              },
-              {
-                'name': 'Cheese Float',
-              },
+              {'name': 'Classic Hand Tossed', 'price': 2029},
+              {'name': 'Wheat Thin Crust', 'price': 2279},
+              {'name': 'Cheese Burst', 'price': 2628},
+              {'name': 'Cheese Float', 'price': 2328},
             ]
           },
           {
             'name': 'Large',
             'desc': '11" - Serves 4',
             'image': 'assets/images/size/regular.svg',
-            'price': 3739,
             'crust': [
-              {
-                'name': 'Classic Hand Tossed',
-              },
-              {
-                'name': 'Cheese Float',
-              },
+              {'name': 'Classic Hand Tossed', 'price': 3739},
+              {'name': 'Cheese Float', 'price': 4188},
             ]
           }
         ]
@@ -256,4 +239,27 @@ List<Map<String, dynamic>> categories = [
       },
     ]
   },
+];
+
+List<Map<String, dynamic>> vegToppings = [
+  {
+    'name': 'Crisp Capsicum',
+    'image': 'https://images.dominos.co.in/srilanka/toppingsCapsicum.jpg'
+  },
+  {
+    'name': 'Fresh Tomato',
+    'image': 'https://images.dominos.co.in/srilanka/toppingsTomato.jpg'
+  },
+  {
+    'name': 'Mushroom',
+    'image': 'https://images.dominos.co.in/srilanka/toppingsMushroom.jpg'
+  },
+  {
+    'name': 'Bell Pepper',
+    'image': 'https://images.dominos.co.in/srilanka/toppingsBellPepper.jpg'
+  },
+  {
+    'name': 'Paprika',
+    'image': 'https://images.dominos.co.in/srilanka/toppingsPaprika.jpg'
+  }
 ];

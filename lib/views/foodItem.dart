@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_notes/views/common/colors.dart';
+import 'package:flutter_notes/views/common/constants.dart';
 import 'package:flutter_notes/views/common/widgets/customLabel.dart';
 import 'package:flutter_svg/svg.dart';
 
+import 'cart/cart.dart';
 import 'home/home.dart';
 
 class FoodItem extends StatefulWidget {
@@ -30,45 +32,43 @@ class _FoodItemState extends State<FoodItem> {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: AppColors.white,
-      body: ListView(
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 20,
-              vertical: 10,
+      appBar: AppBar(
+        backgroundColor: AppColors.white,
+        elevation: 0,
+        centerTitle: false,
+        leading: Padding(
+          padding: const EdgeInsets.only(
+            left: 25,
+          ),
+          child: GestureDetector(
+            child: const Icon(
+              Icons.arrow_back,
+              color: AppColors.black,
             ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                GestureDetector(
-                  onTap: () => {
-                    Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(builder: (context) => const Home()),
-                    )
-                  },
-                  child: Container(
-                    padding: const EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                      border: Border.all(color: AppColors.lightGray),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: const Icon(Icons.chevron_left_rounded),
-                  ),
-                ),
-                Container(
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: AppColors.primary,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: const Icon(
-                    Icons.star,
-                    color: AppColors.white,
-                  ),
-                )
-              ],
+            onTap: () => Navigator.of(context).pushReplacement(
+              MaterialPageRoute(builder: (context) => const Home()),
             ),
           ),
+        ),
+        actions: [
+          GestureDetector(
+            child: const Padding(
+              padding: EdgeInsets.only(
+                right: 20,
+              ),
+              child: Icon(
+                Icons.shopping_cart,
+                color: AppColors.black,
+              ),
+            ),
+            onTap: () => Navigator.of(context).pushReplacement(
+              MaterialPageRoute(builder: (context) => const Cart()),
+            ),
+          ),
+        ],
+      ),
+      body: ListView(
+        children: [
           Padding(
             padding: const EdgeInsets.only(
               left: 20,
@@ -225,9 +225,9 @@ class _FoodItemState extends State<FoodItem> {
               top: 50,
             ),
             child: Text(
-              "Sizes",
+              "Select Size",
               style: TextStyle(
-                fontSize: 23,
+                fontSize: 18,
                 fontWeight: FontWeight.w700,
                 fontFamily: 'Poppins-Regular',
               ),
@@ -247,7 +247,6 @@ class _FoodItemState extends State<FoodItem> {
                     selectedSize = index;
                     selectedCrust = 0;
                     pizzaSize = widget.food['sizes'][index]['name'];
-                    pizzaPrice = widget.food['sizes'][index]['price'];
                   })
                 },
                 child: Padding(
@@ -267,7 +266,7 @@ class _FoodItemState extends State<FoodItem> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
                       color: selectedSize == index
-                          ? AppColors.secondary
+                          ? AppColors.lighterGray
                           : AppColors.white,
                       boxShadow: const [
                         BoxShadow(
@@ -327,9 +326,9 @@ class _FoodItemState extends State<FoodItem> {
               top: 10,
             ),
             child: Text(
-              "Crust",
+              "Select Crust",
               style: TextStyle(
-                fontSize: 23,
+                fontSize: 18,
                 fontWeight: FontWeight.w700,
                 fontFamily: 'Poppins-Regular',
               ),
@@ -349,6 +348,8 @@ class _FoodItemState extends State<FoodItem> {
                     selectedCrust = index;
                     pizzaCrust = widget.food['sizes'][selectedSize]['crust']
                         [index]['name'];
+                    pizzaPrice = widget.food['sizes'][selectedSize]['crust']
+                        [index]['price'];
                   })
                 },
                 child: Padding(
@@ -385,6 +386,53 @@ class _FoodItemState extends State<FoodItem> {
                     ),
                   ),
                 ),
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          SizedBox(
+            height: 75,
+            child: CheckboxListTile(
+              value: false,
+              title: const CustomLabel(
+                label: "Add extra cheese @ Rs.160.00",
+                textColor: AppColors.black,
+                textAlign: TextAlign.start,
+              ),
+              controlAffinity: ListTileControlAffinity.leading,
+              onChanged: (value) => {},
+            ),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          const SizedBox(
+            height: 40,
+            child: CustomLabel(
+              label: "Add Veg Toppings @ 125.00 each",
+              textColor: AppColors.black,
+              textAlign: TextAlign.start,
+            ),
+          ),
+          SizedBox(
+            height: 550,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: vegToppings.length,
+              itemBuilder: (context, index) => Padding(
+                padding: const EdgeInsets.all(10),
+                child: Column(children: [
+                  Image.network(
+                    vegToppings[index]['image'],
+                    fit: BoxFit.contain,
+                  ),
+                  CustomLabel(
+                    label: vegToppings[index]['name'],
+                    textColor: AppColors.black,
+                  ),
+                ]),
               ),
             ),
           )
