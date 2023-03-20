@@ -274,6 +274,7 @@ class _HomeState extends State<Home> {
                 }
 
                 final data = snapshot.requireData;
+                print(data.docs[0]);
 
                 return ListView.builder(
                   scrollDirection: Axis.vertical,
