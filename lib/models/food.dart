@@ -5,14 +5,14 @@ class Food {
   final String? desc;
   final String? image;
   final String? category;
-  final List<Map<String, dynamic>>? sizes;
+  // final List? sizes;
 
   Food({
     this.name,
     this.desc,
     this.image,
     this.category,
-    this.sizes,
+    // this.sizes,
   });
 
   factory Food.fromFirestore(DocumentSnapshot<Map<String, dynamic>> snapshot,
@@ -23,7 +23,7 @@ class Food {
       desc: data?['desc'],
       image: data?['image'],
       category: data?['category'],
-      sizes: data?['sizes'],
+      // sizes: data?['sizes'],
     );
   }
 
@@ -33,7 +33,7 @@ class Food {
       if (desc != null) "desc": desc,
       if (image != null) "image": image,
       if (category != null) "category": category,
-      if (sizes != null) "sizes": sizes,
+      // if (sizes != null) "sizes": sizes,
     };
   }
 }

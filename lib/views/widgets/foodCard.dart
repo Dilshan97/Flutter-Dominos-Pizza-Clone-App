@@ -25,13 +25,13 @@ class _FoodCardState extends State<FoodCard> {
     Size size = MediaQuery.of(context).size;
     return GestureDetector(
       onTap: () => {
-        // Navigator.of(context).pushReplacement(
-        //   MaterialPageRoute(
-        //     builder: (context) => FoodItem(
-        //       food: widget.food,
-        //     ),
-        //   ),
-        // )
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(
+            builder: (context) => FoodItem(
+              food: widget.food,
+            ),
+          ),
+        )
       },
       child: Container(
         margin: const EdgeInsets.only(
@@ -87,7 +87,7 @@ class _FoodCardState extends State<FoodCard> {
                       SizedBox(
                         width: size.width / 2.2,
                         child: CustomLabel(
-                          label: "sfsdf",
+                          label: widget.food['name'],
                           textColor: AppColors.black,
                           fontSize: 17,
                           fontWeight: FontWeight.w700,
@@ -97,7 +97,7 @@ class _FoodCardState extends State<FoodCard> {
                       SizedBox(
                         width: size.width * 0.42,
                         child: CustomLabel(
-                          label: "sdfsdf",
+                          label: widget.food['desc'],
                           textColor: AppColors.black,
                           fontSize: 10,
                           fontFamily: 'Poppins-Regular',
