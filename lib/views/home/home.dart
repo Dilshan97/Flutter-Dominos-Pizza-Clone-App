@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_notes/models/food.dart';
 import 'package:flutter_notes/views/cart/cart.dart';
 import 'package:flutter_notes/views/common/colors.dart';
 import 'package:flutter_notes/views/common/constants.dart';
@@ -31,6 +32,11 @@ class _HomeState extends State<Home> {
             fromFirestore: Category.fromFirestore,
             toFirestore: (Category category, _) => category.toFirestore(),
           );
+
+  final foodRef = FirebaseFirestore.instance.collection('foods').withConverter(
+        fromFirestore: Food.fromFirestore,
+        toFirestore: (Food food, _) => food.toFirestore(),
+      );
 
   signout() {
     auth.signOut().then(
@@ -253,15 +259,42 @@ class _HomeState extends State<Home> {
               ),
             ),
           ),
-          Column(
-            children: List.generate(
-              categories[0]['items'].length,
-              (index) => FoodCard(
-                index: index,
-                food: categories[0]['items'][index],
-              ),
+          SizedBox(
+            height: size.height * 0.50,
+            child: StreamBuilder<QuerySnapshot<Food>>(
+              stream: foodRef.snapshots(),
+              builder: (BuildContext context,
+                  AsyncSnapshot<QuerySnapshot> snapshot) {
+                if (snapshot.hasError) {
+                  return const Text("Something went wrong");
+                }
+
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return const Text("Loading");
+                }
+
+                final data = snapshot.requireData;
+
+                return ListView.builder(
+                  scrollDirection: Axis.vertical,
+                  itemCount: data.size,
+                  itemBuilder: (contex, index) => FoodCard(
+                    index: index,
+                    food: categories[0]['items'][index],
+                  ),
+                );
+              },
             ),
-          )
+          ),
+          // Column(s
+          //   children: List.generate(
+          //     categories[0]['items'].length,
+          //     (index) => FoodCard(
+          //       index: index,
+          //       food: categories[0]['items'][index],
+          //     ),
+          //   ),
+          // )
         ],
       ),
     );

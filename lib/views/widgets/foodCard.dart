@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_notes/models/food.dart';
 import 'package:flutter_notes/views/common/colors.dart';
 import 'package:flutter_notes/views/common/widgets/customLabel.dart';
 
@@ -7,8 +8,12 @@ import '../foodItem.dart';
 
 class FoodCard extends StatefulWidget {
   final int index;
-  final Map food;
-  const FoodCard({super.key, required this.index, required this.food});
+  final Map<String, dynamic> food;
+  const FoodCard({
+    super.key,
+    required this.index,
+    required this.food,
+  });
 
   @override
   State<FoodCard> createState() => _FoodCardState();
@@ -20,13 +25,13 @@ class _FoodCardState extends State<FoodCard> {
     Size size = MediaQuery.of(context).size;
     return GestureDetector(
       onTap: () => {
-        Navigator.of(context).pushReplacement(
-          MaterialPageRoute(
-            builder: (context) => FoodItem(
-              food: widget.food,
-            ),
-          ),
-        )
+        // Navigator.of(context).pushReplacement(
+        //   MaterialPageRoute(
+        //     builder: (context) => FoodItem(
+        //       food: widget.food,
+        //     ),
+        //   ),
+        // )
       },
       child: Container(
         margin: const EdgeInsets.only(
@@ -82,7 +87,7 @@ class _FoodCardState extends State<FoodCard> {
                       SizedBox(
                         width: size.width / 2.2,
                         child: CustomLabel(
-                          label: widget.food['name'],
+                          label: "sfsdf",
                           textColor: AppColors.black,
                           fontSize: 17,
                           fontWeight: FontWeight.w700,
@@ -92,7 +97,7 @@ class _FoodCardState extends State<FoodCard> {
                       SizedBox(
                         width: size.width * 0.42,
                         child: CustomLabel(
-                          label: widget.food['desc'],
+                          label: "sdfsdf",
                           textColor: AppColors.black,
                           fontSize: 10,
                           fontFamily: 'Poppins-Regular',
