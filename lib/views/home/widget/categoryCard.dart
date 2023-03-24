@@ -61,10 +61,13 @@ class _CategoryCardState extends State<CategoryCard> {
             ),
             Text(
               widget.name,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w700,
                 fontFamily: 'Poppins-Regular',
+                color: selectedCategory == widget.index
+                    ? AppColors.white
+                    : AppColors.black,
               ),
             ),
             RawMaterialButton(
