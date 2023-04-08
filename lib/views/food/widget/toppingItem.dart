@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -10,6 +12,7 @@ class ToppingItem extends StatefulWidget {
   final String image;
   final String name;
   final Function()? onChanged;
+  final bool isSelected;
 
   const ToppingItem({
     super.key,
@@ -17,6 +20,7 @@ class ToppingItem extends StatefulWidget {
     required this.name,
     required this.image,
     required this.onChanged,
+    required this.isSelected,
   });
 
   @override
@@ -34,10 +38,15 @@ class _ToppingItemState extends State<ToppingItem> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             ColorFiltered(
-              colorFilter: ColorFilter.mode(
-                Colors.black.withOpacity(0.2),
-                BlendMode.color,
-              ),
+              colorFilter: widget.isSelected
+                  ? ColorFilter.mode(
+                      Colors.black.withOpacity(0.3),
+                      BlendMode.darken,
+                    )
+                  : ColorFilter.mode(
+                      Colors.black.withOpacity(0.2),
+                      BlendMode.color,
+                    ),
               child: Image.network(
                 widget.image,
                 fit: BoxFit.cover,
