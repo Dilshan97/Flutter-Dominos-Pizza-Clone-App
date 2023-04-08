@@ -9,6 +9,7 @@ import '../cart/cart.dart';
 import '../home/home.dart';
 import 'widget/crust.dart';
 import 'widget/pizzaSize.dart';
+import 'widget/toppingItem.dart';
 
 class FoodItem extends StatefulWidget {
   final Map food;
@@ -358,25 +359,9 @@ class _FoodItemState extends State<FoodItem> {
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: vegToppings.length,
-              itemBuilder: (context, index) => Padding(
-                padding: const EdgeInsets.all(10),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Image.network(
-                      vegToppings[index]['image'],
-                      fit: BoxFit.cover,
-                      width: 100,
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    CustomLabel(
-                      label: vegToppings[index]['name'],
-                      textColor: AppColors.black,
-                    ),
-                  ],
-                ),
+              itemBuilder: (context, index) => ToppingItem(
+                name: vegToppings[index]['name'],
+                image: vegToppings[index]['image'],
               ),
             ),
           ),
@@ -398,26 +383,9 @@ class _FoodItemState extends State<FoodItem> {
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: nonVegToppings.length,
-              itemBuilder: (context, index) => Padding(
-                padding: const EdgeInsets.all(10),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Image.network(
-                      nonVegToppings[index]['image'],
-                      fit: BoxFit.cover,
-                      width: 100,
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    CustomLabel(
-                      label: nonVegToppings[index]['name'],
-                      textColor: AppColors.black,
-                      textAlign: TextAlign.center,
-                    ),
-                  ],
-                ),
+              itemBuilder: (context, index) => ToppingItem(
+                name: nonVegToppings[index]['name'],
+                image: nonVegToppings[index]['image'],
               ),
             ),
           ),
