@@ -9,6 +9,7 @@ import '../foodItem.dart';
 class FoodCard extends StatefulWidget {
   final int index;
   final Map<String, dynamic> food;
+  // final Food food;
   const FoodCard({
     super.key,
     required this.index,
