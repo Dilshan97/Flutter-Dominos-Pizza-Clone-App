@@ -5,8 +5,9 @@ import 'package:flutter_notes/views/common/constants.dart';
 import 'package:flutter_notes/views/common/widgets/customLabel.dart';
 import 'package:flutter_svg/svg.dart';
 
-import 'cart/cart.dart';
-import 'home/home.dart';
+import '../cart/cart.dart';
+import '../home/home.dart';
+import 'widget/crust.dart';
 
 class FoodItem extends StatefulWidget {
   final Map food;
@@ -350,8 +351,12 @@ class _FoodItemState extends State<FoodItem> {
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: widget.food['sizes'][selectedSize]['crust'].length,
-              itemBuilder: (context, index) => GestureDetector(
-                onTap: () => {
+              itemBuilder: (context, index) => Crust(
+                index: index,
+                selectedCrust: selectedCrust,
+                crustName: widget.food['sizes'][selectedSize]['crust'][index]
+                    ['name'],
+                onChanged: () => {
                   setState(() {
                     selectedCrust = index;
                     pizzaCrust = widget.food['sizes'][selectedSize]['crust']
@@ -360,43 +365,6 @@ class _FoodItemState extends State<FoodItem> {
                         [index]['price'];
                   })
                 },
-                child: Padding(
-                  padding: EdgeInsets.only(left: index == 0 ? 10 : 0),
-                  child: Container(
-                    alignment: Alignment.center,
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 10,
-                      horizontal: 10,
-                    ),
-                    margin: const EdgeInsets.only(
-                      right: 20,
-                      top: 10,
-                      bottom: 10,
-                    ),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(0),
-                      border: Border.all(
-                        color: AppColors.primary,
-                      ),
-                      color: selectedCrust == index
-                          ? AppColors.primary
-                          : AppColors.white,
-                      boxShadow: const [
-                        BoxShadow(
-                          blurRadius: 1,
-                          color: Colors.grey,
-                        ),
-                      ],
-                    ),
-                    child: CustomLabel(
-                      label: widget.food['sizes'][selectedSize]['crust'][index]
-                          ['name'],
-                      textColor: selectedCrust == index
-                          ? AppColors.white
-                          : AppColors.black,
-                    ),
-                  ),
-                ),
               ),
             ),
           ),
