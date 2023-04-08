@@ -29,8 +29,8 @@ class _FoodItemState extends State<FoodItem> {
   late String pizzaSize = "Regular";
   late String pizzaCrust = "Thin";
   late int pizzaPrice = 0;
-
   late bool extraCheese = false;
+  List selectedVegToppings = [];
 
   @override
   Widget build(BuildContext context) {
@@ -360,8 +360,12 @@ class _FoodItemState extends State<FoodItem> {
               scrollDirection: Axis.horizontal,
               itemCount: vegToppings.length,
               itemBuilder: (context, index) => ToppingItem(
+                index: index,
                 name: vegToppings[index]['name'],
                 image: vegToppings[index]['image'],
+                onChanged: () {
+                  print("Veg");
+                },
               ),
             ),
           ),
@@ -384,8 +388,12 @@ class _FoodItemState extends State<FoodItem> {
               scrollDirection: Axis.horizontal,
               itemCount: nonVegToppings.length,
               itemBuilder: (context, index) => ToppingItem(
+                index: index,
                 name: nonVegToppings[index]['name'],
                 image: nonVegToppings[index]['image'],
+                onChanged: () {
+                  print("Non Veg");
+                },
               ),
             ),
           ),
