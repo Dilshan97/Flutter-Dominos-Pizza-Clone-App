@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -26,6 +28,9 @@ class _HomeState extends State<Home> {
   bool _drawerOpen = false;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   final FirebaseAuth auth = FirebaseAuth.instance;
+
+  StreamSubscription<QuerySnapshot>? _guestFoods;
+  List<Food> _guestFoodsList = [];
 
   final categoryRef =
       FirebaseFirestore.instance.collection('categories').withConverter(

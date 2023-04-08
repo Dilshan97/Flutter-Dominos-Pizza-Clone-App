@@ -5,8 +5,11 @@ import 'package:flutter_notes/views/common/constants.dart';
 import 'package:flutter_notes/views/common/widgets/customLabel.dart';
 import 'package:flutter_svg/svg.dart';
 
-import 'cart/cart.dart';
-import 'home/home.dart';
+import '../cart/cart.dart';
+import '../home/home.dart';
+import 'widget/crust.dart';
+import 'widget/pizzaSize.dart';
+import 'widget/toppingItem.dart';
 
 class FoodItem extends StatefulWidget {
   final Map food;
@@ -246,85 +249,19 @@ class _FoodItemState extends State<FoodItem> {
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: widget.food['sizes'].length,
-              itemBuilder: (context, index) => GestureDetector(
-                onTap: () => {
+              itemBuilder: (context, index) => PizzaSize(
+                index: index,
+                selectedSize: selectedSize,
+                title: widget.food['sizes'][index]['name'],
+                subTitle: widget.food['sizes'][index]['desc'],
+                image: widget.food['sizes'][index]['image'],
+                onChanged: () => {
                   setState(() {
                     selectedSize = index;
                     selectedCrust = 0;
                     pizzaSize = widget.food['sizes'][index]['name'];
                   })
                 },
-                child: Padding(
-                  padding: EdgeInsets.only(
-                    left: index == 0 ? 10 : 0,
-                  ),
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 10,
-                      horizontal: 10,
-                    ),
-                    margin: const EdgeInsets.only(
-                      right: 20,
-                      top: 10,
-                      bottom: 10,
-                    ),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: selectedSize == index
-                          ? AppColors.primary
-                          : AppColors.white,
-                      boxShadow: const [
-                        BoxShadow(
-                          blurRadius: 1,
-                          color: Colors.grey,
-                        ),
-                      ],
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(
-                            left: 10.0,
-                            right: 10.0,
-                          ),
-                          child: SvgPicture.asset(
-                            widget.food['sizes'][index]['image'],
-                            width: 70,
-                            color: selectedSize == index
-                                ? AppColors.white
-                                : AppColors.black,
-                          ),
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "${widget.food['sizes'][index]['name']}",
-                              style: TextStyle(
-                                fontFamily: 'Poppins-Medium',
-                                fontWeight: FontWeight.w700,
-                                color: selectedSize == index
-                                    ? AppColors.white
-                                    : AppColors.black,
-                              ),
-                            ),
-                            Text(
-                              "${widget.food['sizes'][index]['desc']}",
-                              style: TextStyle(
-                                fontFamily: 'Poppins-Regular',
-                                color: selectedSize == index
-                                    ? AppColors.white
-                                    : AppColors.black,
-                              ),
-                            )
-                          ],
-                        )
-                      ],
-                    ),
-                  ),
-                ),
               ),
             ),
           ),
@@ -350,8 +287,12 @@ class _FoodItemState extends State<FoodItem> {
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: widget.food['sizes'][selectedSize]['crust'].length,
-              itemBuilder: (context, index) => GestureDetector(
-                onTap: () => {
+              itemBuilder: (context, index) => Crust(
+                index: index,
+                selectedCrust: selectedCrust,
+                crustName: widget.food['sizes'][selectedSize]['crust'][index]
+                    ['name'],
+                onChanged: () => {
                   setState(() {
                     selectedCrust = index;
                     pizzaCrust = widget.food['sizes'][selectedSize]['crust']
@@ -360,43 +301,6 @@ class _FoodItemState extends State<FoodItem> {
                         [index]['price'];
                   })
                 },
-                child: Padding(
-                  padding: EdgeInsets.only(left: index == 0 ? 10 : 0),
-                  child: Container(
-                    alignment: Alignment.center,
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 10,
-                      horizontal: 10,
-                    ),
-                    margin: const EdgeInsets.only(
-                      right: 20,
-                      top: 10,
-                      bottom: 10,
-                    ),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(0),
-                      border: Border.all(
-                        color: AppColors.primary,
-                      ),
-                      color: selectedCrust == index
-                          ? AppColors.primary
-                          : AppColors.white,
-                      boxShadow: const [
-                        BoxShadow(
-                          blurRadius: 1,
-                          color: Colors.grey,
-                        ),
-                      ],
-                    ),
-                    child: CustomLabel(
-                      label: widget.food['sizes'][selectedSize]['crust'][index]
-                          ['name'],
-                      textColor: selectedCrust == index
-                          ? AppColors.white
-                          : AppColors.black,
-                    ),
-                  ),
-                ),
               ),
             ),
           ),
@@ -455,25 +359,9 @@ class _FoodItemState extends State<FoodItem> {
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: vegToppings.length,
-              itemBuilder: (context, index) => Padding(
-                padding: const EdgeInsets.all(10),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Image.network(
-                      vegToppings[index]['image'],
-                      fit: BoxFit.cover,
-                      width: 100,
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    CustomLabel(
-                      label: vegToppings[index]['name'],
-                      textColor: AppColors.black,
-                    ),
-                  ],
-                ),
+              itemBuilder: (context, index) => ToppingItem(
+                name: vegToppings[index]['name'],
+                image: vegToppings[index]['image'],
               ),
             ),
           ),
@@ -495,26 +383,9 @@ class _FoodItemState extends State<FoodItem> {
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: nonVegToppings.length,
-              itemBuilder: (context, index) => Padding(
-                padding: const EdgeInsets.all(10),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Image.network(
-                      nonVegToppings[index]['image'],
-                      fit: BoxFit.cover,
-                      width: 100,
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    CustomLabel(
-                      label: nonVegToppings[index]['name'],
-                      textColor: AppColors.black,
-                      textAlign: TextAlign.center,
-                    ),
-                  ],
-                ),
+              itemBuilder: (context, index) => ToppingItem(
+                name: nonVegToppings[index]['name'],
+                image: nonVegToppings[index]['image'],
               ),
             ),
           ),

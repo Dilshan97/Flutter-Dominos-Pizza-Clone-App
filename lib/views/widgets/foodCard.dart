@@ -4,11 +4,12 @@ import 'package:flutter_notes/models/food.dart';
 import 'package:flutter_notes/views/common/colors.dart';
 import 'package:flutter_notes/views/common/widgets/customLabel.dart';
 
-import '../foodItem.dart';
+import '../food/foodItem.dart';
 
 class FoodCard extends StatefulWidget {
   final int index;
   final Map<String, dynamic> food;
+  // final Food food;
   const FoodCard({
     super.key,
     required this.index,
@@ -63,27 +64,6 @@ class _FoodCardState extends State<FoodCard> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // Row(
-                      //   children: const [
-                      //     Icon(
-                      //       Icons.star,
-                      //       color: AppColors.primary,
-                      //       size: 20,
-                      //     ),
-                      //     SizedBox(
-                      //       width: 10,
-                      //     ),
-                      //     CustomLabel(
-                      //       label: "top of the week",
-                      //       textColor: AppColors.black,
-                      //       fontSize: 16,
-                      //       fontWeight: FontWeight.w500,
-                      //     )
-                      //   ],
-                      // ),
-                      // const SizedBox(
-                      //   height: 15,
-                      // ),
                       SizedBox(
                         width: size.width / 2.2,
                         child: CustomLabel(
