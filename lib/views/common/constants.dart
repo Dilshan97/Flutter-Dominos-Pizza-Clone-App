@@ -243,46 +243,57 @@ List<Map<String, dynamic>> categories = [
 
 List<Map<String, dynamic>> vegToppings = [
   {
+    'id': 1,
     'name': 'Crisp Capsicum',
     'image': 'https://images.dominos.co.in/srilanka/toppingsCapsicum.jpg'
   },
   {
+    'id': 2,
     'name': 'Fresh Tomato',
     'image': 'https://images.dominos.co.in/srilanka/toppingsTomato.jpg'
   },
   {
+    'id': 3,
     'name': 'Mushroom',
     'image': 'https://images.dominos.co.in/srilanka/toppingsMushroom.jpg'
   },
   {
+    'id': 4,
     'name': 'Bell Pepper',
     'image': 'https://images.dominos.co.in/srilanka/toppingsBellPepper.jpg'
   },
   {
+    'id': 5,
     'name': 'Paprika',
     'image': 'https://images.dominos.co.in/srilanka/toppingsPaprika.jpg'
   },
   {
+    'id': 6,
     'name': 'Nai Miris',
     'image': 'https://images.dominos.co.in/srilanka/menu_toppings_Nai-miris.png'
   },
   {
+    'id': 7,
     'name': 'Jalapeno',
     'image': 'https://images.dominos.co.in/srilanka/toppingsJalapeno.jpg'
   },
   {
+    'id': 8,
     'name': 'Golden Corn',
     'image': 'https://images.dominos.co.in/srilanka/toppingsGoldenCorn.jpg'
   },
   {
+    'id': 9,
     'name': 'Black Olives',
     'image': 'https://images.dominos.co.in/srilanka/toppingsOlives.jpg'
   },
   {
+    'id': 10,
     'name': 'Pineapple',
     'image': 'https://images.dominos.co.in/srilanka/toppingPineapple.jpg'
   },
   {
+    'id': 11,
     'name': 'Onion',
     'image': 'https://images.dominos.co.in/srilanka/toppingsOnion.jpg'
   }
@@ -290,6 +301,7 @@ List<Map<String, dynamic>> vegToppings = [
 
 List<Map<String, dynamic>> nonVegToppings = [
   {
+    'id': 1,
     'name': 'Chicken Sausage',
     'image': 'https://images.dominos.co.in/srilanka/toppingsChickenSausage.jpg'
   },
@@ -299,22 +311,27 @@ List<Map<String, dynamic>> nonVegToppings = [
   //       'https://images.dominos.co.in/srilanka/menu_toppings_chicken-Pepperoni.png'
   // },
   {
+    'id': 2,
     'name': 'Devils Chicken',
     'image': 'https://images.dominos.co.in/srilanka/toppingsSpicyChicken.jpg'
   },
   {
+    'id': 3,
     'name': 'Mutton Keema',
     'image': 'https://images.dominos.co.in/srilanka/toppingsMuttonKeemas.jpg'
   },
   {
+    'id': 4,
     'name': 'Tandoori Chicken',
     'image': 'https://images.dominos.co.in/srilanka/toppingsTandooriChicken.jpg'
   },
   {
+    'id': 5,
     'name': 'Pepperoni',
     'image': 'https://images.dominos.co.in/srilanka/toppingPepperoni.jpg'
   },
   {
+    'id': 6,
     'name': 'Bbq Chicken',
     'image': 'https://images.dominos.co.in/srilanka/toppingsBarbeque.jpg'
   }

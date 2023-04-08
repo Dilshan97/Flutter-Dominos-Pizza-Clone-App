@@ -31,6 +31,7 @@ class _FoodItemState extends State<FoodItem> {
   late int pizzaPrice = 0;
   late bool extraCheese = false;
   List selectedVegToppings = [];
+  List selectedNonVegToppings = [];
 
   @override
   Widget build(BuildContext context) {
@@ -363,8 +364,19 @@ class _FoodItemState extends State<FoodItem> {
                 index: index,
                 name: vegToppings[index]['name'],
                 image: vegToppings[index]['image'],
+                isSelected:
+                    selectedVegToppings.contains(vegToppings[index]['id'])
+                        ? true
+                        : false,
                 onChanged: () {
-                  print("Veg");
+                  setState(() {
+                    if (selectedVegToppings
+                        .contains(vegToppings[index]['id'])) {
+                      selectedVegToppings.remove(vegToppings[index]['id']);
+                    } else {
+                      selectedVegToppings.add(vegToppings[index]['id']);
+                    }
+                  });
                 },
               ),
             ),
@@ -391,8 +403,20 @@ class _FoodItemState extends State<FoodItem> {
                 index: index,
                 name: nonVegToppings[index]['name'],
                 image: nonVegToppings[index]['image'],
+                isSelected:
+                    selectedNonVegToppings.contains(nonVegToppings[index]['id'])
+                        ? true
+                        : false,
                 onChanged: () {
-                  print("Non Veg");
+                  setState(() {
+                    if (selectedNonVegToppings
+                        .contains(nonVegToppings[index]['id'])) {
+                      selectedNonVegToppings
+                          .remove(nonVegToppings[index]['id']);
+                    } else {
+                      selectedNonVegToppings.add(nonVegToppings[index]['id']);
+                    }
+                  });
                 },
               ),
             ),
