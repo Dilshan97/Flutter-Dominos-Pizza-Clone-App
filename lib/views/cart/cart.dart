@@ -19,7 +19,7 @@ class Cart extends StatefulWidget {
 }
 
 class _CartState extends State<Cart> {
-  final items = List<String>.generate(20, (i) => 'Item ${i + 1}');
+  final items = List<String>.generate(5, (i) => 'Item ${i + 1}');
 
   @override
   Widget build(BuildContext context) {
@@ -67,36 +67,49 @@ class _CartState extends State<Cart> {
         ],
       ),
       body: items.isNotEmpty
-          ? Column(
+          ? ListView(
+              scrollDirection: Axis.vertical,
               children: [
-                SizedBox(
-                  height: size.height / 2,
-                  child: ListView.builder(
-                    scrollDirection: Axis.vertical,
-                    itemCount: items.length,
-                    itemBuilder: (context, index) => CartItem(
-                      dKey: items[index],
-                      index: index,
-                    ),
+                ListView.builder(
+                  physics: const ScrollPhysics(),
+                  shrinkWrap: true,
+                  scrollDirection: Axis.vertical,
+                  itemCount: items.length,
+                  itemBuilder: (context, index) => CartItem(
+                    dKey: items[index],
+                    index: index,
                   ),
                 ),
-                // SizedBox(
-                //   height: size.height / 10,
-                // ),
                 SizedBox(
                   width: size.width * 0.90,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: const [
-                      CustomLabel(
-                        label: "Frequently Bought Together",
-                        textColor: AppColors.black,
-                      ),
-                      CustomLabel(
-                        label: "EXPLORE MENU",
-                        textColor: AppColors.primary,
-                      ),
-                    ],
+                  height: size.height * 0.060,
+                  child: Container(
+                    alignment: Alignment.center,
+                    margin: const EdgeInsets.only(
+                      left: 15,
+                      right: 15,
+                      top: 15,
+                      bottom: 15,
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const CustomLabel(
+                          label: "Frequently Bought Together",
+                          textColor: AppColors.black,
+                        ),
+                        GestureDetector(
+                          onTap: () => Navigator.of(context).pushReplacement(
+                            MaterialPageRoute(
+                                builder: (context) => const Home()),
+                          ),
+                          child: const CustomLabel(
+                            label: "EXPLORE MENU",
+                            textColor: AppColors.primary,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 SizedBox(
@@ -110,14 +123,25 @@ class _CartState extends State<Cart> {
                 ),
                 SizedBox(
                   width: size.width,
-                  child: const Discount(),
+                  child: Container(
+                    margin: const EdgeInsets.only(
+                      top: 20,
+                      bottom: 20,
+                    ),
+                    child: const Discount(),
+                  ),
                 ),
                 SizedBox(
                   height: size.height * 0.02,
                 ),
                 SizedBox(
-                  width: size.width * 0.85,
+                  width: size.width,
                   child: Card(
+                    margin: const EdgeInsets.only(
+                      left: 20,
+                      right: 20,
+                      bottom: 25,
+                    ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: const [
@@ -134,8 +158,9 @@ class _CartState extends State<Cart> {
                           price: 250.00,
                         ),
                         CartSummery(
-                          title: "Grnd Total",
+                          title: "Grand Total",
                           price: 3250.00,
+                          fontWeight: FontWeight.w600,
                         ),
                       ],
                     ),
@@ -144,6 +169,26 @@ class _CartState extends State<Cart> {
               ],
             )
           : const EmptyCart(),
+      bottomNavigationBar: GestureDetector(
+        onTap: () => {},
+        child: Container(
+          height: size.height * 0.080,
+          width: size.width / 2,
+          padding: const EdgeInsets.all(10),
+          decoration: const BoxDecoration(
+            color: AppColors.primary,
+          ),
+          child: const Padding(
+            padding: EdgeInsets.all(8),
+            child: CustomLabel(
+              label: "Place Order",
+              textColor: AppColors.white,
+              textAlign: TextAlign.center,
+              fontSize: 16,
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

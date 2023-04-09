@@ -15,6 +15,7 @@ class _FrequentItemState extends State<FrequentItem> {
   @override
   Widget build(BuildContext context) {
     return Card(
+      elevation: 1,
       child: Container(
         margin: const EdgeInsets.all(10),
         child: Column(
@@ -52,7 +53,7 @@ class _FrequentItemState extends State<FrequentItem> {
               ),
               child: const CustomLabel(
                 label: "Add",
-                textColor: AppColors.black,
+                textColor: AppColors.tertiary,
               ),
             ),
           ],
