@@ -33,6 +33,13 @@ class _FoodItemState extends State<FoodItem> {
   List selectedVegToppings = [];
   List selectedNonVegToppings = [];
 
+  void resetToppings() {
+    setState(() {
+      selectedVegToppings = [];
+      selectedNonVegToppings = [];
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -325,18 +332,35 @@ class _FoodItemState extends State<FoodItem> {
               activeColor: AppColors.primary,
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.only(
+          Padding(
+            padding: const EdgeInsets.only(
               left: 20,
               top: 5,
+              right: 20,
             ),
-            child: Text(
-              "Toppings",
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w700,
-                fontFamily: 'Poppins-Regular',
-              ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text(
+                  "Toppings",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w700,
+                    fontFamily: 'Poppins-Regular',
+                  ),
+                ),
+                GestureDetector(
+                  onTap: resetToppings,
+                  child: const Text(
+                    "Reset",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w400,
+                      fontFamily: 'Poppins-Regular',
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
           const SizedBox(
