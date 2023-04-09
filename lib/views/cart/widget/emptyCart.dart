@@ -9,23 +9,28 @@ class EmptyCart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: const [
-        CustomLabel(
-          label: "Your Cart is Empty",
-          textColor: AppColors.black,
-          fontWeight: FontWeight.w600,
-          fontSize: 20,
-          fontFamily: 'Poppins-SemiBold',
+      children: [
+        Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            CustomLabel(
+              label: "Your Cart is Empty",
+              textColor: AppColors.black,
+              fontWeight: FontWeight.w600,
+              fontSize: 20,
+              fontFamily: 'Poppins-SemiBold',
+            ),
+            CustomLabel(
+              label: "Look like you haven't added \n anything to your cart yet",
+              textColor: AppColors.black,
+              fontSize: 16,
+              fontWeight: FontWeight.w500,
+              fontFamily: 'Poppins-Light',
+            )
+          ],
         ),
-        CustomLabel(
-          label: "Look like you haven't added \n anything to your cart yet",
-          textColor: AppColors.black,
-          fontSize: 16,
-          fontWeight: FontWeight.w500,
-          fontFamily: 'Poppins-Light',
-        )
       ],
     );
   }
