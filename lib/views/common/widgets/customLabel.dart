@@ -7,6 +7,7 @@ class CustomLabel extends StatefulWidget {
   final double? fontSize;
   final FontWeight? fontWeight;
   final Color textColor;
+  final Color? backgroundColor;
   final String? fontFamily;
   final double? height;
   final TextAlign? textAlign;
@@ -16,6 +17,7 @@ class CustomLabel extends StatefulWidget {
     super.key,
     required this.label,
     required this.textColor,
+    this.backgroundColor,
     this.fontSize,
     this.fontWeight,
     this.fontFamily,
@@ -35,6 +37,7 @@ class _CustomLabelState extends State<CustomLabel> {
       widget.label,
       textAlign: widget.textAlign ?? TextAlign.center,
       style: TextStyle(
+        backgroundColor: widget.backgroundColor,
         color: widget.textColor,
         fontSize: widget.fontSize,
         fontFamily: widget.fontFamily ?? 'Poppins-Medium',
