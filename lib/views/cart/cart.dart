@@ -5,7 +5,11 @@ import 'package:flutter_notes/views/common/colors.dart';
 
 import '../common/widgets/customLabel.dart';
 import '../home/home.dart';
+import 'widget/cartItem.dart';
+import 'widget/cartSummery.dart';
+import 'widget/discount.dart';
 import 'widget/emptyCart.dart';
+import 'widget/frequentItem.dart';
 
 class Cart extends StatefulWidget {
   const Cart({super.key});
@@ -62,82 +66,81 @@ class _CartState extends State<Cart> {
           )
         ],
       ),
-      body: SizedBox(
-        width: size.width,
-        child: SizedBox(
-          height: size.height / 2,
-          child: ListView.builder(
-            scrollDirection: Axis.vertical,
-            itemCount: items.length,
-            itemBuilder: (context, index) => Card(
-              color: AppColors.white,
-              elevation: 1,
-              child: Container(
-                decoration: BoxDecoration(
-                  color: AppColors.white,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Dismissible(
-                  key: Key(items[index]),
-                  background: Container(
-                    alignment: Alignment.centerRight,
-                    decoration: BoxDecoration(
-                      color: AppColors.tertiary,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Container(
-                      margin: const EdgeInsets.only(
-                        right: 5,
-                      ),
-                      child: const Icon(
-                        Icons.delete,
-                        color: AppColors.white,
-                      ),
-                    ),
-                  ),
-                  direction: DismissDirection.endToStart,
-                  onDismissed: (DismissDirection direction) {
-                    if (direction == DismissDirection.endToStart) {}
-                  },
-                  child: Container(
-                    margin: const EdgeInsets.only(
-                      left: 5,
-                      bottom: 10,
-                      right: 5,
-                      top: 10,
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Image.network(
-                          "https://images.dominos.co.in/srilanka/toppingsTomato.jpg",
-                          width: 70,
-                          fit: BoxFit.contain,
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
-                            CustomLabel(
-                              label: "Tandoori Chicken",
-                              textColor: AppColors.black,
-                            ),
-                            Text("Medium | Classic Hand Tossed"),
-                            CustomLabel(
-                              label: "Rs.2029.00",
-                              textColor: AppColors.black,
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
+      body: Column(
+        children: [
+          SizedBox(
+            height: size.height / 2,
+            child: ListView.builder(
+              scrollDirection: Axis.vertical,
+              itemCount: items.length,
+              itemBuilder: (context, index) => CartItem(
+                dKey: items[index],
+                index: index,
               ),
             ),
           ),
-        ),
+          // SizedBox(
+          //   height: size.height / 10,
+          // ),
+          SizedBox(
+            width: size.width * 0.90,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: const [
+                CustomLabel(
+                  label: "Frequently Bought Together",
+                  textColor: AppColors.black,
+                ),
+                CustomLabel(
+                  label: "EXPLORE MENU",
+                  textColor: AppColors.primary,
+                ),
+              ],
+            ),
+          ),
+          SizedBox(
+            width: size.width,
+            height: 129,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: items.length,
+              itemBuilder: (context, index) => const FrequentItem(),
+            ),
+          ),
+          SizedBox(
+            width: size.width,
+            child: const Discount(),
+          ),
+          SizedBox(
+            height: size.height * 0.02,
+          ),
+          SizedBox(
+            width: size.width * 0.85,
+            child: Card(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: const [
+                  CartSummery(
+                    title: "SubTotal",
+                    price: 2590.00,
+                  ),
+                  CartSummery(
+                    title: "Discount",
+                    price: 0,
+                  ),
+                  CartSummery(
+                    title: "Charges",
+                    price: 250.00,
+                  ),
+                  CartSummery(
+                    title: "Grnd Total",
+                    price: 3250.00,
+                  ),
+                ],
+              ),
+            ),
+          )
+        ],
       ),
     );
   }
