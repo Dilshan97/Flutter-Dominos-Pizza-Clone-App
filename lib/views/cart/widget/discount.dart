@@ -24,6 +24,7 @@ class _DiscountState extends State<Discount> {
         ),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: const [
             CustomLabel(
               label: "Apply Coupon",
@@ -38,9 +39,12 @@ class _DiscountState extends State<Discount> {
             )
           ],
         ),
-        const Icon(
-          Icons.chevron_right,
-          color: AppColors.black,
+        GestureDetector(
+          onTap: () => {},
+          child: const Icon(
+            Icons.chevron_right,
+            color: AppColors.black,
+          ),
         ),
       ],
     );

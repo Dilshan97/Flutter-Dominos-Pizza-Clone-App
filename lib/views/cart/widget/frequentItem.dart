@@ -21,6 +21,8 @@ class _FrequentItemState extends State<FrequentItem> {
         child: Column(
           children: [
             Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Image.network(
                   "https://images.dominos.co.in/srilanka/toppingsTomato.jpg",
@@ -29,7 +31,7 @@ class _FrequentItemState extends State<FrequentItem> {
                 ),
                 Container(
                   margin: const EdgeInsets.only(
-                    left: 10,
+                    left: 15,
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -47,13 +49,16 @@ class _FrequentItemState extends State<FrequentItem> {
                 ),
               ],
             ),
-            Container(
-              margin: const EdgeInsets.only(
-                top: 10,
-              ),
-              child: const CustomLabel(
-                label: "Add",
-                textColor: AppColors.tertiary,
+            GestureDetector(
+              onTap: () => {},
+              child: Container(
+                margin: const EdgeInsets.only(
+                  top: 10,
+                ),
+                child: const CustomLabel(
+                  label: "Add",
+                  textColor: AppColors.tertiary,
+                ),
               ),
             ),
           ],
