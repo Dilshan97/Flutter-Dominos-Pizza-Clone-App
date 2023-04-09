@@ -7,10 +7,12 @@ import '../../common/widgets/customLabel.dart';
 class CartSummery extends StatefulWidget {
   final String title;
   final double price;
+  final FontWeight? fontWeight;
   const CartSummery({
     super.key,
     required this.title,
     required this.price,
+    this.fontWeight,
   });
 
   @override
@@ -27,10 +29,18 @@ class _CartSummeryState extends State<CartSummery> {
           label: widget.title,
           textAlign: TextAlign.start,
           textColor: AppColors.black,
+          height: 2,
+          fontFamily: 'Poppins-Regular',
+          fontWeight: widget.fontWeight,
+          fontSize: 16,
         ),
         CustomLabel(
           label: "Rs.${widget.price}",
           textColor: AppColors.black,
+          height: 2,
+          fontFamily: 'Poppins-Regular',
+          fontWeight: widget.fontWeight,
+          fontSize: 16,
         ),
       ],
     );

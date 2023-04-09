@@ -28,10 +28,13 @@ class _DiscountState extends State<Discount> {
             CustomLabel(
               label: "Apply Coupon",
               textColor: AppColors.black,
+              fontFamily: 'Poppins-Regular',
+              fontWeight: FontWeight.w700,
             ),
             CustomLabel(
               label: "Get discount with your order",
               textColor: AppColors.black,
+              fontFamily: 'Poppins-Regular',
             )
           ],
         ),

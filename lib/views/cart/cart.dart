@@ -67,7 +67,8 @@ class _CartState extends State<Cart> {
         ],
       ),
       body: items.isNotEmpty
-          ? Column(
+          ? ListView(
+              scrollDirection: Axis.vertical,
               children: [
                 SizedBox(
                   height: size.height / 2,
@@ -80,9 +81,6 @@ class _CartState extends State<Cart> {
                     ),
                   ),
                 ),
-                // SizedBox(
-                //   height: size.height / 10,
-                // ),
                 SizedBox(
                   width: size.width * 0.90,
                   child: Row(
@@ -110,14 +108,25 @@ class _CartState extends State<Cart> {
                 ),
                 SizedBox(
                   width: size.width,
-                  child: const Discount(),
+                  child: Container(
+                    margin: const EdgeInsets.only(
+                      top: 20,
+                      bottom: 20,
+                    ),
+                    child: const Discount(),
+                  ),
                 ),
                 SizedBox(
                   height: size.height * 0.02,
                 ),
                 SizedBox(
-                  width: size.width * 0.85,
+                  width: size.width,
                   child: Card(
+                    margin: const EdgeInsets.only(
+                      left: 20,
+                      right: 20,
+                      bottom: 25,
+                    ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: const [
@@ -136,6 +145,7 @@ class _CartState extends State<Cart> {
                         CartSummery(
                           title: "Grnd Total",
                           price: 3250.00,
+                          fontWeight: FontWeight.w700,
                         ),
                       ],
                     ),
@@ -144,6 +154,26 @@ class _CartState extends State<Cart> {
               ],
             )
           : const EmptyCart(),
+      bottomNavigationBar: GestureDetector(
+        onTap: () => {},
+        child: Container(
+          height: size.height * 0.080,
+          width: size.width / 2,
+          padding: const EdgeInsets.all(10),
+          decoration: const BoxDecoration(
+            color: AppColors.primary,
+          ),
+          child: const Padding(
+            padding: EdgeInsets.all(8),
+            child: CustomLabel(
+              label: "Place Order",
+              textColor: AppColors.white,
+              textAlign: TextAlign.center,
+              fontSize: 16,
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
