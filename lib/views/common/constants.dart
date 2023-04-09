@@ -50,10 +50,10 @@ List<Map<String, dynamic>> categories = [
             'name': 'Regular',
             'desc': '6" - Serves 1',
             'image': 'assets/images/size/regular.svg',
-            'price': 1109,
             'crust': [
               {
                 'name': 'Classic Hand Tossed',
+                'price': 1109,
               }
             ]
           },
@@ -61,19 +61,22 @@ List<Map<String, dynamic>> categories = [
             'name': 'Medium',
             'desc': '9" - Serves 2',
             'image': 'assets/images/size/medium.svg',
-            'price': 2029,
             'crust': [
               {
                 'name': 'Classic Hand Tossed',
+                'price': 2029,
               },
               {
                 'name': 'Wheat Thin Crust',
+                'price': 2100,
               },
               {
                 'name': 'Cheese Burst',
+                'price': 2050,
               },
               {
                 'name': 'Cheese Float',
+                'price': 1830,
               },
             ]
           },
@@ -81,13 +84,14 @@ List<Map<String, dynamic>> categories = [
             'name': 'Large',
             'desc': '11" - Serves 4',
             'image': 'assets/images/size/regular.svg',
-            'price': 3739,
             'crust': [
               {
                 'name': 'Classic Hand Tossed',
+                'price': 3739,
               },
               {
                 'name': 'Cheese Float',
+                'price': 3839,
               },
             ]
           },
@@ -103,10 +107,10 @@ List<Map<String, dynamic>> categories = [
             'name': 'Regular',
             'desc': '6" - Serves 1',
             'image': 'assets/images/size/regular.svg',
-            'price': 1109,
             'crust': [
               {
                 'name': 'Classic Hand Tossed',
+                'price': 1109,
               }
             ]
           },
@@ -114,19 +118,22 @@ List<Map<String, dynamic>> categories = [
             'name': 'Medium',
             'desc': '9" - Serves 2',
             'image': 'assets/images/size/medium.svg',
-            'price': 2029,
             'crust': [
               {
                 'name': 'Classic Hand Tossed',
+                'price': 1850,
               },
               {
                 'name': 'Wheat Thin Crust',
+                'price': 1999,
               },
               {
                 'name': 'Cheese Burst',
+                'price': 2030,
               },
               {
                 'name': 'Cheese Float',
+                'price': 2100,
               },
             ]
           },
@@ -134,13 +141,14 @@ List<Map<String, dynamic>> categories = [
             'name': 'Large',
             'desc': '11" - Serves 4',
             'image': 'assets/images/size/regular.svg',
-            'price': 3739,
             'crust': [
               {
                 'name': 'Classic Hand Tossed',
+                'price': 3739,
               },
               {
                 'name': 'Cheese Float',
+                'price': 3500,
               },
             ]
           },
@@ -156,10 +164,10 @@ List<Map<String, dynamic>> categories = [
             'name': 'Regular',
             'desc': '6" - Serves 1',
             'image': 'assets/images/size/regular.svg',
-            'price': 1109,
             'crust': [
               {
                 'name': 'Classic Hand Tossed',
+                'price': 1109,
               }
             ]
           },
@@ -167,19 +175,22 @@ List<Map<String, dynamic>> categories = [
             'name': 'Medium',
             'desc': '9" - Serves 2',
             'image': 'assets/images/size/medium.svg',
-            'price': 2029,
             'crust': [
               {
                 'name': 'Classic Hand Tossed',
+                'price': 1750,
               },
               {
                 'name': 'Wheat Thin Crust',
+                'price': 1850,
               },
               {
                 'name': 'Cheese Burst',
+                'price': 2029,
               },
               {
                 'name': 'Cheese Float',
+                'price': 2250,
               },
             ]
           },
@@ -187,13 +198,14 @@ List<Map<String, dynamic>> categories = [
             'name': 'Large',
             'desc': '11" - Serves 4',
             'image': 'assets/images/size/regular.svg',
-            'price': 3739,
             'crust': [
               {
                 'name': 'Classic Hand Tossed',
+                'price': 3439,
               },
               {
                 'name': 'Cheese Float',
+                'price': 3739,
               },
             ]
           },

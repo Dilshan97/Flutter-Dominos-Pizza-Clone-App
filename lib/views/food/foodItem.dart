@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_notes/services/cart_service.dart';
 import 'package:flutter_notes/views/common/colors.dart';
 import 'package:flutter_notes/views/common/constants.dart';
 import 'package:flutter_notes/views/common/widgets/customLabel.dart';
@@ -38,6 +39,16 @@ class _FoodItemState extends State<FoodItem> {
       selectedVegToppings = [];
       selectedNonVegToppings = [];
     });
+  }
+
+  Future<void> addToCart() async {
+    print('addToCart');
+    print(widget.food);
+    print(pizzaSize);
+    print(pizzaCrust);
+
+    // CartService cartService = CartService(context);
+    // cartService.addItemToCart(id, name, qty, type)
   }
 
   @override
@@ -448,7 +459,7 @@ class _FoodItemState extends State<FoodItem> {
         ],
       ),
       bottomNavigationBar: GestureDetector(
-        onTap: () => {},
+        onTap: addToCart,
         child: Container(
           height: size.height * 0.080,
           width: size.width / 2,
@@ -467,39 +478,6 @@ class _FoodItemState extends State<FoodItem> {
           ),
         ),
       ),
-      // bottomNavigationBar: SizedBox(
-      //   width: size.width,
-      //   child: GestureDetector(
-      //     child: Container(
-      //       margin: const EdgeInsets.only(
-      //         left: 30,
-      //         right: 30,
-      //       ),
-      //       decoration: const BoxDecoration(
-      //         color: AppColors.primary,
-      //         borderRadius: BorderRadius.only(
-      //           topRight: Radius.circular(25),
-      //           topLeft: Radius.circular(25),
-      //         ),
-      //       ),
-      //       child: const Padding(
-      //         padding: EdgeInsets.only(
-      //           top: 20,
-      //           bottom: 22,
-      //         ),
-      //         child: Text(
-      //           'Add to Cart',
-      //           textAlign: TextAlign.center,
-      //           style: TextStyle(
-      //             fontSize: 20,
-      //             fontFamily: 'Poppins-Regular',
-      //             fontWeight: FontWeight.w700,
-      //           ),
-      //         ),
-      //       ),
-      //     ),
-      //   ),
-      // ),
     );
   }
 }
