@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:localstorage/localstorage.dart';
 
+import '../views/home/home.dart';
+
 class CartService {
   late LocalStorage localStorage;
   late BuildContext _context;
@@ -31,6 +33,7 @@ class CartService {
       cartItem.update("qty", (value) => cartItem['qty'] + qty);
       cartItemList.replaceRange(cartIndex, cartIndex + 1, [cartItem]);
     }
+    await saveCart();
   }
 
   Future<void> updateCartItem(
@@ -48,9 +51,32 @@ class CartService {
       }
       cartItemList.replaceRange(cartIndex, cartIndex + 1, [cartItem]);
     }
+    await saveCart();
+  }
+
+  Future<void> removeCartItem(String id) async {
+    int cartIndex = cartItemList.indexWhere((element) => element['_id'] == id);
+    if (cartItemList.length == 1) {
+      await removeAll();
+    } else {
+      cartItemList.removeAt(cartIndex);
+      await saveCart();
+    }
   }
 
   List<dynamic> getCartItems() {
     return localStorage.getItem('cart');
+  }
+
+  Future<void> removeAll() async {
+    cartItemList.clear();
+  }
+
+  Future<void> saveCart() async {
+    await localStorage.setItem("cart", cartItemList);
+  }
+
+  int getCount() {
+    return cartItemList.length;
   }
 }
