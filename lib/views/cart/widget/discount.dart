@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../common/colors.dart';
 import '../../common/widgets/customLabel.dart';
+import '../../coupon/coupon.dart';
 
 class Discount extends StatefulWidget {
   const Discount({super.key});
@@ -40,7 +41,9 @@ class _DiscountState extends State<Discount> {
           ],
         ),
         GestureDetector(
-          onTap: () => {},
+          onTap: () => Navigator.of(context).pushReplacement(
+            MaterialPageRoute(builder: (context) => const Coupon()),
+          ),
           child: const Icon(
             Icons.chevron_right,
             color: AppColors.black,
