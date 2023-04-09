@@ -22,7 +22,7 @@ class _CartItemState extends State<CartItem> {
   Widget build(BuildContext context) {
     return Card(
       color: AppColors.white,
-      elevation: 1,
+      elevation: 0.8,
       child: Container(
         decoration: BoxDecoration(
           color: AppColors.white,
@@ -58,7 +58,7 @@ class _CartItemState extends State<CartItem> {
               top: 10,
             ),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Image.network(
