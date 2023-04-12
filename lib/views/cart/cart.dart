@@ -113,7 +113,7 @@ class _CartState extends State<Cart> {
                   ),
                 ),
                 SizedBox(
-                  width: size.width,
+                  width: size.width / 3,
                   height: 136,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
@@ -125,7 +125,7 @@ class _CartState extends State<Cart> {
                   width: size.width,
                   child: Container(
                     margin: const EdgeInsets.only(
-                      top: 20,
+                      top: 30,
                       bottom: 20,
                     ),
                     child: const Discount(),
