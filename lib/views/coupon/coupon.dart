@@ -14,6 +14,7 @@ class Coupon extends StatefulWidget {
 
 class _CouponState extends State<Coupon> {
   final items = List<String>.generate(10, (i) => 'Item ${i + 1}');
+  bool _showBottomSheet = true;
 
   @override
   Widget build(BuildContext context) {
@@ -132,14 +133,17 @@ class _CouponState extends State<Coupon> {
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: const [
-                      CustomLabel(
-                        label: "T & C",
-                        textColor: AppColors.primary,
-                        fontFamily: 'Poppins-Regular',
-                        fontWeight: FontWeight.w600,
+                    children: [
+                      GestureDetector(
+                        onTap: () => bottomSheet(context),
+                        child: const CustomLabel(
+                          label: "T & C",
+                          textColor: AppColors.primary,
+                          fontFamily: 'Poppins-Regular',
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
-                      CustomLabel(
+                      const CustomLabel(
                         label: "APPLY",
                         textColor: AppColors.primary,
                         fontWeight: FontWeight.w700,
@@ -155,4 +159,89 @@ class _CouponState extends State<Coupon> {
       ),
     );
   }
+}
+
+void bottomSheet(context) {
+  Size size = MediaQuery.of(context).size;
+  showModalBottomSheet(
+    context: context,
+    builder: (BuildContext context) {
+      return Container(
+        height: size.height / 1.5,
+        decoration: BoxDecoration(
+          color: AppColors.white,
+          borderRadius: BorderRadius.circular(40),
+        ),
+        child: Container(
+            padding: const EdgeInsets.only(
+              left: 20,
+              top: 20,
+              bottom: 25,
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  padding: const EdgeInsets.only(
+                    bottom: 20,
+                  ),
+                  child: const CustomLabel(
+                    label: "Terms & Conditions",
+                    textColor: AppColors.black,
+                    fontSize: 18,
+                  ),
+                ),
+                const CustomLabel(
+                  label:
+                      "- Offer is valid only on Mobile App, Desktop \n and PWA",
+                  textColor: AppColors.black,
+                  textAlign: TextAlign.start,
+                  fontFamily: 'Poppins-Regular',
+                ),
+                const CustomLabel(
+                  label:
+                      "- Cart Value (Before discount & before delivery charge) \n must be a minimum of Rs.2999/=",
+                  textColor: AppColors.black,
+                  textAlign: TextAlign.start,
+                  fontFamily: 'Poppins-Regular',
+                ),
+                const CustomLabel(
+                  label: "- Maximum Discount per order is Rs 1000/=",
+                  textColor: AppColors.black,
+                  textAlign: TextAlign.start,
+                  fontFamily: 'Poppins-Regular',
+                ),
+                const CustomLabel(
+                  label: "- Coupon cannot be applied with Combos & EDV",
+                  textColor: AppColors.black,
+                  textAlign: TextAlign.start,
+                  fontFamily: 'Poppins-Regular',
+                ),
+                const CustomLabel(
+                  label:
+                      "- Order must have a core pizza \n (excluding Pizza Mania/All Day Favourites) for the coupon \n to be applicable",
+                  textColor: AppColors.black,
+                  textAlign: TextAlign.start,
+                  fontFamily: 'Poppins-Regular',
+                ),
+                const CustomLabel(
+                  label:
+                      "- Pizza Mania/ All Day Favourites is not eligible \n for any discount in this offer",
+                  textColor: AppColors.black,
+                  textAlign: TextAlign.start,
+                  fontFamily: 'Poppins-Regular',
+                ),
+                const CustomLabel(
+                  label:
+                      "- Offer can be retracted at any time as \n deemed by business",
+                  textColor: AppColors.black,
+                  textAlign: TextAlign.start,
+                  fontFamily: 'Poppins-Regular',
+                ),
+              ],
+            )),
+      );
+    },
+  );
 }
