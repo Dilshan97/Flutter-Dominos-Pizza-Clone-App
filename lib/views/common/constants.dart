@@ -2,10 +2,11 @@ List<Map<String, dynamic>> categories = [
   {
     'imagePath':
         'https://apis.dominoslk.com/olo-lka-prod-api/images/home/loaded_pizza_rounded.png',
-    'name': 'Supreme Range',
+    'name': 'Non-Veg Pizza',
     'items': [
       {
-        'name': 'Tandoori Chicken',
+        'type': 'pizza',
+        'name': 'Tandoori Chicken *',
         'desc':
             'Tandoori oven baked shredded chicken breasts, onions and capsicum',
         'image': 'assets/images/pizza/tandoori-chicken.png',
@@ -41,6 +42,7 @@ List<Map<String, dynamic>> categories = [
         ]
       },
       {
+        'type': 'pizza',
         'name': 'Hot Chili Chicken',
         'desc':
             'Quick fried hot chili chicken, capsicum, onion, red paprika slices and devil sauce',
@@ -98,6 +100,7 @@ List<Map<String, dynamic>> categories = [
         ]
       },
       {
+        'type': 'pizza',
         'name': 'Chicken Hawaiian',
         'desc':
             'Crispy chicken bacon, jalapeno and pineapple titbits on a mozzarella crust',
@@ -155,6 +158,7 @@ List<Map<String, dynamic>> categories = [
         ]
       },
       {
+        'type': 'pizza',
         'name': 'Teriyaki Chicken',
         'desc':
             'Japanese teriyaki glazed chicken, button mushrooms, onions and crispy bell peppers',
@@ -317,11 +321,6 @@ List<Map<String, dynamic>> nonVegToppings = [
     'name': 'Chicken Sausage',
     'image': 'https://images.dominos.co.in/srilanka/toppingsChickenSausage.jpg'
   },
-  // {
-  //   'name': 'Pepperoni',
-  //   'image':
-  //       'https://images.dominos.co.in/srilanka/menu_toppings_chicken-Pepperoni.png'
-  // },
   {
     'id': 2,
     'name': 'Devils Chicken',

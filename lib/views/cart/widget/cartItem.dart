@@ -18,6 +18,22 @@ class CartItem extends StatefulWidget {
 }
 
 class _CartItemState extends State<CartItem> {
+  int _quantity = 1;
+
+  void _incrementQuantity() {
+    setState(() {
+      _quantity++;
+    });
+  }
+
+  void _decrementQuantity() {
+    setState(() {
+      if (_quantity > 1) {
+        _quantity--;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -69,16 +85,45 @@ class _CartItemState extends State<CartItem> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    CustomLabel(
+                  children: [
+                    const CustomLabel(
                       label: "Tandoori Chicken",
                       textColor: AppColors.black,
                     ),
-                    Text("Medium | Classic Hand Tossed"),
-                    CustomLabel(
+                    const Text("Medium | Classic Hand Tossed"),
+                    const CustomLabel(
                       label: "Rs.2029.00",
                       textColor: AppColors.black,
                     ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        IconButton(
+                          icon: const Icon(
+                            Icons.remove,
+                            color: AppColors.black,
+                            size: 15,
+                          ),
+                          onPressed: _decrementQuantity,
+                        ),
+                        SizedBox(
+                          width: 25,
+                          child: CustomLabel(
+                            label: _quantity.toString(),
+                            textColor: AppColors.black,
+                          ),
+                        ),
+                        IconButton(
+                          onPressed: _incrementQuantity,
+                          icon: const Icon(
+                            Icons.add,
+                            color: AppColors.black,
+                            size: 15,
+                          ),
+                        ),
+                      ],
+                    )
                   ],
                 ),
               ],

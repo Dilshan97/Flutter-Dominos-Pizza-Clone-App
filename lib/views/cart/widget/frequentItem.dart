@@ -14,6 +14,7 @@ class FrequentItem extends StatefulWidget {
 class _FrequentItemState extends State<FrequentItem> {
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Card(
       elevation: 1,
       child: Container(
@@ -52,12 +53,28 @@ class _FrequentItemState extends State<FrequentItem> {
             GestureDetector(
               onTap: () => {},
               child: Container(
+                alignment: Alignment.bottomCenter,
+                width: size.width / 2,
                 margin: const EdgeInsets.only(
-                  top: 10,
+                  top: 12,
                 ),
-                child: const CustomLabel(
-                  label: "Add",
-                  textColor: AppColors.tertiary,
+                decoration: const BoxDecoration(
+                  border: Border(
+                    top: BorderSide(
+                      color: AppColors.lighterGray,
+                      width: 1.0,
+                    ),
+                  ),
+                ),
+                child: Container(
+                  margin: const EdgeInsets.only(
+                    top: 4,
+                  ),
+                  child: const CustomLabel(
+                    label: "Add",
+                    textColor: AppColors.tertiary,
+                    textAlign: TextAlign.center,
+                  ),
                 ),
               ),
             ),

@@ -455,7 +455,7 @@ class _FoodItemState extends State<FoodItem> {
                 },
               ),
             ),
-          ),
+          )
         ],
       ),
       bottomNavigationBar: GestureDetector(
