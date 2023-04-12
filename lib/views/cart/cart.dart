@@ -114,7 +114,7 @@ class _CartState extends State<Cart> {
                 ),
                 SizedBox(
                   width: size.width,
-                  height: 129,
+                  height: 136,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemCount: items.length,

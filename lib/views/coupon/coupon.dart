@@ -173,74 +173,75 @@ void bottomSheet(context) {
           borderRadius: BorderRadius.circular(40),
         ),
         child: Container(
-            padding: const EdgeInsets.only(
-              left: 20,
-              top: 20,
-              bottom: 25,
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  padding: const EdgeInsets.only(
-                    bottom: 20,
-                  ),
-                  child: const CustomLabel(
-                    label: "Terms & Conditions",
-                    textColor: AppColors.black,
-                    fontSize: 18,
-                  ),
+          padding: const EdgeInsets.only(
+            left: 20,
+            top: 20,
+            bottom: 25,
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                padding: const EdgeInsets.only(
+                  bottom: 20,
                 ),
-                const CustomLabel(
-                  label:
-                      "- Offer is valid only on Mobile App, Desktop \n and PWA",
+                child: const CustomLabel(
+                  label: "Terms & Conditions",
                   textColor: AppColors.black,
-                  textAlign: TextAlign.start,
-                  fontFamily: 'Poppins-Regular',
+                  fontSize: 18,
                 ),
-                const CustomLabel(
-                  label:
-                      "- Cart Value (Before discount & before delivery charge) \n must be a minimum of Rs.2999/=",
-                  textColor: AppColors.black,
-                  textAlign: TextAlign.start,
-                  fontFamily: 'Poppins-Regular',
-                ),
-                const CustomLabel(
-                  label: "- Maximum Discount per order is Rs 1000/=",
-                  textColor: AppColors.black,
-                  textAlign: TextAlign.start,
-                  fontFamily: 'Poppins-Regular',
-                ),
-                const CustomLabel(
-                  label: "- Coupon cannot be applied with Combos & EDV",
-                  textColor: AppColors.black,
-                  textAlign: TextAlign.start,
-                  fontFamily: 'Poppins-Regular',
-                ),
-                const CustomLabel(
-                  label:
-                      "- Order must have a core pizza \n (excluding Pizza Mania/All Day Favourites) for the coupon \n to be applicable",
-                  textColor: AppColors.black,
-                  textAlign: TextAlign.start,
-                  fontFamily: 'Poppins-Regular',
-                ),
-                const CustomLabel(
-                  label:
-                      "- Pizza Mania/ All Day Favourites is not eligible \n for any discount in this offer",
-                  textColor: AppColors.black,
-                  textAlign: TextAlign.start,
-                  fontFamily: 'Poppins-Regular',
-                ),
-                const CustomLabel(
-                  label:
-                      "- Offer can be retracted at any time as \n deemed by business",
-                  textColor: AppColors.black,
-                  textAlign: TextAlign.start,
-                  fontFamily: 'Poppins-Regular',
-                ),
-              ],
-            )),
+              ),
+              const CustomLabel(
+                label:
+                    "- Offer is valid only on Mobile App, Desktop \n and PWA",
+                textColor: AppColors.black,
+                textAlign: TextAlign.start,
+                fontFamily: 'Poppins-Regular',
+              ),
+              const CustomLabel(
+                label:
+                    "- Cart Value (Before discount & before delivery charge) \n must be a minimum of Rs.2999/=",
+                textColor: AppColors.black,
+                textAlign: TextAlign.start,
+                fontFamily: 'Poppins-Regular',
+              ),
+              const CustomLabel(
+                label: "- Maximum Discount per order is Rs 1000/=",
+                textColor: AppColors.black,
+                textAlign: TextAlign.start,
+                fontFamily: 'Poppins-Regular',
+              ),
+              const CustomLabel(
+                label: "- Coupon cannot be applied with Combos & EDV",
+                textColor: AppColors.black,
+                textAlign: TextAlign.start,
+                fontFamily: 'Poppins-Regular',
+              ),
+              const CustomLabel(
+                label:
+                    "- Order must have a core pizza \n (excluding Pizza Mania/All Day Favourites) for the coupon \n to be applicable",
+                textColor: AppColors.black,
+                textAlign: TextAlign.start,
+                fontFamily: 'Poppins-Regular',
+              ),
+              const CustomLabel(
+                label:
+                    "- Pizza Mania/ All Day Favourites is not eligible \n for any discount in this offer",
+                textColor: AppColors.black,
+                textAlign: TextAlign.start,
+                fontFamily: 'Poppins-Regular',
+              ),
+              const CustomLabel(
+                label:
+                    "- Offer can be retracted at any time as \n deemed by business",
+                textColor: AppColors.black,
+                textAlign: TextAlign.start,
+                fontFamily: 'Poppins-Regular',
+              ),
+            ],
+          ),
+        ),
       );
     },
   );
