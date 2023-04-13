@@ -36,6 +36,7 @@ class _CartItemState extends State<CartItem> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Card(
       color: AppColors.white,
       elevation: 0.8,
@@ -77,9 +78,9 @@ class _CartItemState extends State<CartItem> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Image.network(
-                  "https://images.dominos.co.in/srilanka/toppingsTomato.jpg",
-                  width: 80,
+                Image.asset(
+                  "assets/images/pizza/tandoori-chicken.png",
+                  width: size.width / 4,
                   fit: BoxFit.contain,
                 ),
                 Column(
