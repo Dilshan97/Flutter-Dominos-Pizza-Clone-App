@@ -4,8 +4,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_notes/views/auth/signup.dart';
+import 'package:flutter_notes/views/base.dart';
 import 'package:flutter_notes/views/common/colors.dart';
-import 'package:flutter_notes/views/home/home.dart';
 
 class Splash extends StatefulWidget {
   const Splash({super.key});
@@ -25,7 +25,7 @@ class _SplashState extends State<Splash> {
       // Navigate to the home screen after 2 seconds
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
-          builder: (context) => user == null ? const SignUp() : const Home(),
+          builder: (context) => user == null ? const SignUp() : const Base(),
         ),
       );
     });
