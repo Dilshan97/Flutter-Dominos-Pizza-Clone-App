@@ -108,12 +108,15 @@ class _CouponItemState extends State<CouponItem> {
                       fontWeight: FontWeight.w600,
                     ),
                   ),
-                  const CustomLabel(
-                    label: "APPLY",
-                    textColor: AppColors.primary,
-                    fontWeight: FontWeight.w700,
-                    fontFamily: 'Poppins-Regular',
-                  )
+                  GestureDetector(
+                    onTap: () => {},
+                    child: const CustomLabel(
+                      label: "APPLY",
+                      textColor: AppColors.primary,
+                      fontWeight: FontWeight.w700,
+                      fontFamily: 'Poppins-Regular',
+                    ),
+                  ),
                 ],
               ),
             ),
