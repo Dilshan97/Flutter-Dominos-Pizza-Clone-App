@@ -390,5 +390,46 @@ List<Map<String, dynamic>> coupons = [
       "Pizza Mania / All Day Favorites/EDV is not eligble for any discount in this offer",
       "Offer can be retracted at any time as deemed by business"
     ]
+  },
+  {
+    "coupon_code": "RS1GS",
+    "title": "GRILLED SAUSAGE PIZZA FOR RS.1",
+    "desc":
+        "Get Regular Pizza Mania Grilled Sausage Pizza for Rs.1 for orders above Rs.1499",
+    "terms": [
+      "Offer is valid on Mobile Apps, PWA & Desktop",
+      "Cart Value (Before discount & before delivery charge) must be a minimum of Rs 1499/-",
+      "Only one offer Item can be availed per order",
+      "order must have a core pizza ( Excluding Pizza mania/All Day Favorites) for the coupon to be applicable",
+      "Pizza Mania / All Day Favorites/EDV is not eligble for any discount in this offer",
+      "Offer can be retracted at any time as deemed by business"
+    ]
+  },
+  {
+    "coupon_code": "RS1GS",
+    "title": "GRILLED SAUSAGE PIZZA FOR RS.1",
+    "desc":
+        "Get Regular Pizza Mania Grilled Sausage Pizza for Rs.1 for orders above Rs.1499",
+    "terms": [
+      "Offer is valid on Mobile Apps, PWA & Desktop",
+      "Cart Value (Before discount & before delivery charge) must be a minimum of Rs 1499/-",
+      "Only one offer Item can be availed per order",
+      "order must have a core pizza ( Excluding Pizza mania/All Day Favorites) for the coupon to be applicable",
+      "Pizza Mania / All Day Favorites/EDV is not eligble for any discount in this offer",
+      "Offer can be retracted at any time as deemed by business"
+    ]
+  },
+  {
+    "coupon_code": "RS1CW",
+    "title": "CHICKEN WINGS FOR RS.1",
+    "desc": "Get Chicken Wings for Rs.1 for orders above Rs.1499",
+    "terms": [
+      "Offer is valid on Mobile Apps, PWA & Desktop",
+      "Cart Value (Before discount & before delivery charge) must be a minimum of Rs 1499/-",
+      "Only one offer Item can be availed per order",
+      "order must have a core pizza ( Excluding Pizza mania/All Day Favorites) for the coupon to be applicable",
+      "Pizza Mania / All Day Favorites/EDV is not eligble for any discount in this offer",
+      "Offer can be retracted at any time as deemed by business"
+    ]
   }
 ];
