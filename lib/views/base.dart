@@ -9,6 +9,7 @@ import 'package:flutter_svg/svg.dart';
 import 'common/colors.dart';
 import 'favourite/favourite.dart';
 import 'home/home.dart';
+import 'menu/menu.dart';
 import 'widgets/BottomNavbar.dart';
 
 class Base extends StatefulWidget {
@@ -35,7 +36,7 @@ class _BaseState extends State<Base> {
   List<Widget> _buildScreens() {
     return [
       const Home(),
-      const Home(),
+      const Menu(),
       const Favourite(),
       const Profile(),
       const Cart(),

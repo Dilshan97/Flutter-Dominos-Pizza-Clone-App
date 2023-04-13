@@ -27,19 +27,23 @@ class _BottomNavbarState extends State<BottomNavbar> {
     return [
       SvgPicture.asset(
         "assets/icons/home.svg",
-        height: size.height * 0.040,
+        height: size.height * 0.030,
+        color: AppColors.primary,
       ),
       SvgPicture.asset(
         "assets/icons/menu.svg",
-        height: size.height * 0.040,
+        height: size.height * 0.030,
+        color: AppColors.primary,
       ),
       SvgPicture.asset(
         "assets/icons/fav.svg",
-        height: size.height * 0.040,
+        height: size.height * 0.030,
+        color: AppColors.primary,
       ),
       SvgPicture.asset(
         "assets/icons/user.svg",
-        height: size.height * 0.040,
+        height: size.height * 0.030,
+        color: AppColors.primary,
       )
     ];
   }
@@ -56,24 +60,19 @@ class _BottomNavbarState extends State<BottomNavbar> {
       items: [
         BottomBarItem(
           icon: _activeIcons()[0],
-          title: Text(
-            "1",
-            style: TextStyle(
-              color: AppColors.black,
-            ),
-          ),
+          title: const Text(""),
         ),
         BottomBarItem(
           icon: _activeIcons()[1],
-          title: Text("2"),
+          title: const Text(""),
         ),
         BottomBarItem(
           icon: _activeIcons()[2],
-          title: Text("3"),
+          title: const Text(""),
         ),
         BottomBarItem(
           icon: _activeIcons()[3],
-          title: Text("4"),
+          title: const Text(""),
         ),
       ],
       hasNotch: true,

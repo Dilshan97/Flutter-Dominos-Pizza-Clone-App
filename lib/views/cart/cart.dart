@@ -169,26 +169,26 @@ class _CartState extends State<Cart> {
               ],
             )
           : const EmptyCart(),
-      bottomNavigationBar: GestureDetector(
-        onTap: () => {},
-        child: Container(
-          height: size.height * 0.080,
-          width: size.width / 2,
-          padding: const EdgeInsets.all(10),
-          decoration: const BoxDecoration(
-            color: AppColors.primary,
-          ),
-          child: const Padding(
-            padding: EdgeInsets.all(8),
-            child: CustomLabel(
-              label: "Place Order",
-              textColor: AppColors.white,
-              textAlign: TextAlign.center,
-              fontSize: 16,
-            ),
-          ),
-        ),
-      ),
+      // bottomNavigationBar: GestureDetector(
+      //   onTap: () => {},
+      //   child: Container(
+      //     height: size.height * 0.080,
+      //     width: size.width / 2,
+      //     padding: const EdgeInsets.all(10),
+      //     decoration: const BoxDecoration(
+      //       color: AppColors.primary,
+      //     ),
+      //     child: const Padding(
+      //       padding: EdgeInsets.all(8),
+      //       child: CustomLabel(
+      //         label: "Place Order",
+      //         textColor: AppColors.white,
+      //         textAlign: TextAlign.center,
+      //         fontSize: 16,
+      //       ),
+      //     ),
+      //   ),
+      // ),
     );
   }
 }
