@@ -25,8 +25,8 @@ class _FrequentItemState extends State<FrequentItem> {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Image.network(
-                  "https://images.dominos.co.in/srilanka/toppingsTomato.jpg",
+                Image.asset(
+                  "assets/images/pizza/hot-chili-chicken.png",
                   width: 70,
                   fit: BoxFit.contain,
                 ),
