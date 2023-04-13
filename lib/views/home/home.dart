@@ -14,6 +14,7 @@ import 'package:flutter_notes/views/widgets/foodCard.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../models/category.dart';
+import '../favourite/favourite.dart';
 import 'widget/categoryCard.dart';
 import 'widget/nav/navItem.dart';
 
@@ -142,6 +143,11 @@ class _HomeState extends State<Home> {
                   icon: Icons.heat_pump_sharp,
                   name: 'My Favorite',
                   width: size.width,
+                  onTap: () => Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(
+                      builder: (context) => const Favourite(),
+                    ),
+                  ),
                 ),
 
                 NavItem(
