@@ -347,3 +347,34 @@ List<Map<String, dynamic>> nonVegToppings = [
     'image': 'https://images.dominos.co.in/srilanka/toppingsBarbeque.jpg'
   }
 ];
+
+List<Map<String, dynamic>> coupons = [
+  {
+    "coupon_code": "DOM50",
+    "title": "50% OFF UPTO RS.750",
+    "desc": "50% off upto Rs.750",
+    "terms": [
+      "Offer is valid only on Mobile App, Desktop and PWA",
+      "Cart Value (Before discount & before delivery charge) must be a minimum of Rs 1500/-",
+      "Maximum Discount per order is Rs 750/-",
+      "Coupon cannot be applied with Combos & EDV",
+      "Order must have a core pizza (excluding Pizza Mania/All Day Favourites) for the coupon to be applicable",
+      "Pizza Mania/ All Day Favourites is not eligible for any discount in this offer",
+      "Offer can be retracted at any time as deemed by business"
+    ]
+  },
+  {
+    "coupon_code": "1000VIBE",
+    "title": "RS.1000 OFF ON ANY LARGE PIZZA",
+    "desc": "Rs.1000 OFF on Any Large Pizzas",
+    "terms": [
+      "Offer is valid only on Mobile App, Desktop and PWA",
+      "Cart Value (Before discount & before delivery charge) must be a minimum of Rs 2999/-",
+      "Maximum Discount per order is Rs 1000/-",
+      "Coupon cannot be applied with Combos & EDV",
+      "Order must have a core pizza (excluding Pizza Mania/All Day Favourites) for the coupon to be applicable",
+      "Pizza Mania/ All Day Favourites is not eligible for any discount in this offer",
+      "Offer can be retracted at any time as deemed by business"
+    ]
+  }
+];
