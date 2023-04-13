@@ -83,7 +83,14 @@ flutter:
     - assets/images/size/large.svg
     - assets/images/size/medium.svg
     - assets/images/size/regular.svg
-  #   - images/a_dot_ham.jpeg
+
+    - assets/icons/cart.svg
+    - assets/icons/home.svg
+    - assets/icons/fav.svg
+    - assets/icons/user.svg
+    - assets/icons/menu.svg
+    - assets/icons/bell.svg
+  
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
