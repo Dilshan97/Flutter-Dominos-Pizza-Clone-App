@@ -89,13 +89,16 @@ class _HomeState extends State<Home> {
               right: 20,
             ),
             child: IconButton(
-              onPressed: () => _scaffoldKey.currentState!.openEndDrawer(),
+              onPressed: () => {},
               icon: _drawerOpen
                   ? const Icon(
                       Icons.restaurant_menu_outlined,
                       color: AppColors.secondary,
                     )
-                  : SvgPicture.asset("assets/images/menu.svg"),
+                  : SvgPicture.asset(
+                      "assets/icons/bell.svg",
+                      width: 50,
+                    ),
             ),
           )
         ],
@@ -285,7 +288,6 @@ class _HomeState extends State<Home> {
                 }
 
                 final data = snapshot.requireData;
-                print(data.docs[0]);
 
                 return ListView.builder(
                   scrollDirection: Axis.vertical,
@@ -298,15 +300,6 @@ class _HomeState extends State<Home> {
               },
             ),
           ),
-          // Column(s
-          //   children: List.generate(
-          //     categories[0]['items'].length,
-          //     (index) => FoodCard(
-          //       index: index,
-          //       food: categories[0]['items'][index],
-          //     ),
-          //   ),
-          // )
         ],
       ),
     );

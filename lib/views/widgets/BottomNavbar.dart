@@ -26,23 +26,19 @@ class _BottomNavbarState extends State<BottomNavbar> {
   List<Widget> _activeIcons() {
     return [
       SvgPicture.asset(
-        "assets/icons/navbar/home.svg",
+        "assets/icons/home.svg",
         height: size.height * 0.040,
       ),
       SvgPicture.asset(
-        "assets/icons/navbar/team.svg",
+        "assets/icons/menu.svg",
         height: size.height * 0.040,
       ),
       SvgPicture.asset(
-        "assets/icons/navbar/home.svg",
+        "assets/icons/fav.svg",
         height: size.height * 0.040,
       ),
       SvgPicture.asset(
-        "assets/icons/navbar/home.svg",
-        height: size.height * 0.040,
-      ),
-      SvgPicture.asset(
-        "assets/icons/navbar/home.svg",
+        "assets/icons/user.svg",
         height: size.height * 0.040,
       )
     ];

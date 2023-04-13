@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_notes/views/cart/cart.dart';
 import 'package:flutter_notes/views/profile/profile.dart';
+import 'package:flutter_svg/svg.dart';
 
 import 'common/colors.dart';
 import 'favourite/favourite.dart';
@@ -126,8 +127,8 @@ class _BaseState extends State<Base> {
                 currentTab = 4;
               });
             },
-            child: const Icon(
-              Icons.group,
+            child: SvgPicture.asset(
+              "assets/icons/cart.svg",
               color: AppColors.white,
             ),
           ),
