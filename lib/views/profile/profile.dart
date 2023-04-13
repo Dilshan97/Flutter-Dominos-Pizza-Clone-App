@@ -1,9 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_notes/views/common/colors.dart';
 import 'package:flutter_notes/views/common/widgets/customInput.dart';
 import 'package:flutter_notes/views/common/widgets/customLabel.dart';
 import '../common/widgets/customAppBar.dart';
+import '../splash.dart';
 import 'widget/profileMenuItem.dart';
 
 class Profile extends StatefulWidget {
@@ -14,15 +16,26 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
-  final _firstNameController = TextEditingController();
-  final _lastNameController = TextEditingController();
-  final _emailController = TextEditingController();
-  final _addressController = TextEditingController();
+  void signout() {
+    FirebaseAuth.instance
+        .signOut()
+        .then(
+          (value) => {
+            Navigator.of(context).pushReplacement(
+              MaterialPageRoute(
+                builder: (context) => const Splash(),
+              ),
+            )
+          },
+        )
+        .onError((error, stackTrace) => {});
+  }
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
+      backgroundColor: AppColors.white,
       appBar: const PreferredSize(
         preferredSize: Size.fromHeight(70),
         child: CustomAppBar(name: 'Profile'),
@@ -101,7 +114,7 @@ class _ProfileState extends State<Profile> {
                     ProfileMenuItem(
                       title: 'Delivery Locations',
                       subTitle: 'Add your delivery locations',
-                      icon: Icons.lock,
+                      icon: Icons.location_pin,
                       onclick: () => {},
                       divide: true,
                     ),
@@ -122,14 +135,14 @@ class _ProfileState extends State<Profile> {
                     ProfileMenuItem(
                       title: 'FAQ`s',
                       subTitle: 'Ask questions about service',
-                      icon: Icons.share,
+                      icon: Icons.question_mark,
                       onclick: () => {},
                       divide: true,
                     ),
                     ProfileMenuItem(
                       title: 'Privacy Policy',
                       subTitle: 'Ask questions about service',
-                      icon: Icons.share,
+                      icon: Icons.privacy_tip,
                       onclick: () => {},
                       divide: true,
                     ),
@@ -137,7 +150,7 @@ class _ProfileState extends State<Profile> {
                       title: 'Logout',
                       subTitle: 'Logout from application',
                       icon: Icons.logout,
-                      onclick: () => {},
+                      onclick: () => signout(),
                       divide: false,
                     ),
                   ],
