@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_notes/views/cart/cart.dart';
 
 import '../common/colors.dart';
+import '../common/constants.dart';
 import '../common/widgets/customLabel.dart';
+import 'widget/couponItem.dart';
 
 class Coupon extends StatefulWidget {
   const Coupon({super.key});
@@ -13,7 +15,6 @@ class Coupon extends StatefulWidget {
 }
 
 class _CouponState extends State<Coupon> {
-  final items = List<String>.generate(10, (i) => 'Item ${i + 1}');
   bool _showBottomSheet = true;
 
   @override
@@ -62,106 +63,19 @@ class _CouponState extends State<Coupon> {
       body: ListView.builder(
         shrinkWrap: true,
         physics: const ScrollPhysics(),
-        itemCount: items.length,
-        itemBuilder: (contex, index) => Card(
-          elevation: 2,
-          margin: const EdgeInsets.only(
-            left: 10,
-            right: 10,
-            bottom: 10,
-          ),
-          child: Column(
-            children: [
-              SizedBox(
-                width: size.width,
-                child: Container(
-                  margin: const EdgeInsets.only(
-                    bottom: 10,
-                  ),
-                  child: Column(
-                    children: [
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            color: AppColors.primary,
-                            margin: const EdgeInsets.all(10),
-                            padding: const EdgeInsets.only(
-                              left: 6,
-                              right: 6,
-                              top: 5,
-                              bottom: 5,
-                            ),
-                            child: const CustomLabel(
-                              label: "RS1SC",
-                              textColor: AppColors.white,
-                            ),
-                          ),
-                          const CustomLabel(
-                            label: "SPICY CHICKEN PIZZA FOR RS.1",
-                            textColor: AppColors.black,
-                            fontWeight: FontWeight.w600,
-                            fontFamily: 'Poppins-Regular',
-                          ),
-                        ],
-                      ),
-                      Container(
-                        margin: const EdgeInsets.only(
-                          left: 10,
-                          right: 10,
-                        ),
-                        child: const CustomLabel(
-                          label:
-                              "Get Regular Pizza Mania Spicy Chicken Pizza for Rs.1 for orders above Rs.1499",
-                          textColor: AppColors.black,
-                          textOverflow: TextOverflow.visible,
-                          textAlign: TextAlign.start,
-                          fontFamily: 'Poppins-Regular',
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: size.height * 0.040,
-                child: Container(
-                  color: AppColors.lighterGray,
-                  padding: const EdgeInsets.only(
-                    left: 10,
-                    right: 10,
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      GestureDetector(
-                        onTap: () => bottomSheet(context),
-                        child: const CustomLabel(
-                          label: "T & C",
-                          textColor: AppColors.primary,
-                          fontFamily: 'Poppins-Regular',
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                      const CustomLabel(
-                        label: "APPLY",
-                        textColor: AppColors.primary,
-                        fontWeight: FontWeight.w700,
-                        fontFamily: 'Poppins-Regular',
-                      )
-                    ],
-                  ),
-                ),
-              )
-            ],
-          ),
+        itemCount: coupons.length,
+        itemBuilder: (contex, index) => CouponItem(
+          title: coupons[index]['title'],
+          desc: coupons[index]['desc'],
+          couponCode: coupons[index]['coupon_code'],
+          onTap: () => bottomSheet(context, coupons[index]['terms']),
         ),
       ),
     );
   }
 }
 
-void bottomSheet(context) {
+void bottomSheet(context, terms) {
   Size size = MediaQuery.of(context).size;
   showModalBottomSheet(
     context: context,
@@ -192,53 +106,17 @@ void bottomSheet(context) {
                   fontSize: 18,
                 ),
               ),
-              const CustomLabel(
-                label:
-                    "- Offer is valid only on Mobile App, Desktop \n and PWA",
-                textColor: AppColors.black,
-                textAlign: TextAlign.start,
-                fontFamily: 'Poppins-Regular',
-              ),
-              const CustomLabel(
-                label:
-                    "- Cart Value (Before discount & before delivery charge) \n must be a minimum of Rs.2999/=",
-                textColor: AppColors.black,
-                textAlign: TextAlign.start,
-                fontFamily: 'Poppins-Regular',
-              ),
-              const CustomLabel(
-                label: "- Maximum Discount per order is Rs 1000/=",
-                textColor: AppColors.black,
-                textAlign: TextAlign.start,
-                fontFamily: 'Poppins-Regular',
-              ),
-              const CustomLabel(
-                label: "- Coupon cannot be applied with Combos & EDV",
-                textColor: AppColors.black,
-                textAlign: TextAlign.start,
-                fontFamily: 'Poppins-Regular',
-              ),
-              const CustomLabel(
-                label:
-                    "- Order must have a core pizza \n (excluding Pizza Mania/All Day Favourites) for the coupon \n to be applicable",
-                textColor: AppColors.black,
-                textAlign: TextAlign.start,
-                fontFamily: 'Poppins-Regular',
-              ),
-              const CustomLabel(
-                label:
-                    "- Pizza Mania/ All Day Favourites is not eligible \n for any discount in this offer",
-                textColor: AppColors.black,
-                textAlign: TextAlign.start,
-                fontFamily: 'Poppins-Regular',
-              ),
-              const CustomLabel(
-                label:
-                    "- Offer can be retracted at any time as \n deemed by business",
-                textColor: AppColors.black,
-                textAlign: TextAlign.start,
-                fontFamily: 'Poppins-Regular',
-              ),
+              ListView.builder(
+                shrinkWrap: true,
+                physics: const ScrollPhysics(),
+                itemCount: terms.length,
+                itemBuilder: (context, index) => CustomLabel(
+                  label: "- ${terms[index]}",
+                  textColor: AppColors.black,
+                  textAlign: TextAlign.start,
+                  fontFamily: 'Poppins-Regular',
+                ),
+              )
             ],
           ),
         ),
