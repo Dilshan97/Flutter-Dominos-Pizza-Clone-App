@@ -4,6 +4,7 @@ import 'package:flutter_notes/views/common/colors.dart';
 import 'package:flutter_notes/views/common/widgets/customInput.dart';
 import 'package:flutter_notes/views/common/widgets/customLabel.dart';
 import '../common/widgets/customAppBar.dart';
+import 'widget/profileMenuItem.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
@@ -26,134 +27,125 @@ class _ProfileState extends State<Profile> {
         preferredSize: Size.fromHeight(70),
         child: CustomAppBar(name: 'Profile'),
       ),
-      body: ListView(
-        children: [
-          Container(
-            width: size.width,
-            color: AppColors.white,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SizedBox(
-                  child: Image.asset(
-                    "assets/images/man.jpeg",
-                    width: size.width * 0.35,
-                    fit: BoxFit.contain,
-                  ),
-                ),
-                SizedBox(
-                  height: size.height * 0.040,
-                ),
-                Container(
-                  alignment: Alignment.topLeft,
-                  margin: EdgeInsets.only(
-                    left: size.width * 0.095,
-                  ),
-                  child: CustomLabel(
-                    label: "Phone number",
-                    textColor: AppColors.black,
-                    fontSize: size.width * 0.045,
-                  ),
-                ),
-                SizedBox(
-                  width: size.width * 0.80,
-                  height: size.height * 0.065,
-                  child: CustomInput(
-                    controller: _firstNameController,
-                    focusedBorderColor: AppColors.primary,
-                    hintText: "First Name",
-                  ),
-                ),
-                SizedBox(
-                  height: size.height * 0.040,
-                ),
-                Container(
-                  alignment: Alignment.topLeft,
-                  margin: EdgeInsets.only(
-                    left: size.width * 0.095,
-                  ),
-                  child: CustomLabel(
-                    label: "Phone number",
-                    textColor: AppColors.black,
-                    fontSize: size.width * 0.045,
-                  ),
-                ),
-                SizedBox(
-                  width: size.width * 0.80,
-                  height: size.height * 0.065,
-                  child: CustomInput(
-                    controller: _lastNameController,
-                    focusedBorderColor: AppColors.primary,
-                    hintText: "Last Name",
-                  ),
-                ),
-                SizedBox(
-                  height: size.height * 0.040,
-                ),
-                Container(
-                  alignment: Alignment.topLeft,
-                  margin: EdgeInsets.only(
-                    left: size.width * 0.095,
-                  ),
-                  child: CustomLabel(
-                    label: "Phone number",
-                    textColor: AppColors.black,
-                    fontSize: size.width * 0.045,
-                  ),
-                ),
-                SizedBox(
-                  width: size.width * 0.80,
-                  height: size.height * 0.065,
-                  child: CustomInput(
-                    controller: _emailController,
-                    focusedBorderColor: AppColors.primary,
-                    hintText: "E-mail",
-                  ),
-                ),
-                SizedBox(
-                  height: size.height * 0.040,
-                ),
-                Container(
-                  alignment: Alignment.topLeft,
-                  margin: EdgeInsets.only(
-                    left: size.width * 0.095,
-                  ),
-                  child: CustomLabel(
-                    label: "Phone number",
-                    textColor: AppColors.black,
-                    fontSize: size.width * 0.045,
-                  ),
-                ),
-                SizedBox(
-                  width: size.width * 0.80,
-                  height: size.height * 0.065,
-                  child: CustomInput(
-                    controller: _addressController,
-                    focusedBorderColor: AppColors.primary,
-                    hintText: "Address",
-                  ),
-                ),
-                SizedBox(
-                  height: size.height * 0.040,
-                ),
-                SizedBox(
-                  width: size.width * 0.80,
-                  child: GestureDetector(
-                    child: Container(
-                      color: AppColors.primary,
-                      padding: EdgeInsets.all(15),
-                      width: size.width,
-                      child: const CustomLabel(
-                        label: "Update",
-                        textColor: AppColors.white,
-                      ),
+      body: SingleChildScrollView(
+        child: SizedBox(
+          width: size.width * 0.95,
+          height: size.height,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(
+                height: size.height * 0.030,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const CircleAvatar(
+                    radius: 38,
+                    backgroundImage: AssetImage(
+                      "assets/images/man.jpeg",
                     ),
                   ),
-                )
-              ],
-            ),
-          )
-        ],
+                  Container(
+                    margin: const EdgeInsets.only(
+                      left: 20,
+                    ),
+                    alignment: Alignment.center,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const CustomLabel(
+                          label: "Dilshan Ramesh",
+                          textColor: AppColors.black,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 16,
+                          fontFamily: 'Poppins-Regular',
+                        ),
+                        const CustomLabel(
+                          label: "dilshanramesh81@gmail.com",
+                          textColor: AppColors.black,
+                          fontWeight: FontWeight.w500,
+                          fontFamily: 'Poppins-Light',
+                          fontSize: 14,
+                        ),
+                        GestureDetector(
+                          onTap: () => {},
+                          child: const CustomLabel(
+                            label: "View My Profile",
+                            textColor: AppColors.primary,
+                            fontWeight: FontWeight.w700,
+                            fontFamily: 'Poppins-Regular',
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: size.height * 0.045,
+              ),
+              SizedBox(
+                width: size.width * 0.80,
+                child: Column(
+                  children: [
+                    ProfileMenuItem(
+                      title: 'Change Password',
+                      subTitle: 'Change your password',
+                      icon: Icons.lock,
+                      onclick: () => {},
+                      divide: true,
+                    ),
+                    ProfileMenuItem(
+                      title: 'Delivery Locations',
+                      subTitle: 'Add your delivery locations',
+                      icon: Icons.lock,
+                      onclick: () => {},
+                      divide: true,
+                    ),
+                    ProfileMenuItem(
+                      title: 'Refer to Friends',
+                      subTitle: 'Get Rs.100 reffering friends',
+                      icon: Icons.share,
+                      onclick: () => {},
+                      divide: true,
+                    ),
+                    ProfileMenuItem(
+                      title: 'Rate Us',
+                      subTitle: 'Rate us palystore & appstore',
+                      icon: Icons.star,
+                      onclick: () => {},
+                      divide: true,
+                    ),
+                    ProfileMenuItem(
+                      title: 'FAQ`s',
+                      subTitle: 'Ask questions about service',
+                      icon: Icons.share,
+                      onclick: () => {},
+                      divide: true,
+                    ),
+                    ProfileMenuItem(
+                      title: 'Privacy Policy',
+                      subTitle: 'Ask questions about service',
+                      icon: Icons.share,
+                      onclick: () => {},
+                      divide: true,
+                    ),
+                    ProfileMenuItem(
+                      title: 'Logout',
+                      subTitle: 'Logout from application',
+                      icon: Icons.logout,
+                      onclick: () => {},
+                      divide: false,
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
+        ),
       ),
     );
   }
