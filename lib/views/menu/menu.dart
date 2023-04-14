@@ -1,11 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_notes/models/food.dart';
 import 'package:flutter_notes/views/common/colors.dart';
 import 'package:flutter_notes/views/common/widgets/customLabel.dart';
 import 'package:flutter_notes/views/home/home.dart';
 
 import '../../models/category.dart';
+import '../common/constants.dart';
+import '../widgets/foodCard.dart';
 
 class Menu extends StatefulWidget {
   const Menu({super.key});
@@ -26,6 +29,10 @@ class _MenuState extends State<Menu> {
             fromFirestore: Category.fromFirestore,
             toFirestore: (Category category, _) => category.toFirestore(),
           );
+  final foodRef = FirebaseFirestore.instance.collection('foods').withConverter(
+        fromFirestore: Food.fromFirestore,
+        toFirestore: (Food food, _) => food.toFirestore(),
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +78,7 @@ class _MenuState extends State<Menu> {
       body: Column(
         children: [
           SizedBox(
-            height: size.height / 11,
+            height: size.height / 12,
             child: StreamBuilder<QuerySnapshot<Category>>(
               stream: categoryRef.snapshots(),
               builder: (BuildContext context,
@@ -114,6 +121,32 @@ class _MenuState extends State<Menu> {
                     ),
                   ),
                 );
+              },
+            ),
+          ),
+          SizedBox(
+            height: size.height * 0.70,
+            child: StreamBuilder<QuerySnapshot<Food>>(
+              stream: foodRef.snapshots(),
+              builder:
+                  (BuildContext conext, AsyncSnapshot<QuerySnapshot> snapshot) {
+                final data = snapshot.requireData;
+
+                if (categories[selectedCategory].length > 0) {
+                  return ListView.builder(
+                    itemCount: categories[selectedCategory].length,
+                    scrollDirection: Axis.vertical,
+                    itemBuilder: (context, index) => FoodCard(
+                      index: index,
+                      food: categories[selectedCategory]['items'][index],
+                    ),
+                  );
+                } else {
+                  return const CustomLabel(
+                    label: "No items found",
+                    textColor: AppColors.black,
+                  );
+                }
               },
             ),
           )
