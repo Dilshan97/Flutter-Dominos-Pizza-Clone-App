@@ -5,6 +5,7 @@ List<Map<String, dynamic>> categories = [
     'name': 'Non-Veg Pizza',
     'items': [
       {
+        '_id': '643a4ae9bfb66c586e18d08e',
         'type': 'pizza',
         'name': 'Tandoori Chicken *',
         'desc':
@@ -42,6 +43,7 @@ List<Map<String, dynamic>> categories = [
         ]
       },
       {
+        '_id': '643a4afb7d1371af6157325a',
         'type': 'pizza',
         'name': 'Hot Chili Chicken',
         'desc':
@@ -100,6 +102,7 @@ List<Map<String, dynamic>> categories = [
         ]
       },
       {
+        '_id': '643a4b0c5d4de2087f4819ca',
         'type': 'pizza',
         'name': 'Chicken Hawaiian',
         'desc':
@@ -158,6 +161,7 @@ List<Map<String, dynamic>> categories = [
         ]
       },
       {
+        '_id': '643a4b6541488916fa6144b5',
         'type': 'pizza',
         'name': 'Teriyaki Chicken',
         'desc':

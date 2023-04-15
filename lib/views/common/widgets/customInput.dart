@@ -6,7 +6,7 @@ import 'package:flutter_notes/views/common/colors.dart';
 class CustomInput extends StatefulWidget {
   final String? hintText;
   final Color? focusedBorderColor;
-  final TextEditingController controller;
+  final TextEditingController? controller;
   final bool? obscureText;
   final Widget? suffixIcon;
   final Widget? prefixIcon;
