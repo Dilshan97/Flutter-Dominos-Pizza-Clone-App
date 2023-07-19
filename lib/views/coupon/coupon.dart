@@ -81,7 +81,7 @@ void bottomSheet(context, terms) {
     context: context,
     builder: (BuildContext context) {
       return Container(
-        height: size.height / 2,
+        height: size.height,
         decoration: BoxDecoration(
           color: AppColors.white,
           borderRadius: BorderRadius.circular(40),

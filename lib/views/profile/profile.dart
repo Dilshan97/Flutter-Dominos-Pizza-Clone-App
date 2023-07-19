@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_notes/views/common/colors.dart';
 import 'package:flutter_notes/views/common/widgets/customInput.dart';
 import 'package:flutter_notes/views/common/widgets/customLabel.dart';
+import 'package:flutter_notes/views/profile/viewProfile.dart';
 import '../common/widgets/customAppBar.dart';
 import '../splash.dart';
 import 'widget/profileMenuItem.dart';
@@ -84,7 +85,11 @@ class _ProfileState extends State<Profile> {
                           fontSize: 14,
                         ),
                         GestureDetector(
-                          onTap: () => {},
+                          onTap: () => Navigator.of(context).pushReplacement(
+                            MaterialPageRoute(
+                              builder: (context) => const ViewProfile(),
+                            ),
+                          ),
                           child: const CustomLabel(
                             label: "View My Profile",
                             textColor: AppColors.primary,

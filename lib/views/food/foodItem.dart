@@ -263,27 +263,29 @@ class _FoodItemState extends State<FoodItem> {
           const SizedBox(
             height: 10,
           ),
-          SizedBox(
-            height: 100,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: widget.food['sizes'].length,
-              itemBuilder: (context, index) => PizzaSize(
-                index: index,
-                selectedSize: selectedSize,
-                title: widget.food['sizes'][index]['name'],
-                subTitle: widget.food['sizes'][index]['desc'],
-                image: widget.food['sizes'][index]['image'],
-                onChanged: () => {
-                  setState(() {
-                    selectedSize = index;
-                    selectedCrust = 0;
-                    pizzaSize = widget.food['sizes'][index]['name'];
-                  })
-                },
-              ),
-            ),
-          ),
+          widget.food['type'] == "pizza"
+              ? SizedBox(
+                  height: 100,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: widget.food['sizes'].length,
+                    itemBuilder: (context, index) => PizzaSize(
+                      index: index,
+                      selectedSize: selectedSize,
+                      title: widget.food['sizes'][index]['name'],
+                      subTitle: widget.food['sizes'][index]['desc'],
+                      image: widget.food['sizes'][index]['image'],
+                      onChanged: () => {
+                        setState(() {
+                          selectedSize = index;
+                          selectedCrust = 0;
+                          pizzaSize = widget.food['sizes'][index]['name'];
+                        })
+                      },
+                    ),
+                  ),
+                )
+              : Text(""),
           const Padding(
             padding: EdgeInsets.only(
               left: 20,
@@ -301,79 +303,86 @@ class _FoodItemState extends State<FoodItem> {
           const SizedBox(
             height: 10,
           ),
-          SizedBox(
-            height: 75,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: widget.food['sizes'][selectedSize]['crust'].length,
-              itemBuilder: (context, index) => Crust(
-                index: index,
-                selectedCrust: selectedCrust,
-                crustName: widget.food['sizes'][selectedSize]['crust'][index]
-                    ['name'],
-                onChanged: () => {
-                  setState(() {
-                    selectedCrust = index;
-                    pizzaCrust = widget.food['sizes'][selectedSize]['crust']
-                        [index]['name'];
-                    pizzaPrice = widget.food['sizes'][selectedSize]['crust']
-                        [index]['price'];
-                  })
-                },
-              ),
-            ),
-          ),
+          widget.food['type'] == "pizza"
+              ? SizedBox(
+                  height: 75,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount:
+                        widget.food['sizes'][selectedSize]['crust'].length,
+                    itemBuilder: (context, index) => Crust(
+                      index: index,
+                      selectedCrust: selectedCrust,
+                      crustName: widget.food['sizes'][selectedSize]['crust']
+                          [index]['name'],
+                      onChanged: () => {
+                        setState(() {
+                          selectedCrust = index;
+                          pizzaCrust = widget.food['sizes'][selectedSize]
+                              ['crust'][index]['name'];
+                          pizzaPrice = widget.food['sizes'][selectedSize]
+                              ['crust'][index]['price'];
+                        })
+                      },
+                    ),
+                  ),
+                )
+              : Text(""),
           const SizedBox(
             height: 10,
           ),
-          SizedBox(
-            height: 75,
-            child: CheckboxListTile(
-              value: extraCheese,
-              title: const CustomLabel(
-                label: "Add extra cheese @ Rs.160.00",
-                textColor: AppColors.black,
-                textAlign: TextAlign.start,
-              ),
-              controlAffinity: ListTileControlAffinity.leading,
-              onChanged: (value) => {
-                setState(() => {extraCheese = value!})
-              },
-              checkColor: AppColors.white,
-              activeColor: AppColors.primary,
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(
-              left: 20,
-              top: 5,
-              right: 20,
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text(
-                  "Toppings",
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w700,
-                    fontFamily: 'Poppins-Regular',
-                  ),
-                ),
-                GestureDetector(
-                  onTap: resetToppings,
-                  child: const Text(
-                    "Reset",
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w400,
-                      fontFamily: 'Poppins-Regular',
+          widget.food['type'] == "pizza"
+              ? SizedBox(
+                  height: 75,
+                  child: CheckboxListTile(
+                    value: extraCheese,
+                    title: const CustomLabel(
+                      label: "Add extra cheese @ Rs.160.00",
+                      textColor: AppColors.black,
+                      textAlign: TextAlign.start,
                     ),
+                    controlAffinity: ListTileControlAffinity.leading,
+                    onChanged: (value) => {
+                      setState(() => {extraCheese = value!})
+                    },
+                    checkColor: AppColors.white,
+                    activeColor: AppColors.primary,
                   ),
-                ),
-              ],
-            ),
-          ),
+                )
+              : Text(""),
+          widget.food['type'] == "pizza"
+              ? Padding(
+                  padding: const EdgeInsets.only(
+                    left: 20,
+                    top: 5,
+                    right: 20,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text(
+                        "Toppings",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w700,
+                          fontFamily: 'Poppins-Regular',
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: resetToppings,
+                        child: const Text(
+                          "Reset",
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w400,
+                            fontFamily: 'Poppins-Regular',
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                )
+              : Text(""),
           const SizedBox(
             height: 10,
           ),
@@ -390,32 +399,35 @@ class _FoodItemState extends State<FoodItem> {
               ),
             ),
           ),
-          SizedBox(
-            height: 180,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: vegToppings.length,
-              itemBuilder: (context, index) => ToppingItem(
-                index: index,
-                name: vegToppings[index]['name'],
-                image: vegToppings[index]['image'],
-                isSelected:
-                    selectedVegToppings.contains(vegToppings[index]['id'])
-                        ? true
-                        : false,
-                onChanged: () {
-                  setState(() {
-                    if (selectedVegToppings
-                        .contains(vegToppings[index]['id'])) {
-                      selectedVegToppings.remove(vegToppings[index]['id']);
-                    } else {
-                      selectedVegToppings.add(vegToppings[index]['id']);
-                    }
-                  });
-                },
-              ),
-            ),
-          ),
+          widget.food['type'] == "pizza"
+              ? SizedBox(
+                  height: 180,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: vegToppings.length,
+                    itemBuilder: (context, index) => ToppingItem(
+                      index: index,
+                      name: vegToppings[index]['name'],
+                      image: vegToppings[index]['image'],
+                      isSelected:
+                          selectedVegToppings.contains(vegToppings[index]['id'])
+                              ? true
+                              : false,
+                      onChanged: () {
+                        setState(() {
+                          if (selectedVegToppings
+                              .contains(vegToppings[index]['id'])) {
+                            selectedVegToppings
+                                .remove(vegToppings[index]['id']);
+                          } else {
+                            selectedVegToppings.add(vegToppings[index]['id']);
+                          }
+                        });
+                      },
+                    ),
+                  ),
+                )
+              : Text(""),
           const SizedBox(
             height: 30,
             child: Padding(
@@ -429,54 +441,65 @@ class _FoodItemState extends State<FoodItem> {
               ),
             ),
           ),
-          SizedBox(
-            height: 200,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: nonVegToppings.length,
-              itemBuilder: (context, index) => ToppingItem(
-                index: index,
-                name: nonVegToppings[index]['name'],
-                image: nonVegToppings[index]['image'],
-                isSelected:
-                    selectedNonVegToppings.contains(nonVegToppings[index]['id'])
-                        ? true
-                        : false,
-                onChanged: () {
-                  setState(() {
-                    if (selectedNonVegToppings
-                        .contains(nonVegToppings[index]['id'])) {
-                      selectedNonVegToppings
-                          .remove(nonVegToppings[index]['id']);
-                    } else {
-                      selectedNonVegToppings.add(nonVegToppings[index]['id']);
-                    }
-                  });
-                },
+          widget.food['type'] == "pizza"
+              ? SizedBox(
+                  height: 200,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: nonVegToppings.length,
+                    itemBuilder: (context, index) => ToppingItem(
+                      index: index,
+                      name: nonVegToppings[index]['name'],
+                      image: nonVegToppings[index]['image'],
+                      isSelected: selectedNonVegToppings
+                              .contains(nonVegToppings[index]['id'])
+                          ? true
+                          : false,
+                      onChanged: () {
+                        setState(() {
+                          if (selectedNonVegToppings
+                              .contains(nonVegToppings[index]['id'])) {
+                            selectedNonVegToppings
+                                .remove(nonVegToppings[index]['id']);
+                          } else {
+                            selectedNonVegToppings
+                                .add(nonVegToppings[index]['id']);
+                          }
+                        });
+                      },
+                    ),
+                  ),
+                )
+              : Text(""),
+          GestureDetector(
+            onTap: addToCart,
+            child: Container(
+              height: size.height * 0.070,
+              width: size.width * 0.30,
+              alignment: Alignment.center,
+              padding: const EdgeInsets.all(10),
+              margin: const EdgeInsets.only(
+                left: 20,
+                right: 20,
+              ),
+              decoration: const BoxDecoration(
+                color: AppColors.primary,
+              ),
+              child: const Padding(
+                padding: EdgeInsets.all(5),
+                child: CustomLabel(
+                  label: "Add to order",
+                  textColor: AppColors.white,
+                  textAlign: TextAlign.center,
+                  fontSize: 16,
+                ),
               ),
             ),
+          ),
+          SizedBox(
+            height: size.height * 0.10,
           )
         ],
-      ),
-      bottomNavigationBar: GestureDetector(
-        onTap: addToCart,
-        child: Container(
-          height: size.height * 0.080,
-          width: size.width / 2,
-          padding: const EdgeInsets.all(10),
-          decoration: const BoxDecoration(
-            color: AppColors.primary,
-          ),
-          child: const Padding(
-            padding: EdgeInsets.all(8),
-            child: CustomLabel(
-              label: "Add to order",
-              textColor: AppColors.white,
-              textAlign: TextAlign.center,
-              fontSize: 16,
-            ),
-          ),
-        ),
       ),
     );
   }
