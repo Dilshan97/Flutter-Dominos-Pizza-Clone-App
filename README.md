@@ -18,6 +18,12 @@ Here are the UI screens that I developed for this project
 
 ## App UI's
 
-| <img src="https://github.com/Dilshan97/Flutter-Dominos-Pizza-Clone-App/blob/main/screenshots/01.png" style="width: 350px;"/> |  <img src="https://github.com/Dilshan97/Flutter-Dominos-Pizza-Clone-App/blob/main/screenshots/02.png" style="width: 350px;"/>  |
+| <img src="https://github.com/Dilshan97/Flutter-Dominos-Pizza-Clone-App/blob/main/screenshots/splash.png" style="width: 350px;"/> |  <img src="https://github.com/Dilshan97/Flutter-Dominos-Pizza-Clone-App/blob/main/screenshots/login.png" style="width: 350px;"/>  |
 |--|--|
-| <img src="https://github.com/Dilshan97/Flutter-Dominos-Pizza-Clone-App/blob/main/screenshots/03.png" style="width: 350px;"/> | <img src="https://github.com/Dilshan97/Flutter-Dominos-Pizza-Clone-App/blob/main/screenshots/04.png" style="width: 350px;"/> |
+| <img src="https://github.com/Dilshan97/Flutter-Dominos-Pizza-Clone-App/blob/main/screenshots/auth.png" style="width: 350px;"/> | <img src="https://github.com/Dilshan97/Flutter-Dominos-Pizza-Clone-App/blob/main/screenshots/home.png" style="width: 350px;"/> |
+|--|--|
+| <img src="https://github.com/Dilshan97/Flutter-Dominos-Pizza-Clone-App/blob/main/screenshots/otp-verify.png" style="width: 350px;"/> | <img src="https://github.com/Dilshan97/Flutter-Dominos-Pizza-Clone-App/blob/main/screenshots/home.png" style="width: 350px;"/> |
+|--|--|
+| <img src="https://github.com/Dilshan97/Flutter-Dominos-Pizza-Clone-App/blob/main/screenshots/category.png" style="width: 350px;"/> | <img src="https://github.com/Dilshan97/Flutter-Dominos-Pizza-Clone-App/blob/main/screenshots/item-view.png" style="width: 350px;"/> |
+|--|--|
+| <img src="https://github.com/Dilshan97/Flutter-Dominos-Pizza-Clone-App/blob/main/screenshots/varieties.png" style="width: 350px;"/> | <img src="https://github.com/Dilshan97/Flutter-Dominos-Pizza-Clone-App/blob/main/screenshots/profile.png" style="width: 350px;"/> |
